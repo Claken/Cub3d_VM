@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/11 21:55:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:45:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define CASE		1
 
 # define PI		3.141592653589793
+# define FULL		6.28319
 
 typedef struct	s_data
 {

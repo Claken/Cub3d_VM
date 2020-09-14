@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 04:14:20 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/05 16:09:52 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:42:52 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,21 @@ void	ft_raycol_south_west(t_all *all, double modx, double mody)
 
 void	ft_raycol_south_east(t_all *all, double modx, double mody)
 {
+	//printf("\nje suis là wesh\n");
 	all->vect.teta = (2 * PI) - all->vect.raycol;
+	//printf("2 * PI = %lf\n", (2 * PI));
+	//printf("raycol = %lf\n", all->vect.raycol);
+	//printf("teta = %lf\n", all->vect.teta);
 	all->vect.fhy = all->vect.posy - mody + CASE;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.fhy - all->vect.posy)
 	/ tan(all->vect.teta));
+	/*
+	printf("%lf + ", all->vect.posx);
+	printf("((%lf - ", all->vect.fhy);
+	printf("%lf) / ", all->vect.posy);
+	printf("%lf)\n", tan(all->vect.teta));
+	*/
 	all->vect.hy = 1;
 	all->vect.hx = 1 / tan(all->vect.teta);
 	all->vect.fvx = all->vect.posx - modx + CASE;

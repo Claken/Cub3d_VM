@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/11 23:53:48 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:44:47 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	ft_check_raycol_dir(t_all *all, double modx, double mody)
 	{
 		ft_raycol_south_west(all, modx, mody);
 	}
-	else if (all->vect.raycol > PI + PI / 2)
+	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
 	{
 		ft_raycol_south_east(all, modx, mody);
 	}
@@ -72,32 +72,32 @@ static void	ft_check_for_walls(t_all *all, double modx, double mody)
 			//printf("hyph %lf, hypv %lf\n", hyph, hypv);
 			if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
 			{
+				//printf("UN\n");
 				all->vect.side = 0;
 				all->vect.hit = 1;
-				//printf("UN\n");
 			}
 			else
 			{
+				//printf("DEUX\n");
 				all->vect.fhx += all->vect.hx;
 				all->vect.fhy += all->vect.hy;
 				hyph += CASE / sin(all->vect.teta);
-				//printf("DEUX\n");
 			}
 		}
 		else
 		{
 			if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
 			{
+				//printf("TROIS\n");
 				all->vect.side = 1;
 				all->vect.hit = 1;
-				//printf("TROIS\n");
 			}
 			else
 			{
+				//printf("QUATRE\n");
 				all->vect.fvx += all->vect.vx;
 				all->vect.fvy += all->vect.vy;
 				hypv += CASE / cos(all->vect.teta);
-				//printf("QUATRE\n");
 			}
 		}
 	}
@@ -152,6 +152,7 @@ void		ft_raycasting(t_all *all)
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
+		//printf("raycol = %lf\n", all->vect.raycol);
 		ft_re_set_variables(all);
 		ft_check_raycol_dir(all, modx, mody);
 		ft_check_for_walls(all, modx, mody);
@@ -159,4 +160,5 @@ void		ft_raycasting(t_all *all)
 		ft_drawing_column(all, i);
 		all->vect.raycol -= all->vect.apr;
 	}
+	//printf("\n\n");
 }
