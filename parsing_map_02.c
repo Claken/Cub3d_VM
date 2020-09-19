@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:32:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/14 18:50:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:37:32 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,11 @@ void		ft_set_dir_and_angle(t_all *all)
 	if (all->data.posplay == 'N')
 		all->vect.dir = PI / 2;
 	else if (all->data.posplay == 'S')
-		all->vect.dir = ft_degree_to_radian(320);
+		all->vect.dir = PI + (PI / 2);
 	else if (all->data.posplay == 'E')
 		all->vect.dir = 0;
 	else if (all->data.posplay == 'W')
 		all->vect.dir = PI;
-		//all->vect.dir = PI + (PI / 2);
 }
 
 static int	ft_check_spaces_in_map(char **map, int j, int i)
