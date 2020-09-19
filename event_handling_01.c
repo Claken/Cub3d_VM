@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/11 21:48:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:18:00 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,33 @@ int		ft_abort_mission(t_all *all)
 	return (0);
 }
 
-static void	ft_move_camera_rof(t_all *all, int rof)
+static void	ft_move_camera_right(t_all *all)
 {
 	double i;
 	double dirmod;
 	double full;
 
 	i = ft_degree_to_radian(1);
-	dirmod = fmod(all->vect.dir, (PI * 2));
 	full = ft_degree_to_radian(360);
-	if (rof == 1)
-	{
-		all->vect.dir -= i;
-		if (all->vect.dir < 0)
-			all->vect.dir = full - dirmod;
-	}
-	else
-	{
-		all->vect.dir += i;
-		if (all->vect.dir > full)
-			all->vect.dir = dirmod;
-	}
+	all->vect.dir -= i;
+	dirmod = fmod(all->vect.dir, full);
+	if (all->vect.dir < 0)
+		all->vect.dir = full + dirmod;
+	ft_recreate_image(all);
+}
+
+static void	ft_move_camera_left(t_all *all)
+{
+	double i;
+	double dirmod;
+	double full;
+
+	i = ft_degree_to_radian(1);
+	full = ft_degree_to_radian(360);
+	all->vect.dir += i;
+	dirmod = fmod(all->vect.dir, full);
+	if (all->vect.dir >= full)
+		all->vect.dir = dirmod;
 	ft_recreate_image(all);
 }
 
@@ -67,8 +73,8 @@ int			ft_key_management(int key, t_all *all)
 	else if (key == RIGHT)
 		ft_move_to_the_right(all);
 	else if (key == RARROW)
-		ft_move_camera_rof(all, 1);
+		ft_move_camera_right(all);
 	else if (key == LARROW)
-		ft_move_camera_rof(all, 2);
+		ft_move_camera_left(all);
 	return (0);
 }

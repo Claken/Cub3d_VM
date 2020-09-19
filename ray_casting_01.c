@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/14 20:44:47 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/09/19 16:22:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,10 +149,10 @@ void		ft_raycasting(t_all *all)
 	modx = fmod(all->vect.posx, 1);
 	mody = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
+	printf("dir = %lf\n", all->vect.dir);
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
-		//printf("raycol = %lf\n", all->vect.raycol);
 		ft_re_set_variables(all);
 		ft_check_raycol_dir(all, modx, mody);
 		ft_check_for_walls(all, modx, mody);
