@@ -105,6 +105,9 @@ static void	ft_check_for_walls(t_all *all, double modx, double mody)
 
 static void	ft_distance_calculation(t_all *all)
 {
+	double kos;
+
+	kos = +cos(all->vect.raycol);
 	if (!all->vect.side)
 	{
 		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
@@ -117,16 +120,21 @@ static void	ft_distance_calculation(t_all *all)
 	}
 }
 
+static void	ft_distance_with_no_fisheye(t_all *all)
+{
+	all->vect.nofisheye = all->vect.distwall;
+}
+
 static void	ft_drawing_column(t_all *all, int i)
 {
 	int j;
 
-	all->disp.colhei = (CASE / all->vect.distwall)
+	all->disp.colhei = (CASE / all->vect.nofisheye)
 	* all->vect.distscreen;
 	all->disp.pixbeg = -all->disp.colhei
 	/ 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
-		all->disp.pixbeg = 0;
+		all->disp.pixbeg = -1;
 	all->disp.pixend = all->disp.colhei
 	/ 2 + all->data.reshei / 2;
 	if (all->disp.pixend >= (int)all->data.reshei)
@@ -157,6 +165,7 @@ void		ft_raycasting(t_all *all)
 		ft_check_raycol_dir(all, modx, mody);
 		ft_check_for_walls(all, modx, mody);
 		ft_distance_calculation(all);
+		ft_distance_with_no_fisheye(all);
 		ft_drawing_column(all, i);
 		all->vect.raycol -= all->vect.apr;
 	}

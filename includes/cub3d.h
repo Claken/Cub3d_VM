@@ -104,6 +104,7 @@ typedef struct	s_vect
 
 	double		distscreen;
 	double		distwall;
+	double		nofisheye;
 	int		hit;
 	int		side;
 

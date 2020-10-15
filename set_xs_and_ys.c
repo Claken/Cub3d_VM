@@ -14,6 +14,7 @@
 
 void	ft_raycol_north_east(t_all *all, double modx, double mody)
 {
+	printf("par là ! ! !\n");
 	all->vect.fhy = all->vect.posy - mody - 1;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.posy - all->vect.fhy) / tan(all->vect.raycol));
