@@ -17,14 +17,14 @@ void	ft_raycol_north_east(t_all *all, double modx, double mody)
 	printf("par là ! ! !\n");
 	all->vect.fhy = all->vect.posy - mody - 1;
 	all->vect.fhx = all->vect.posx +
-	((all->vect.posy - all->vect.fhy) / tan(all->vect.raycol));
+	((all->vect.posy - all->vect.fhy) / tan(all->vect.teta));
 	all->vect.hy = -1;
-	all->vect.hx = 1 / tan(all->vect.raycol);
+	all->vect.hx = 1 / tan(all->vect.teta);
 	all->vect.fvx = all->vect.posx - modx + CASE;
 	all->vect.fvy = all->vect.posy -
-	((all->vect.fvx - all->vect.posx) * tan(all->vect.raycol));
+	((all->vect.fvx - all->vect.posx) * tan(all->vect.teta));
 	all->vect.vx = 1;
-	all->vect.vy = 1 * tan(all->vect.raycol);
+	all->vect.vy = 1 * tan(all->vect.teta);
 }
 
 void	ft_raycol_north_west(t_all *all, double modx, double mody)

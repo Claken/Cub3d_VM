@@ -28,3 +28,82 @@ void	ft_check_raycol_value(t_all *all)
 		all->vect.raycol = full - save;
 	}
 }
+
+void	ft_re_set_variables(t_all *all)
+{
+	all->vect.fhx = 0;
+	all->vect.fhy = 0;
+	all->vect.fvx = 0;
+	all->vect.fvy = 0;
+	all->vect.hx = 0;
+	all->vect.hy = 0;
+	all->vect.vx = 0;
+	all->vect.vy = 0;
+	all->vect.hit = 0;
+	all->vect.side = 0;
+	all->disp.colhei = 0;
+	all->vect.distwall = 0;
+	all->disp.pixbeg = 0;
+	all->disp.pixend = 0;
+	all->vect.teta = all->vect.raycol;
+}
+
+void	ft_check_raycol_dir(t_all *all, double modx, double mody)
+{
+	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
+	{
+		ft_raycol_north_east(all, modx, mody);
+	}
+	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
+	{
+		ft_raycol_north_west(all, modx, mody);
+	}
+	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
+	{
+		ft_raycol_south_west(all, modx, mody);
+	}
+	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
+	{
+		ft_raycol_south_east(all, modx, mody);
+	}
+	else
+	{
+		ft_check_raycol_dir_part_two(all, modx, mody);
+	}
+}
+
+void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
+{
+	if (all->data.map[(int)all->vect.fhy]
+	[(int)all->vect.fhx] == '1')
+	{
+		//printf("UN\n");
+		all->vect.side = 0;
+		all->vect.hit = 1;
+	}
+	else
+	{
+		//printf("DEUX\n");
+		all->vect.fhx += all->vect.hx;
+		all->vect.fhy += all->vect.hy;
+		*hyph += CASE / sin(all->vect.teta);
+	}
+}
+
+void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
+{
+	if (all->data.map[(int)all->vect.fvy]
+	[(int)all->vect.fvx] == '1')
+	{
+		//printf("TROIS\n");
+		all->vect.side = 1;
+		all->vect.hit = 1;
+	}
+	else
+	{
+		//printf("QUATRE\n");
+		all->vect.fvx += all->vect.vx;
+		all->vect.fvy += all->vect.vy;
+		*hypv += CASE / cos(all->vect.teta);
+	}
+}
