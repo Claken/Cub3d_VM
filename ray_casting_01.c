@@ -41,11 +41,12 @@ static void	ft_distance_calculation(t_all *all)
 	if (!all->vect.side)
 	{
 		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
-		/ cos(all->vect.raycol)));
-		printf("posx = %lf\n", all->vect.posx);
-		printf("fhx = %lf\n", all->vect.fhx);
-		printf("cos = %lf\n", cos(all->vect.raycol));
-		printf("distwall = %lf\n", all->vect.distwall);
+	/ cos(all->vect.raycol)));
+		//printf("posx = %lf\n", all->vect.posx);
+		//printf("fhx = %lf\n", all->vect.fhx);
+		//printf("cos = %lf\n", cos(all->vect.raycol));
+		//printf("cos = %lf\n", cos(all->vect.teta));
+		//printf("distwall = %lf\n", all->vect.distwall);
 	}
 	else
 	{
@@ -56,7 +57,12 @@ static void	ft_distance_calculation(t_all *all)
 
 static void	ft_distance_with_no_fisheye(t_all *all)
 {
-	all->vect.nofisheye = all->vect.distwall;
+	if (all->vect.side)
+		all->vect.nofisheye = fabs(all->vect.distwall
+		* cos(all->vect.raycol));
+	else
+		all->vect.nofisheye = all->vect.distwall;
+	printf("nofisheye = %lf\n", all->vect.nofisheye);
 }
 
 static void	ft_drawing_column(t_all *all, int i)
