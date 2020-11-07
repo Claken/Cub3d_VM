@@ -128,4 +128,3 @@ void			ft_raycasting(t_all *all)
 		x++;
 	}
 }
-:wq

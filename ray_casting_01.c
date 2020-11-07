@@ -19,9 +19,10 @@ static void	ft_check_for_walls(t_all *all, double modx, double mody)
 
 	hyph = ft_set_hyph(all, mody);
 	hypv = ft_set_hypv(all, modx);
-	//printf("hyph %lf, hypv %lf\n", hyph, hypv);
 	while (!all->vect.hit) // RAJOUTER UNE CONDITION SI SEGFAULT ICI
 	{
+		if (all->vect.raycol > 3.65)
+			printf("hyph %lf, hypv %lf\n", hyph, hypv);
 		//printf("fhy %lf, fhx %lf\n", all->vect.fhy, all->vect.fhx);
 		//printf("fvy %lf, fvx %lf\n", all->vect.fvy, all->vect.fvx);
 		if (hyph < hypv)
@@ -44,8 +45,8 @@ static void	ft_distance_calculation(t_all *all)
 	/ cos(all->vect.raycol)));
 		//printf("posx = %lf\n", all->vect.posx);
 		//printf("fhx = %lf\n", all->vect.fhx);
+		//printf("raycol = %lf\n", all->vect.raycol);
 		//printf("cos = %lf\n", cos(all->vect.raycol));
-		//printf("cos = %lf\n", cos(all->vect.teta));
 		//printf("distwall = %lf\n", all->vect.distwall);
 	}
 	else
@@ -57,12 +58,7 @@ static void	ft_distance_calculation(t_all *all)
 
 static void	ft_distance_with_no_fisheye(t_all *all)
 {
-	if (all->vect.side)
-		all->vect.nofisheye = fabs(all->vect.distwall
-		* cos(all->vect.raycol));
-	else
-		all->vect.nofisheye = all->vect.distwall;
-	printf("nofisheye = %lf\n", all->vect.nofisheye);
+	all->vect.nofisheye = all->vect.distwall;
 }
 
 static void	ft_drawing_column(t_all *all, int i)
@@ -97,7 +93,8 @@ void		ft_raycasting(t_all *all)
 	modx = fmod(all->vect.posx, 1);
 	mody = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	printf("dir = %lf\n", all->vect.dir);
+	//printf("dir = %lf\n", all->vect.dir);
+	printf("raycol = %lf\n", all->vect.raycol);
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);

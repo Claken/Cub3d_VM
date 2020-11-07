@@ -14,7 +14,7 @@
 
 int		ft_abort_mission(t_all *all)
 {
-	int			i;
+	int		i;
 	t_texture	*tmp;
 
 	i = 0;

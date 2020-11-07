@@ -77,13 +77,15 @@ void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 	if (all->data.map[(int)all->vect.fhy]
 	[(int)all->vect.fhx] == '1')
 	{
-		//printf("UN\n");
+		if (all->vect.raycol > 3.65)
+			printf("UN\n");
 		all->vect.side = 0;
 		all->vect.hit = 1;
 	}
 	else
 	{
-		//printf("DEUX\n");
+		if (all->vect.raycol > 3.65)
+			printf("DEUX\n");
 		all->vect.fhx += all->vect.hx;
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
@@ -95,13 +97,15 @@ void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
 	if (all->data.map[(int)all->vect.fvy]
 	[(int)all->vect.fvx] == '1')
 	{
-		//printf("TROIS\n");
+		if (all->vect.raycol > 3.65)
+			printf("TROIS\n");
 		all->vect.side = 1;
 		all->vect.hit = 1;
 	}
 	else
 	{
-		//printf("QUATRE\n");
+		if (all->vect.raycol > 3.65)
+			printf("QUATRE\n");
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);

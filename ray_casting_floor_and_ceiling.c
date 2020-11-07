@@ -12,8 +12,8 @@
 
 #include "includes/cub3d.h"
 
-int		ft_get_color(unsigned int r,
-		unsigned int g, unsigned int b)
+int	ft_get_color(unsigned int r,
+	unsigned int g, unsigned int b)
 {
 	int color;
 
