@@ -67,7 +67,7 @@ typedef struct	s_texture
 	int		height;
 }			t_texture;
 
-typedef	struct	s_elem
+typedef struct	s_elem
 {
 	t_texture	north;
 	t_texture	south;
@@ -111,6 +111,10 @@ typedef struct	s_vect
 	int		pixbeg;
 	int		pixend;
 
+	double		modxl;
+	double		modyl;
+	double		modxr;
+	double		modyr;
 }			t_vect;
 
 typedef struct	s_mlx
@@ -146,7 +150,7 @@ int			ft_abort_mission(t_all *all);
 void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
 void			ft_re_set_variables(t_all *all);
-void			ft_check_raycol_dir(t_all *all, double modx, double mody);
+void			ft_check_raycol_dir(t_all *all);
 void			ft_if_hyph_is_inferior(t_all *all, double *hyph);
 void			ft_if_hypv_is_inferior(t_all *all, double *hypv);
 int			ft_key_management(int key, t_all *all);
@@ -163,18 +167,13 @@ double			ft_degree_to_radian(int degree);
 int			ft_radian_to_degree(double radian);
 double			ft_pow(double nb, int power);
 void			ft_recreate_image(t_all *all);
-void			ft_raycol_north_east(t_all *all,
-			double modx, double mody);
-void			ft_raycol_north_west(t_all *all,
-			double modx, double mody);
-void			ft_raycol_south_west(t_all *all,
-			double modx, double mody);
-void			ft_raycol_south_east(t_all *all,
-			double modx, double mody);
-void			ft_check_raycol_dir_part_two(t_all *all,
-			double modx, double mody);
-double			ft_set_hyph(t_all *all, double mody);
-double			ft_set_hypv(t_all *all, double modx);
+void			ft_raycol_north_east(t_all *all);
+void			ft_raycol_north_west(t_all *all);
+void			ft_raycol_south_west(t_all *all);
+void			ft_raycol_south_east(t_all *all);
+void			ft_check_raycol_dir_part_two(t_all *all);
+double			ft_set_hyph(t_all *all);
+double			ft_set_hypv(t_all *all);
 double			ft_set_cos(t_all *all);
 double			ft_set_sin(t_all *all);
 

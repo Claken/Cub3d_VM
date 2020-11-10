@@ -48,27 +48,27 @@ void	ft_re_set_variables(t_all *all)
 	all->vect.teta = all->vect.raycol;
 }
 
-void	ft_check_raycol_dir(t_all *all, double modx, double mody)
+void	ft_check_raycol_dir(t_all *all)
 {
 	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
 	{
-		ft_raycol_north_east(all, modx, mody);
+		ft_raycol_north_east(all);
 	}
 	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
 	{
-		ft_raycol_north_west(all, modx, mody);
+		ft_raycol_north_west(all);
 	}
 	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
 	{
-		ft_raycol_south_west(all, modx, mody);
+		ft_raycol_south_west(all);
 	}
 	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
 	{
-		ft_raycol_south_east(all, modx, mody);
+		ft_raycol_south_east(all);
 	}
 	else
 	{
-		ft_check_raycol_dir_part_two(all, modx, mody);
+		ft_check_raycol_dir_part_two(all);
 	}
 }
 
@@ -78,14 +78,14 @@ void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 	[(int)all->vect.fhx] == '1')
 	{
 		if (all->vect.raycol > 3.65)
-			printf("UN\n");
+			printf("HOR TOUCHED\n");
 		all->vect.side = 0;
 		all->vect.hit = 1;
 	}
 	else
 	{
 		if (all->vect.raycol > 3.65)
-			printf("DEUX\n");
+			printf("HOR NOT TOUCHED\n");
 		all->vect.fhx += all->vect.hx;
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
@@ -98,14 +98,14 @@ void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
 	[(int)all->vect.fvx] == '1')
 	{
 		if (all->vect.raycol > 3.65)
-			printf("TROIS\n");
+			printf("VER TOUCHED\n");
 		all->vect.side = 1;
 		all->vect.hit = 1;
 	}
 	else
 	{
 		if (all->vect.raycol > 3.65)
-			printf("QUATRE\n");
+			printf("VER NOT TOUCHED\n");
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);

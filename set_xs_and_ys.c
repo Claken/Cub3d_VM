@@ -12,9 +12,8 @@
 
 #include "includes/cub3d.h"
 
-void	ft_raycol_north_east(t_all *all, double modx, double mody)
+void	ft_raycol_north_east(t_all *all)
 {
-	//printf("par là ! ! !\n");
 	all->vect.fhy = all->vect.posy - mody - 1;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.posy - all->vect.fhy) / tan(all->vect.teta));
@@ -27,7 +26,7 @@ void	ft_raycol_north_east(t_all *all, double modx, double mody)
 	all->vect.vy = 1 * tan(all->vect.teta);
 }
 
-void	ft_raycol_north_west(t_all *all, double modx, double mody)
+void	ft_raycol_north_west(t_all *all)
 {
 	all->vect.teta = PI - all->vect.raycol;
 	all->vect.fhy = all->vect.posy - mody - 1;
@@ -44,7 +43,7 @@ void	ft_raycol_north_west(t_all *all, double modx, double mody)
 	all->vect.vy = -(1 * tan(all->vect.teta));
 }
 
-void	ft_raycol_south_west(t_all *all, double modx, double mody)
+void	ft_raycol_south_west(t_all *all)
 {
 	all->vect.teta = all->vect.raycol - PI;
 	all->vect.fhy = all->vect.posy - mody + CASE;
@@ -61,23 +60,13 @@ void	ft_raycol_south_west(t_all *all, double modx, double mody)
 	all->vect.vy = 1 * tan(all->vect.teta);
 }
 
-void	ft_raycol_south_east(t_all *all, double modx, double mody)
+void	ft_raycol_south_east(t_all *all)
 {
-	//printf("\nje suis là wesh\n");
 	all->vect.teta = (2 * PI) - all->vect.raycol;
-	//printf("2 * PI = %lf\n", (2 * PI));
-	//printf("raycol = %lf\n", all->vect.raycol);
-	//printf("teta = %lf\n", all->vect.teta);
 	all->vect.fhy = all->vect.posy - mody + CASE;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.fhy - all->vect.posy)
 	/ tan(all->vect.teta));
-	/*
-	printf("%lf + ", all->vect.posx);
-	printf("((%lf - ", all->vect.fhy);
-	printf("%lf) / ", all->vect.posy);
-	printf("%lf)\n", tan(all->vect.teta));
-	*/
 	all->vect.hy = 1;
 	all->vect.hx = 1 / tan(all->vect.teta);
 	all->vect.fvx = all->vect.posx - modx + CASE;
@@ -88,7 +77,7 @@ void	ft_raycol_south_east(t_all *all, double modx, double mody)
 	all->vect.vy = 1 * tan(all->vect.teta);
 }
 
-void	ft_check_raycol_dir_part_two(t_all *all, double modx, double mody)
+void	ft_check_raycol_dir_part_two(t_all *all)
 {
 	if (all->vect.raycol == PI / 2)
 	{

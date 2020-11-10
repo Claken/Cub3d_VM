@@ -12,14 +12,14 @@
 
 #include "includes/cub3d.h"
 
-static void	ft_check_for_walls(t_all *all, double modx, double mody)
+static void	ft_check_for_walls(t_all *all)
 {
 	double hyph;
 	double hypv;
 
-	hyph = ft_set_hyph(all, mody);
-	hypv = ft_set_hypv(all, modx);
-	while (!all->vect.hit) // RAJOUTER UNE CONDITION SI SEGFAULT ICI
+	hyph = ft_set_hyph(all);
+	hypv = ft_set_hypv(all);
+	while (!all->vect.hit)
 	{
 		if (all->vect.raycol > 3.65)
 			printf("hyph %lf, hypv %lf\n", hyph, hypv);
@@ -86,25 +86,24 @@ static void	ft_drawing_column(t_all *all, int i)
 void		ft_raycasting(t_all *all)
 {
 	int i;
-	double modx;
-	double mody;
 
 	i = -1;
-	modx = fmod(all->vect.posx, 1);
-	mody = fmod(all->vect.posy, 1);
+	all->vect.modxl = fmod(all->vect.posx, 1);
+	all->vect.modyl = fmod(all->vect.posy, 1);
+	all->vect.modxr = 1 - all->vect.modxl;
+	all->vect.modyr = 1 - all->vect.modyl;
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
 	//printf("dir = %lf\n", all->vect.dir);
-	printf("raycol = %lf\n", all->vect.raycol);
+	//printf("raycol = %lf\n", all->vect.raycol);
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
-		ft_check_raycol_dir(all, modx, mody);
-		ft_check_for_walls(all, modx, mody);
+		ft_check_raycol_dir(all);
+		ft_check_for_walls(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
 		ft_drawing_column(all, i);
 		all->vect.raycol -= all->vect.apr;
 	}
-	//printf("\n\n");
 }

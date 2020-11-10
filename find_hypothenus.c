@@ -14,29 +14,25 @@
 
 static void	ft_set_teta(t_all *all)
 {
-	if (all->vect.raycol < PI / 2
-	&& all->vect.raycol > 0)
+	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
 	{
 		all->vect.teta = all->vect.raycol;
 	}
-	else if (all->vect.raycol > PI / 2
-	&& all->vect.raycol < PI)
+	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
 	{
 		all->vect.teta = PI - all->vect.raycol;
 	}
-	else if (all->vect.raycol > PI
-	&& all->vect.raycol < PI + PI / 2)
+	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
 	{
 		all->vect.teta = all->vect.raycol - PI;
 	}
-	else if (all->vect.raycol > PI + PI / 2
-	&& all->vect.raycol < 2 * PI)
+	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
 	{
 		all->vect.teta = (2 * PI) - all->vect.raycol;
 	}
 }
 
-static double	ft_set_hyph_suite(t_all *all, double mody, double hh)
+static double	ft_set_hyph_suite(t_all *all, double hh)
 {
 	double hyph;
 
@@ -53,7 +49,7 @@ static double	ft_set_hyph_suite(t_all *all, double mody, double hh)
 	return (hyph);
 }
 
-static double	ft_set_hypv_suite(t_all *all, double modx, double hv)
+static double	ft_set_hypv_suite(t_all *all, double hv)
 {
 	double hypv;
 
@@ -70,7 +66,7 @@ static double	ft_set_hypv_suite(t_all *all, double modx, double hv)
 	return (hypv);
 }
 
-double		ft_set_hyph(t_all *all, double mody)
+double		ft_set_hyph(t_all *all)
 {
 	double hyph;
 
@@ -94,10 +90,10 @@ double		ft_set_hyph(t_all *all, double mody)
 	{
 		hyph = mody / sin(all->vect.teta);
 	}
-	return (ft_set_hyph_suite(all, mody, hyph));
+	return (ft_set_hyph_suite(all, hyph));
 }
 
-double		ft_set_hypv(t_all *all, double modx)
+double		ft_set_hypv(t_all *all)
 {
 	double hypv;
 
@@ -111,6 +107,8 @@ double		ft_set_hypv(t_all *all, double modx)
 	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
 	{
 		hypv = modx / cos(all->vect.teta);
+		printf("modx = %lf\n", modx);
+		printf("cos(teta)  = %lf\n", cos(all->vect.teta));
 	}
 	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
 	{
@@ -121,5 +119,5 @@ double		ft_set_hypv(t_all *all, double modx)
 		hypv = ((all->vect.posx - modx + CASE)
 		- all->vect.posx) / cos(all->vect.teta);
 	}
-	return (ft_set_hypv_suite(all, modx, hypv));
+	return (ft_set_hypv_suite(all, hypv));
 }
