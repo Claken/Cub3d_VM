@@ -112,9 +112,9 @@ typedef struct	s_vect
 	int		pixend;
 
 	double		modxl;
-	double		modyl;
 	double		modxr;
-	double		modyr;
+	double		modyu;
+	double		modyd;
 }			t_vect;
 
 typedef struct	s_mlx
