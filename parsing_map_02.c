@@ -27,8 +27,8 @@ int			ft_parse_tab_pos_play(t_all *all)
 			|| all->data.map[i][j] == 'E' || all->data.map[i][j] == 'W')
 			{
 				all->data.posplay = all->data.map[i][j];
-				all->vect.posx = j + 0.5;
-				all->vect.posy = i + 0.5;
+				all->vect.posx = j + 0.7;
+				all->vect.posy = i + 0.7;
 				return (1);
 			}
 		}

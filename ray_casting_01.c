@@ -21,13 +21,8 @@ static void	ft_check_for_walls(t_all *all)
 	hypv = ft_set_hypv(all);
 	while (!all->vect.hit)
 	{
-		if (all->vect.raycol > 3.65)
-			printf("hyph %lf, hypv %lf\n", hyph, hypv);
-		//printf("fhy %lf, fhx %lf\n", all->vect.fhy, all->vect.fhx);
-		//printf("fvy %lf, fvx %lf\n", all->vect.fvy, all->vect.fvx);
 		if (hyph < hypv)
 		{
-			//printf("hyph %lf, hypv %lf\n", hyph, hypv);
 			ft_if_hyph_is_inferior(all, &hyph);
 		}
 		else
@@ -43,11 +38,6 @@ static void	ft_distance_calculation(t_all *all)
 	{
 		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
 	/ cos(all->vect.raycol)));
-		//printf("posx = %lf\n", all->vect.posx);
-		//printf("fhx = %lf\n", all->vect.fhx);
-		//printf("raycol = %lf\n", all->vect.raycol);
-		//printf("cos = %lf\n", cos(all->vect.raycol));
-		//printf("distwall = %lf\n", all->vect.distwall);
 	}
 	else
 	{
@@ -92,9 +82,11 @@ void		ft_raycasting(t_all *all)
 	all->vect.modxr = 1 - all->vect.modxl;
 	all->vect.modyu = fmod(all->vect.posy, 1);
 	all->vect.modyd = 1 - all->vect.modyu;
+	printf("modxl = %lf\n", all->vect.modxl);
+	printf("modxr = %lf\n", all->vect.modxr);
+	printf("modyu = %lf\n", all->vect.modyu);
+	printf("modyd = %lf\n", all->vect.modyd);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	//printf("dir = %lf\n", all->vect.dir);
-	//printf("raycol = %lf\n", all->vect.raycol);
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
