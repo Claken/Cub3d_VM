@@ -79,13 +79,7 @@ void		ft_raycasting(t_all *all)
 
 	i = -1;
 	all->vect.modxl = fmod(all->vect.posx, 1);
-	all->vect.modxr = 1 - all->vect.modxl;
 	all->vect.modyu = fmod(all->vect.posy, 1);
-	all->vect.modyd = 1 - all->vect.modyu;
-	printf("modxl = %lf\n", all->vect.modxl);
-	printf("modxr = %lf\n", all->vect.modxr);
-	printf("modyu = %lf\n", all->vect.modyu);
-	printf("modyd = %lf\n", all->vect.modyd);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
 	while (++i < (int)all->data.reswid)
 	{

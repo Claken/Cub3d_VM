@@ -43,7 +43,8 @@ static double	ft_set_hyph_suite(t_all *all, double hh)
 	}
 	else if (all->vect.raycol == PI + PI / 2)
 	{
-		hyph = all->vect.modyd;
+		hyph = (all->vect.posy - all->vect.modyu + CASE)
+		- all->vect.posy;
 	}
 	return (hyph);
 }
@@ -59,7 +60,8 @@ static double	ft_set_hypv_suite(t_all *all, double hv)
 	}
 	else if ((int)all->vect.raycol == 0)
 	{
-		hypv = all->vect.modxr;
+		hypv = (all->vect.posx - all->vect.modxl + CASE)
+		- all->vect.posx;
 	}
 	return (hypv);
 }
@@ -70,21 +72,16 @@ double		ft_set_hyph(t_all *all)
 
 	hyph = 0;
 	ft_set_teta(all);
-	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
+	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0)
+	|| (all->vect.raycol > PI / 2 && all->vect.raycol < PI))
 	{
 		hyph = all->vect.modyu / sin(all->vect.teta);
 	}
-	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
+	else if ((all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
+	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		hyph = all->vect.modyu / sin(all->vect.teta);
-	}
-	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
-	{
-		hyph = all->vect.modyd / sin(all->vect.teta);
-	}
-	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
-	{
-		hyph = all->vect.modyd / sin(all->vect.teta);
+		hyph = ((all->vect.posy - all->vect.modyu + CASE)
+		- all->vect.posy) / sin(all->vect.teta);
 	}
 	return (ft_set_hyph_suite(all, hyph));
 }
@@ -95,21 +92,16 @@ double		ft_set_hypv(t_all *all)
 
 	hypv = 0;
 	ft_set_teta(all);
-	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
+	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0)
+	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		hypv = all->vect.modxr / cos(all->vect.teta);
+		hypv = ((all->vect.posx - all->vect.modxl + CASE)
+		- all->vect.posx) / cos(all->vect.teta);
 	}
-	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
+	else if ((all->vect.raycol > PI / 2 && all->vect.raycol < PI)
+	|| (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2))
 	{
 		hypv = all->vect.modxl / cos(all->vect.teta);
-	}
-	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
-	{
-		hypv = all->vect.modxl / cos(all->vect.teta);
-	}
-	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
-	{
-		hypv = all->vect.modxr / cos(all->vect.teta);
 	}
 	return (ft_set_hypv_suite(all, hypv));
 }

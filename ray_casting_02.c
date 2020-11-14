@@ -89,6 +89,7 @@ void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 		all->vect.fhx += all->vect.hx;
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
+		//printf("hyph = %lf\n", *hyph);
 	}
 }
 
@@ -109,5 +110,6 @@ void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
+		//printf("hypv = %lf\n", *hypv);
 	}
 }

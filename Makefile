@@ -59,8 +59,9 @@ re: 		fclean all
 run:
 		@make re && make clean
 		@./Cub3D mapex.cub
-mod:
-			
+run2:
+		@make re && make clean
+		@./Cub3D rectmap.cub
 testmlx:
 			gcc -I cub3d_mlx -g -L cub3d_mlx -l mlx -framework OpenGL -framework AppKit maingraph.c
 			./a.out
