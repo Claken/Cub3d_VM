@@ -12,7 +12,7 @@
 
 #include "includes/cub3d.h"
 
-static void	ft_set_teta(t_all *all)
+static void		ft_set_teta(t_all *all)
 {
 	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0)
 	{
@@ -32,7 +32,7 @@ static void	ft_set_teta(t_all *all)
 	}
 }
 
-static double	ft_set_hyph_suite(t_all *all, double hh)
+static double		ft_set_hyph_suite(t_all *all, double hh)
 {
 	double hyph;
 
@@ -49,7 +49,7 @@ static double	ft_set_hyph_suite(t_all *all, double hh)
 	return (hyph);
 }
 
-static double	ft_set_hypv_suite(t_all *all, double hv)
+static double		ft_set_hypv_suite(t_all *all, double hv)
 {
 	double hypv;
 
@@ -66,7 +66,7 @@ static double	ft_set_hypv_suite(t_all *all, double hv)
 	return (hypv);
 }
 
-double		ft_set_hyph(t_all *all)
+double			ft_set_hyph(t_all *all)
 {
 	double hyph;
 
@@ -86,7 +86,7 @@ double		ft_set_hyph(t_all *all)
 	return (ft_set_hyph_suite(all, hyph));
 }
 
-double		ft_set_hypv(t_all *all)
+double			ft_set_hypv(t_all *all)
 {
 	double hypv;
 

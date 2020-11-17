@@ -174,7 +174,5 @@ void			ft_raycol_south_east(t_all *all);
 void			ft_check_raycol_dir_part_two(t_all *all);
 double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
-double			ft_set_cos(t_all *all);
-double			ft_set_sin(t_all *all);
 
 #endif

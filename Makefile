@@ -26,7 +26,6 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		ray_casting_02.c \
 		ray_casting_floor_and_ceiling.c \
 		set_xs_and_ys.c \
-		set_cos_and_sin.c \
 		find_hypothenus.c \
 		event_handling_01.c \
 		event_handling_02_move.c \
