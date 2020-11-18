@@ -36,7 +36,7 @@ static void	ft_move_camera_right(t_all *all)
 	double dirmod;
 	double full;
 
-	i = ft_degree_to_radian(1);
+	i = ft_degree_to_radian(5);
 	full = ft_degree_to_radian(360);
 	all->vect.dir -= i;
 	dirmod = fmod(all->vect.dir, full);
@@ -51,7 +51,7 @@ static void	ft_move_camera_left(t_all *all)
 	double dirmod;
 	double full;
 
-	i = ft_degree_to_radian(1);
+	i = ft_degree_to_radian(5);
 	full = ft_degree_to_radian(360);
 	all->vect.dir += i;
 	dirmod = fmod(all->vect.dir, full);
@@ -60,7 +60,7 @@ static void	ft_move_camera_left(t_all *all)
 	ft_recreate_image(all);
 }
 
-int			ft_key_management(int key, t_all *all)
+int		ft_key_management(int key, t_all *all)
 {
 	if (key == ESC)
 		ft_abort_mission(all);

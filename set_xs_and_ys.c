@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_xs_and_ys.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/20 04:14:20 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/14 20:42:52 by sachouam         ###   ########.fr       */
+/*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
+/*   Updated: 2020/11/18 17:58:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_raycol_north_east(t_all *all)
 	((all->vect.posy - all->vect.fhy) / tan(all->vect.teta));
 	all->vect.hy = -1;
 	all->vect.hx = 1 / tan(all->vect.teta);
-
 	all->vect.fvx = all->vect.posx - all->vect.modxl + CASE;
 	all->vect.fvy = all->vect.posy -
 	((all->vect.fvx - all->vect.posx) * tan(all->vect.teta));
@@ -36,7 +35,6 @@ void	ft_raycol_north_west(t_all *all)
 	/ tan(all->vect.teta));
 	all->vect.hy = -1;
 	all->vect.hx = -(1 / tan(all->vect.teta));
-
 	all->vect.fvx = all->vect.posx - all->vect.modxl - 1;
 	all->vect.fvy = all->vect.posy -
 	((all->vect.posx - (all->vect.fvx + 1))
@@ -54,7 +52,6 @@ void	ft_raycol_south_west(t_all *all)
 	/ tan(all->vect.teta));
 	all->vect.hy = 1;
 	all->vect.hx = -(1 / tan(all->vect.teta));
-
 	all->vect.fvx = all->vect.posx - all->vect.modxl - 1;
 	all->vect.fvy = all->vect.posy +
 	((all->vect.posx - (all->vect.fvx + 1))
@@ -72,7 +69,6 @@ void	ft_raycol_south_east(t_all *all)
 	/ tan(all->vect.teta));
 	all->vect.hy = 1;
 	all->vect.hx = 1 / tan(all->vect.teta);
-
 	all->vect.fvx = all->vect.posx - all->vect.modxl + CASE;
 	all->vect.fvy = all->vect.posy +
 	((all->vect.fvx - all->vect.posx)

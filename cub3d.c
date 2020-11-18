@@ -71,12 +71,10 @@ int		main(int ac, char **av)
 	ft_raycasting(&all);
 	mlx_put_image_to_window(all.disp.mlx_ptr,
 	all.disp.windo, all.disp.img, 0, 0);
-	//ft_hooks_and_loops(&all);
 	mlx_hook(all.disp.windo, KP, (1L << 0),
-        &ft_key_management, &all);
-        mlx_hook(all.disp.windo, DN, (1L << 17),
-        &ft_abort_mission, &all);
-        //mlx_loop_hook(all->disp.mlx_ptr, &ft_test, all);
-        mlx_loop(all.disp.mlx_ptr);
+	&ft_key_management, &all);
+	mlx_hook(all.disp.windo, DN, (1L << 17),
+	&ft_abort_mission, &all);
+	mlx_loop(all.disp.mlx_ptr);
 	return (0);
 }
