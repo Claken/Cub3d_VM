@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/14 20:45:04 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/18 23:07:52 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,12 +132,23 @@ typedef struct	s_mlx
 	int		pixend;
 }			t_mlx;
 
+typedef struct	s_keys
+{
+	int		up;
+	int		down;
+	int		right;
+	int		left;
+	int		r_arr;
+	int		l_arr;
+}			t_keys;
+
 typedef struct	s_all
 {
 	t_data		data;
 	t_vect		vect;
 	t_mlx		disp;
 	t_elem		text;
+	t_keys		key;
 }			t_all;
 
 void			ft_init_structs(t_all *all);
@@ -153,11 +164,16 @@ void			ft_re_set_variables(t_all *all);
 void			ft_check_raycol_dir(t_all *all);
 void			ft_if_hyph_is_inferior(t_all *all, double *hyph);
 void			ft_if_hypv_is_inferior(t_all *all, double *hypv);
-int			ft_key_management(int key, t_all *all);
+int			ft_key_pressed(int key, t_all *all);
+int			ft_key_released(int key, t_all *all);
+void			ft_key_management(t_all *all);
 void			ft_move_forward(t_all *all);
 void			ft_move_to_the_left(t_all *all);
 void			ft_move_backwards(t_all *all);
 void			ft_move_to_the_right(t_all *all);
+void			ft_move_camera_right(t_all *all);
+void			ft_move_camera_left(t_all *all);
+int			ft_loop_hook(t_all *all);
 void			ft_draw_ceil_and_floor(t_all *all);
 int			ft_get_color(unsigned int r,
 			unsigned int g, unsigned int b);
@@ -166,7 +182,7 @@ void			ft_hooks_and_loops(t_all *all);
 double			ft_degree_to_radian(int degree);
 int			ft_radian_to_degree(double radian);
 double			ft_pow(double nb, int power);
-void			ft_recreate_image(t_all *all);
+void			ft_create_image(t_all *all);
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
 void			ft_raycol_south_west(t_all *all);

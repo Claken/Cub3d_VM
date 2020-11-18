@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/01 18:32:08 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/18 23:04:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,6 @@ static void	ft_set_variables(t_all *all)
 	all->vect.apr = all->vect.fov / all->data.reswid;
 }
 
-/*
-static int	ft_test(t_all *all)
-{
-	mlx_put_image_to_window(all->disp.mlx_ptr,
-	all->disp.windo, all->disp.img, 0, 0);
-	return (0);
-}
-*/
-
 int		main(int ac, char **av)
 {
 	t_all	all;
@@ -67,14 +58,12 @@ int		main(int ac, char **av)
 	if (!ft_parse_tab_pos_play(&all))
 		return (0);
 	ft_set_variables(&all);
-	ft_draw_ceil_and_floor(&all);
-	ft_raycasting(&all);
-	mlx_put_image_to_window(all.disp.mlx_ptr,
-	all.disp.windo, all.disp.img, 0, 0);
-	mlx_hook(all.disp.windo, KP, (1L << 0),
-	&ft_key_management, &all);
-	mlx_hook(all.disp.windo, DN, (1L << 17),
-	&ft_abort_mission, &all);
+	ft_create_image(&all);
+	//ft_hooks_and_loops(&all);
+	mlx_hook(all.disp.windo, KP, (1L << 0), &ft_key_pressed, &all);
+	mlx_hook(all.disp.windo, KR, (1L << 1), &ft_key_released, &all);
+	mlx_hook(all.disp.windo, DN, (1L << 17), &ft_abort_mission, &all);
+	mlx_loop_hook(all.disp.mlx_ptr, &ft_loop_hook, &all);
 	mlx_loop(all.disp.mlx_ptr);
 	return (0);
 }

@@ -27,8 +27,9 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		ray_casting_floor_and_ceiling.c \
 		set_xs_and_ys.c \
 		find_hypothenus.c \
-		event_handling_01.c \
+		event_handling_01_exit_and_cam.c \
 		event_handling_02_move.c \
+		event_handling_03_keys.c \
 		c3d_utils_01.c \
 
 OBJ		= ${SRC:.c=.o}
