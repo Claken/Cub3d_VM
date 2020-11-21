@@ -6,14 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/18 23:04:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/19 23:49:31 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
-
-// DOIT ETRE COMPATIBLE AVEC LA VM ET MAC EN MEME TEMPS : ADAPTER AUX DEUX
-// REFRESH QUAND TU MINIMISES LA FENETRE : PAS DE BLACK SCREEN QUAND TU DEMINIMISES
 
 void		ft_init_structs(t_all *all)
 {
@@ -59,7 +56,6 @@ int		main(int ac, char **av)
 		return (0);
 	ft_set_variables(&all);
 	ft_create_image(&all);
-	//ft_hooks_and_loops(&all);
 	mlx_hook(all.disp.windo, KP, (1L << 0), &ft_key_pressed, &all);
 	mlx_hook(all.disp.windo, KR, (1L << 1), &ft_key_released, &all);
 	mlx_hook(all.disp.windo, DN, (1L << 17), &ft_abort_mission, &all);

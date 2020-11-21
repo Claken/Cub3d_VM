@@ -28,8 +28,8 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		set_xs_and_ys.c \
 		find_hypothenus.c \
 		event_handling_01_exit_and_cam.c \
-		event_handling_02_move.c \
-		event_handling_03_keys.c \
+		event_handling_02_keys.c \
+		event_handling_03_move.c \
 		c3d_utils_01.c \
 
 OBJ		= ${SRC:.c=.o}
@@ -61,7 +61,7 @@ run:
 		@./Cub3D mapex.cub
 run2:
 		@make re && make clean
-		@./Cub3D rectmap.cub
+		@./Cub3D squaremap.cub
 testmlx:
 			gcc -I cub3d_mlx -g -L cub3d_mlx -l mlx -framework OpenGL -framework AppKit maingraph.c
 			./a.out

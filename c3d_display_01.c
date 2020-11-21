@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/24 00:50:40 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/19 00:24:02 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/20 15:29:23 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_loop_hook(t_all *all)
 {
 	ft_key_management(all);
-	ft_create_image(all);
+	//ft_create_image(all);
 	return (0);
 }
 

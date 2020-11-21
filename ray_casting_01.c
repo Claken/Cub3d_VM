@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/09/19 16:22:30 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/21 17:04:20 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,16 @@ static void	ft_check_for_walls(t_all *all)
 
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
+	//if (all->vect.raycol < all->vect.dir + (all->vect.fov / 2))
+	//{
+	//	printf("fhx = %lf, fhy = %lf\n",
+	//	all->vect.fhx, all->vect.fhy);
+	//	printf("fvx = %lf, fvy = %lf\n",
+	//	all->vect.fvx, all->vect.fvy);
+	//}
 	while (!all->vect.hit)
 	{
+		//printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
 		if (hyph < hypv)
 		{
 			ft_if_hyph_is_inferior(all, &hyph);
@@ -81,7 +89,7 @@ void		ft_raycasting(t_all *all)
 	all->vect.modxl = fmod(all->vect.posx, 1);
 	all->vect.modyu = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	while (++i < (int)all->data.reswid)
+	while (++i <= (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
