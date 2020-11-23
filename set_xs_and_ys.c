@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/21 17:03:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/21 18:22:59 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_raycol_north_east(t_all *all)
 {
-	//printf("PAR LA\n");
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.posy - all->vect.fhy) / tan(all->vect.teta));
