@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/23 15:04:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:51:02 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ static double		ft_set_hyph_suite(t_all *all, double hh)
 	hyph = hh;
 	if (all->vect.raycol == PI / 2)
 	{
-		//printf("pi / 2 \n");
+		printf("pi / 2 \n");
 		hyph = all->vect.modyu;
 	}
 	else if (all->vect.raycol == PI + PI / 2)
 	{
+		printf("pi / pi + 2 \n");
 		hyph = (all->vect.posy - all->vect.modyu + CASE)
 		- all->vect.posy;
 	}
@@ -57,10 +58,12 @@ static double		ft_set_hypv_suite(t_all *all, double hv)
 	hypv = hv;
 	if (all->vect.raycol == PI)
 	{
+		printf("pi \n");
 		hypv = all->vect.modxl;
 	}
-	else if ((int)all->vect.raycol == 0)
+	else if (all->vect.raycol == 0.000000 || all->vect.raycol == 2 * PI)
 	{
+		printf("0 \n");
 		hypv = (all->vect.posx - all->vect.modxl + CASE)
 		- all->vect.posx;
 	}
@@ -76,13 +79,13 @@ double			ft_set_hyph(t_all *all)
 	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0)
 	|| (all->vect.raycol > PI / 2 && all->vect.raycol < PI))
 	{
-		//printf("okh\n");
+		printf("okh\n");
 		hyph = all->vect.modyu / sin(all->vect.teta);
 	}
 	else if ((all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
 	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		//printf("koh\n");
+		printf("koh\n");
 		hyph = ((all->vect.posy - all->vect.modyu + CASE)
 		- all->vect.posy) / sin(all->vect.teta);
 	}
@@ -98,14 +101,14 @@ double			ft_set_hypv(t_all *all)
 	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0)
 	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		//printf("okv\n");
+		printf("okv\n");
 		hypv = ((all->vect.posx - all->vect.modxl + CASE)
 		- all->vect.posx) / cos(all->vect.teta);
 	}
 	else if ((all->vect.raycol > PI / 2 && all->vect.raycol < PI)
 	|| (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2))
 	{
-		//printf("kov\n");
+		printf("kov\n");
 		hypv = all->vect.modxl / cos(all->vect.teta);
 	}
 	return (ft_set_hypv_suite(all, hypv));

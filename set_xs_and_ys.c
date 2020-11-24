@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/21 18:22:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/24 15:40:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_raycol_north_east(t_all *all)
 {
+	//printf("NE\n");
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.posy - all->vect.fhy) / tan(all->vect.teta));
@@ -28,6 +29,7 @@ void	ft_raycol_north_east(t_all *all)
 
 void	ft_raycol_north_west(t_all *all)
 {
+	//printf("NW\n");
 	all->vect.teta = PI - all->vect.raycol;
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 	all->vect.fhx = all->vect.posx -
@@ -45,6 +47,7 @@ void	ft_raycol_north_west(t_all *all)
 
 void	ft_raycol_south_west(t_all *all)
 {
+	//printf("SW\n");
 	all->vect.teta = all->vect.raycol - PI;
 	all->vect.fhy = all->vect.posy - all->vect.modyu + CASE;
 	all->vect.fhx = all->vect.posx -
@@ -62,6 +65,7 @@ void	ft_raycol_south_west(t_all *all)
 
 void	ft_raycol_south_east(t_all *all)
 {
+	//printf("SE\n");
 	all->vect.teta = (2 * PI) - all->vect.raycol;
 	all->vect.fhy = all->vect.posy - all->vect.modyu + CASE;
 	all->vect.fhx = all->vect.posx +

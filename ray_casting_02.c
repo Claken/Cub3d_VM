@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/23 15:03:13 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:49:47 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,40 +74,42 @@ void	ft_check_raycol_dir(t_all *all)
 
 void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 {
-	//printf("LA MON POTE\n");
+	printf("LA MON POTE\n");
 	if (all->data.map[(int)all->vect.fhy]
 	[(int)all->vect.fhx] == '1')
 	{
-		//printf("HOR TOUCHED\n");
+		printf("HOR TOUCHED\n");
 		all->vect.side = 0;
 		all->vect.hit = 1;
 	}
 	else
 	{
-		//printf("HOR NOT TOUCHED\n");
+		printf("HOR NOT TOUCHED\n");
 		all->vect.fhx += all->vect.hx;
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
-		//printf("hyph + %lf\n", CASE / sin(all->vect.teta));
+		printf("sin = %lf\n", sin(all->vect.teta));
+		printf("hyph + %lf\n", CASE / sin(all->vect.teta));
 	}
 }
 
 void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
 {
-	//printf("NON C'EST LA\n");
+	printf("NON C'EST LA\n");
 	if (all->data.map[(int)all->vect.fvy]
 	[(int)all->vect.fvx] == '1')
 	{
-		//printf("VER TOUCHED\n");
+		printf("VER TOUCHED\n");
 		all->vect.side = 1;
 		all->vect.hit = 1;
 	}
 	else
 	{
-		//printf("VER NOT TOUCHED\n");
+		printf("VER NOT TOUCHED\n");
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
-		//printf("hypv + %lf\n", CASE / cos(all->vect.teta));
+		printf("cos = %lf\n", cos(all->vect.teta));
+		printf("hypv + %lf\n", CASE / cos(all->vect.teta));
 	}
 }

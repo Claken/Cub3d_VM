@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/23 15:12:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:48:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ static void	ft_check_for_walls(t_all *all)
 
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
+	printf("\nhyph = %lf, hypv = %lf\n", hyph, hypv);
 	while (!all->vect.hit)
 	{
-		//printf("fhx = %lf, fhy = %lf\n", all->vect.fhx, all->vect.fhy);
-		//printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
-		//printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
+		printf("fhx = %lf, fhy = %lf\n", all->vect.fhx, all->vect.fhy);
+		printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
+		printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
 		if (hyph < hypv)
 		{
 			ft_if_hyph_is_inferior(all, &hyph);
@@ -40,13 +41,16 @@ static void	ft_distance_calculation(t_all *all)
 	if (!all->vect.side)
 	{
 		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
-	/ cos(all->vect.raycol)));
+		/ cos(all->vect.raycol)));
+		//printf("cos = %lf\n", cos(all->vect.raycol));
 	}
 	else
 	{
 		all->vect.distwall = fabs(((all->vect.posy - all->vect.fvy)
 		/ sin(all->vect.raycol)));
+		//printf("sin = %lf\n", sin(all->vect.raycol));
 	}
+		printf("distwall = %lf\n", all->vect.distwall);
 }
 
 static void	ft_distance_with_no_fisheye(t_all *all)
