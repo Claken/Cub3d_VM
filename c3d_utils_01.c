@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:32:31 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/28 14:13:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/02 20:06:22 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,24 @@ double	ft_pow(double nb, int power)
 	return (result);
 }
 
+int	ft_get_color(unsigned int r,
+	unsigned int g, unsigned int b)
+{
+	int color;
+
+	color = r << 16;
+	color += g << 8;
+	color += b;
+	return (color);
+}
+
+void	ft_draw_pixel(t_all *all, int y, int x)
+{
+	all->disp.addr[y * all->data.reswid + x]
+	= all->disp.color;
+}
+
+/*
 double	ft_almost_zero(double raycol)
 {
 	double zero;
@@ -56,3 +74,4 @@ double	ft_almost_zero(double raycol)
 		return (zero);
 	return (raycol);
 }
+*/

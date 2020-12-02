@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/02 16:29:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/02 19:40:14 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void			ft_hooks_and_loops(t_all *all);
 double			ft_degree_to_radian(int degree);
 int			ft_radian_to_degree(double radian);
 double			ft_pow(double nb, int power);
-double			ft_almost_zero(double raycol);
+//double			ft_almost_zero(double raycol);
 void			ft_create_image(t_all *all);
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
