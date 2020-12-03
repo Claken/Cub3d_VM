@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/19 23:49:31 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/03 17:31:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,6 @@ int		main(int ac, char **av)
 		return (0);
 	ft_set_variables(&all);
 	ft_create_image(&all);
-	mlx_hook(all.disp.windo, KP, (1L << 0), &ft_key_pressed, &all);
-	mlx_hook(all.disp.windo, KR, (1L << 1), &ft_key_released, &all);
-	mlx_hook(all.disp.windo, DN, (1L << 17), &ft_abort_mission, &all);
-	mlx_loop_hook(all.disp.mlx_ptr, &ft_loop_hook, &all);
-	mlx_loop(all.disp.mlx_ptr);
+	ft_hooks_and_loops(&all);
 	return (0);
 }
