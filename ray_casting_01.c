@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/02 20:51:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/04 02:03:27 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	ft_check_for_walls(t_all *all)
 		//printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
 		//printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
 		//printf("raycol = %lf\n", all->vect.raycol);
+		//printf("teta = %lf\n", all->vect.teta);
 		if (hyph < hypv)
 		{
 			ft_if_hyph_is_inferior(all, &hyph);
