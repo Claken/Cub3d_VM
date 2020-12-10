@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/03 19:01:14 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/10 20:07:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	ft_move_forward(t_all *all)
 
 	ncx = all->vect.posx + cos(all->vect.dir);
 	ncy = all->vect.posy + -sin(all->vect.dir);
-	if (all->data.map[(int)ncy][(int)ncx] != '1')
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
+	//ft_create_image(all);
 }
 
 void	ft_move_to_the_left(t_all *all)
@@ -36,12 +37,13 @@ void	ft_move_to_the_left(t_all *all)
 	ncx = all->vect.posx + -cos(all->vect.dir);
 	ncy = all->vect.posy + sin(all->vect.dir);
 	all->vect.dir -= (PI + (PI / 2));
-	if (all->data.map[(int)ncy][(int)ncx] != '1')
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
+	//ft_create_image(all);
 }
 
 void	ft_move_backwards(t_all *all)
@@ -53,12 +55,13 @@ void	ft_move_backwards(t_all *all)
 	ncx = all->vect.posx + cos(all->vect.dir);
 	ncy = all->vect.posy + -sin(all->vect.dir);
 	all->vect.dir -= PI;
-	if (all->data.map[(int)ncy][(int)ncx] != '1')
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
+	//ft_create_image(all);
 }
 
 void	ft_move_to_the_right(t_all *all)
@@ -70,10 +73,11 @@ void	ft_move_to_the_right(t_all *all)
 	ncx = all->vect.posx + -cos(all->vect.dir);
 	ncy = all->vect.posy + sin(all->vect.dir);
 	all->vect.dir -= (PI / 2);
-	if (all->data.map[(int)ncy][(int)ncx] != '1')
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
+	//ft_create_image(all);
 }

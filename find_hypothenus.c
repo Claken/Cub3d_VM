@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 02:02:29 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/10 14:49:42 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,11 @@ double			ft_set_hyph(t_all *all)
 	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
 	|| (all->vect.raycol > PI / 2 && all->vect.raycol < PI))
 	{
-		//printf("okh\n");
 		hyph = all->vect.modyu / sin(all->vect.teta);
 	}
 	else if ((all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
 	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		//printf("koh\n");
 		hyph = ((all->vect.posy - all->vect.modyu + CASE)
 		- all->vect.posy) / sin(all->vect.teta);
 	}
@@ -63,14 +61,12 @@ double			ft_set_hypv(t_all *all)
 	if ((all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
 	|| (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI))
 	{
-		//printf("okv\n");
 		hypv = ((all->vect.posx - all->vect.modxl + CASE)
 		- all->vect.posx) / cos(all->vect.teta);
 	}
 	else if ((all->vect.raycol > PI / 2 && all->vect.raycol < PI)
 	|| (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2))
 	{
-		//printf("kov\n");
 		hypv = all->vect.modxl / cos(all->vect.teta);
 	}
 	return (hypv);

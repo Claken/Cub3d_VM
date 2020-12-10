@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 02:03:27 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/10 19:46:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ static void	ft_check_for_walls(t_all *all)
 
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
-	//printf("\n");
 	while (!all->vect.hit)
 	{
-		//printf("fhx = %lf, fhy = %lf\n", all->vect.fhx, all->vect.fhy);
-		//printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
-		//printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
-		//printf("raycol = %lf\n", all->vect.raycol);
-		//printf("teta = %lf\n", all->vect.teta);
+//		printf("fhx = %lf, fhy = %lf\n", all->vect.fhx, all->vect.fhy);
+//		printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
+//		printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
+//		printf("raycol = %lf\n", all->vect.raycol);
+//		printf("teta = %lf\n", all->vect.teta);
 		if (hyph < hypv)
 		{
 			ft_if_hyph_is_inferior(all, &hyph);
@@ -44,15 +43,12 @@ static void	ft_distance_calculation(t_all *all)
 	{
 		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
 		/ cos(all->vect.raycol)));
-		//printf("cos = %lf\n", cos(all->vect.raycol));
 	}
 	else
 	{
 		all->vect.distwall = fabs(((all->vect.posy - all->vect.fvy)
 		/ sin(all->vect.raycol)));
-		//printf("sin = %lf\n", sin(all->vect.raycol));
 	}
-		//printf("distwall = %lf\n", all->vect.distwall);
 }
 
 static void	ft_distance_with_no_fisheye(t_all *all)
@@ -69,6 +65,28 @@ static void	ft_drawing_column(t_all *all, int i)
 
 	all->disp.colhei = (CASE / all->vect.nofisheye)
 	* all->vect.distscreen;
+/*
+	if (i <= (int)all->data.reswid / 2)
+	{
+		printf("\nraycol = %lf\n", all->vect.raycol);
+		if (!all->vect.side)
+		{
+			printf("posx = %lf\n", all->vect.posx);
+			printf("fhx = %lf\n", all->vect.fhx);
+			printf("cos = %lf\n", cos(all->vect.raycol));
+			printf("diswall = %lf\n", fabs(((all->vect.posx - all->vect.fhx)
+			/ cos(all->vect.raycol))));
+		}
+		else
+		{
+			printf("posy = %lf\n", all->vect.posy);
+			printf("fvy = %lf\n", all->vect.fvy);
+			printf("sin = %lf\n", sin(all->vect.raycol));
+			printf("diswall = %lf\n", fabs(((all->vect.posy - all->vect.fvy)
+			/ sin(all->vect.raycol))));
+		}
+	}
+*/
 	all->disp.pixbeg = -all->disp.colhei
 	/ 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)

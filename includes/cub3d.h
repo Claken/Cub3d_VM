@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/03 17:28:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/10 19:48:26 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,7 @@ typedef struct	s_vect
 	int		pixend;
 
 	double		modxl;
-	double		modxr;
 	double		modyu;
-	double		modyd;
 }			t_vect;
 
 typedef struct	s_mlx
@@ -182,7 +180,6 @@ void			ft_hooks_and_loops(t_all *all);
 double			ft_degree_to_radian(int degree);
 int			ft_radian_to_degree(double radian);
 double			ft_pow(double nb, int power);
-//double		ft_almost_zero(double raycol);
 void			ft_create_image(t_all *all);
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 00:09:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/10 20:06:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_move_camera_right(t_all *all)
 	dirmod = fmod(all->vect.dir, full);
 	if (all->vect.dir < 0)
 		all->vect.dir = full + dirmod;
-	ft_create_image(all);
+	//ft_create_image(all);
 }
 
 void	ft_move_camera_left(t_all *all)
@@ -58,5 +58,5 @@ void	ft_move_camera_left(t_all *all)
 	dirmod = fmod(all->vect.dir, full);
 	if (all->vect.dir >= full)
 		all->vect.dir = dirmod;
-	ft_create_image(all);
+	//ft_create_image(all);
 }
