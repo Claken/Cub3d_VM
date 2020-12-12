@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/10 19:46:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/12 19:14:49 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_drawing_column(t_all *all, int i)
 
 	all->disp.colhei = (CASE / all->vect.nofisheye)
 	* all->vect.distscreen;
-/*
+/*	
 	if (i <= (int)all->data.reswid / 2)
 	{
 		printf("\nraycol = %lf\n", all->vect.raycol);
@@ -74,17 +74,16 @@ static void	ft_drawing_column(t_all *all, int i)
 			printf("posx = %lf\n", all->vect.posx);
 			printf("fhx = %lf\n", all->vect.fhx);
 			printf("cos = %lf\n", cos(all->vect.raycol));
-			printf("diswall = %lf\n", fabs(((all->vect.posx - all->vect.fhx)
-			/ cos(all->vect.raycol))));
 		}
 		else
 		{
 			printf("posy = %lf\n", all->vect.posy);
 			printf("fvy = %lf\n", all->vect.fvy);
 			printf("sin = %lf\n", sin(all->vect.raycol));
-			printf("diswall = %lf\n", fabs(((all->vect.posy - all->vect.fvy)
-			/ sin(all->vect.raycol))));
 		}
+		printf("distwall = %lf\n", all->vect.distwall);
+		printf("nofisheye = %lf\n", all->vect.nofisheye);
+		printf("colonne = %d\n", all->disp.colhei);
 	}
 */
 	all->disp.pixbeg = -all->disp.colhei

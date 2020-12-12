@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:32:31 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 12:42:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/12 18:20:27 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-double	ft_degree_to_radian(int degree)
+double
+	ft_degree_to_radian(int degree)
 {
 	double radian;
 
@@ -20,33 +21,8 @@ double	ft_degree_to_radian(int degree)
 	return (radian);
 }
 
-int	ft_radian_to_degree(double radian)
-{
-	int degree;
-
-	degree = (radian * 180.0f) / PI;
-	return (degree);
-}
-
-double	ft_pow(double nb, int power)
-{
-	double result;
-
-	result = 1;
-	if (power < 0)
-		return (0);
-	if (power == 1)
-		return (nb);
-	while (power != 0)
-	{
-		result = result * nb;
-		power--;
-	}
-	return (result);
-}
-
-int	ft_get_color(unsigned int r,
-	unsigned int g, unsigned int b)
+int
+	ft_get_color(unsigned int r, unsigned int g, unsigned int b)
 {
 	int color;
 
@@ -56,8 +32,19 @@ int	ft_get_color(unsigned int r,
 	return (color);
 }
 
-void	ft_draw_pixel(t_all *all, int y, int x)
+void
+	ft_draw_pixel(t_all *all, int y, int x)
 {
-	all->disp.addr[y * all->data.reswid + x]
-	= all->disp.color;
+	all->disp.addr[y * all->data.reswid + x] = all->disp.color;
+}
+
+void
+	ft_free_tab(char **tab)
+{
+	int i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 }

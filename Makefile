@@ -19,7 +19,8 @@ LIBFT		= cub3d_libft
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d.c \
-		parsing_map_01.c \
+		parsing_map_data_01.c \
+		parsing_map_data_02.c \
 		parsing_map_02.c \
 		c3d_display_01.c \
 		ray_casting_01.c \

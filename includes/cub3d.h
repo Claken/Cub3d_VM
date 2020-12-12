@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/10 19:48:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/12 18:51:55 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,11 +150,13 @@ typedef struct	s_all
 }			t_all;
 
 void			ft_init_structs(t_all *all);
+int			ft_parsing_rfc(char *line, t_all *all);
 char			**ft_parsing_file_cub(t_all *all, char *file);
 int			ft_parse_tab_pos_play(t_all *all);
 void			ft_set_dir_and_angle(t_all *all);
 int			ft_window_and_image(t_all *all);
 void			ft_free_all(t_all *all);
+void			ft_free_tab(char **tab);
 int			ft_abort_mission(t_all *all);
 void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
@@ -178,8 +180,6 @@ int			ft_get_color(unsigned int r,
 void			ft_draw_pixel(t_all *all, int y, int x);
 void			ft_hooks_and_loops(t_all *all);
 double			ft_degree_to_radian(int degree);
-int			ft_radian_to_degree(double radian);
-double			ft_pow(double nb, int power);
 void			ft_create_image(t_all *all);
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
