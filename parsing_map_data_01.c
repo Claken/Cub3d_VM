@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 18:27:43 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/12 19:01:29 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/12 23:57:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,29 @@ static void
 		line + 2, &all->text.sprite.width, &all->text.sprite.height);
 }
 
+static int
+	ft_ifs_for_parsing(char *line, t_all *all, char **map, int *j)
+{
+	if (line[0] == 'R' || line[0] == 'F' || line[0] == 'C')
+	{
+		if (!ft_parsing_rfc(line, all))
+			return (0);
+	}
+	else if (line[0] == ' ' || line[0] == '0'
+	|| line[0] == '1' || line[0] == '2')
+	{
+		if (!(map[*j] = ft_one_line_map(line)))
+			return (0);
+		*j += 1;
+	}
+	else if (line[0] == 'N' || line[0] == 'S'
+	|| line[0] == 'E' || line[0] == 'W')
+	{
+		ft_parsing_text(line, all);
+	}
+	return (1);
+}
+
 char
 	**ft_parsing_file_cub(t_all *all, char *file)
 {
@@ -84,22 +107,8 @@ char
 		return (NULL);
 	while ((get_next_line(all->data.fd, &line)) > 0)
 	{
-		if (line[0] == 'R' || line[0] == 'F' || line[0] == 'C')
-		{
-			if (!ft_parsing_rfc(line, all))
-				return (NULL);
-		}
-		else if (line[0] == ' ' || line[0] == '0'
-		|| line[0] == '1' || line[0] == '2')
-		{
-			if (!(map[j++] = ft_one_line_map(line)))
-				return (NULL);
-		}
-		else if (line[0] == 'N' || line[0] == 'S'
-		|| line[0] == 'E' || line[0] == 'W')
-		{
-			ft_parsing_text(line, all);
-		}
+		if (!ft_ifs_for_parsing(line, all, map, &j))
+			return (NULL);
 		free(line);
 	}
 	map[j] = 0;

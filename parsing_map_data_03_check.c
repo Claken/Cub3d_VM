@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_02.c                                   :+:      :+:    :+:   */
+/*   parsing_map_data_03_check.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/20 00:32:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 19:50:18 by sachouam         ###   ########.fr       */
+/*   Created: 2020/12/13 00:04:45 by sachouam          #+#    #+#             */
+/*   Updated: 2020/12/13 00:05:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-int			ft_parse_tab_pos_play(t_all *all)
+int
+	ft_parse_tab_pos_play(t_all *all)
 {
 	int i;
 	int j;
@@ -36,7 +37,8 @@ int			ft_parse_tab_pos_play(t_all *all)
 	return (0);
 }
 
-void		ft_set_dir_and_angle(t_all *all)
+void
+	ft_set_dir_and_angle(t_all *all)
 {
 	if (all->data.posplay == 'N')
 		all->vect.dir = PI / 2;
@@ -48,7 +50,8 @@ void		ft_set_dir_and_angle(t_all *all)
 		all->vect.dir = PI;
 }
 
-static int	ft_check_spaces_in_map(char **map, int j, int i)
+static int
+	ft_check_spaces_in_map(char **map, int j, int i)
 {
 	int end;
 
@@ -82,7 +85,8 @@ static int	ft_check_spaces_in_map(char **map, int j, int i)
 	return (1);
 }
 
-int			ft_check_walls(char **map)
+int
+	ft_check_walls(char **map)
 {
 	int i;
 	int j;

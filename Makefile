@@ -21,7 +21,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d.c \
 		parsing_map_data_01.c \
 		parsing_map_data_02.c \
-		parsing_map_02.c \
+		parsing_map_data_03_check.c \
 		c3d_display_01.c \
 		ray_casting_01.c \
 		ray_casting_02.c \
