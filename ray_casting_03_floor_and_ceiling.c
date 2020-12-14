@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:19:53 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/02 19:36:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:58:08 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	ft_draw_ceil_and_floor(t_all *all)
+void
+	ft_draw_ceil_and_floor(t_all *all)
 {
 	int l;
 	int t;

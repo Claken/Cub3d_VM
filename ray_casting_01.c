@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/12 19:14:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:57:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-static void	ft_check_for_walls(t_all *all)
+static void
+	ft_check_for_walls(t_all *all)
 {
 	double hyph;
 	double hypv;
@@ -37,7 +38,8 @@ static void	ft_check_for_walls(t_all *all)
 	}
 }
 
-static void	ft_distance_calculation(t_all *all)
+static void
+	ft_distance_calculation(t_all *all)
 {
 	if (!all->vect.side)
 	{
@@ -51,7 +53,8 @@ static void	ft_distance_calculation(t_all *all)
 	}
 }
 
-static void	ft_distance_with_no_fisheye(t_all *all)
+static void
+	ft_distance_with_no_fisheye(t_all *all)
 {
 	double beta;
 
@@ -59,13 +62,14 @@ static void	ft_distance_with_no_fisheye(t_all *all)
 	all->vect.nofisheye = all->vect.distwall * cos(beta);
 }
 
-static void	ft_drawing_column(t_all *all, int i)
+static void
+	ft_drawing_column(t_all *all, int i)
 {
 	int j;
 
 	all->disp.colhei = (CASE / all->vect.nofisheye)
 	* all->vect.distscreen;
-/*	
+/*
 	if (i <= (int)all->data.reswid / 2)
 	{
 		printf("\nraycol = %lf\n", all->vect.raycol);
@@ -86,23 +90,29 @@ static void	ft_drawing_column(t_all *all, int i)
 		printf("colonne = %d\n", all->disp.colhei);
 	}
 */
-	all->disp.pixbeg = -all->disp.colhei
-	/ 2 + all->data.reshei / 2;
+	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
+
 	if (all->disp.pixbeg < 0)
 		all->disp.pixbeg = -1;
-	all->disp.pixend = all->disp.colhei
-	/ 2 + all->data.reshei / 2;
+
+	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
+
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
+
 	all->disp.color = ft_get_color(220, 220, 220);
+
 	if (all->vect.side)
 		all->disp.color /= 2;
+
 	j = all->disp.pixbeg;
+
 	while (j++ < all->disp.pixend)
 		ft_draw_pixel(all, j, i);
 }
 
-void		ft_raycasting(t_all *all)
+void
+	ft_raycasting(t_all *all)
 {
 	int i;
 

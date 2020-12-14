@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/12 17:17:23 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:57:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	ft_check_raycol_value(t_all *all)
+void
+	ft_check_raycol_value(t_all *all)
 {
 	double full;
 
@@ -27,7 +28,8 @@ void	ft_check_raycol_value(t_all *all)
 	}
 }
 
-void	ft_re_set_variables(t_all *all)
+void
+	ft_re_set_variables(t_all *all)
 {
 	all->vect.fhx = 0;
 	all->vect.fhy = 0;
@@ -46,7 +48,8 @@ void	ft_re_set_variables(t_all *all)
 	all->vect.teta = all->vect.raycol;
 }
 
-void	ft_check_raycol_dir(t_all *all)
+void
+	ft_check_raycol_dir(t_all *all)
 {
 	if (all->vect.raycol < PI / 2 && all->vect.raycol >= 0.0)
 	{
@@ -75,7 +78,8 @@ void	ft_check_raycol_dir(t_all *all)
 	}
 }
 
-void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
+void
+	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 {
 	//printf("HYP H IS INFERIOR\n");
 	if (all->data.map[(int)all->vect.fhy]
@@ -96,7 +100,8 @@ void	ft_if_hyph_is_inferior(t_all *all, double *hyph)
 	}
 }
 
-void	ft_if_hypv_is_inferior(t_all *all, double *hypv)
+void
+	ft_if_hypv_is_inferior(t_all *all, double *hypv)
 {
 	//printf("HYP V IS INFERIOR\n");
 	if (all->data.map[(int)all->vect.fvy]

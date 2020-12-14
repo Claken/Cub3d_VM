@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/04 12:08:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:53:23 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	ft_raycol_north_east(t_all *all)
+void
+	ft_raycol_north_east(t_all *all)
 {
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 	all->vect.fhx = all->vect.posx +
@@ -26,7 +27,8 @@ void	ft_raycol_north_east(t_all *all)
 	all->vect.vy = -(1 * tan(all->vect.teta));
 }
 
-void	ft_raycol_north_west(t_all *all)
+void
+	ft_raycol_north_west(t_all *all)
 {
 	all->vect.teta = PI - all->vect.raycol;
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
@@ -42,7 +44,8 @@ void	ft_raycol_north_west(t_all *all)
 	all->vect.vy = -(1 * tan(all->vect.teta));
 }
 
-void	ft_raycol_south_west(t_all *all)
+void
+	ft_raycol_south_west(t_all *all)
 {
 	all->vect.teta = all->vect.raycol - PI;
 	all->vect.fhy = all->vect.posy - all->vect.modyu + CASE;
@@ -58,7 +61,8 @@ void	ft_raycol_south_west(t_all *all)
 	all->vect.vy = 1 * tan(all->vect.teta);
 }
 
-void	ft_raycol_south_east(t_all *all)
+void
+	ft_raycol_south_east(t_all *all)
 {
 	all->vect.teta = (2 * PI) - all->vect.raycol;
 	all->vect.fhy = all->vect.posy - all->vect.modyu + CASE;

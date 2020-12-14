@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/10 14:49:42 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:50:45 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-static void		ft_set_teta(t_all *all)
+static void
+	ft_set_teta(t_all *all)
 {
 	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
 	{
@@ -32,7 +33,8 @@ static void		ft_set_teta(t_all *all)
 	}
 }
 
-double			ft_set_hyph(t_all *all)
+double
+	ft_set_hyph(t_all *all)
 {
 	double hyph;
 
@@ -52,7 +54,8 @@ double			ft_set_hyph(t_all *all)
 	return (hyph);
 }
 
-double			ft_set_hypv(t_all *all)
+double
+	ft_set_hypv(t_all *all)
 {
 	double hypv;
 

@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:56:33 by sachouam          #+#    #+#             */
-/*   Updated: 2020/11/18 22:21:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:54:44 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-int	ft_key_pressed(int key, t_all *all)
+int
+	ft_key_pressed(int key, t_all *all)
 {
 	if (key == ESC)
 		ft_abort_mission(all);
@@ -31,7 +32,8 @@ int	ft_key_pressed(int key, t_all *all)
 	return (0);
 }
 
-int	ft_key_released(int key, t_all *all)
+int
+	ft_key_released(int key, t_all *all)
 {
 	if (key == UP)
 		all->key.up = 0;
@@ -48,7 +50,8 @@ int	ft_key_released(int key, t_all *all)
 	return (0);
 }
 
-void	ft_key_management(t_all *all)
+void
+	ft_key_management(t_all *all)
 {
 	if (all->key.up)
 		ft_move_forward(all);

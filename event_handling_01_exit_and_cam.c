@@ -6,14 +6,15 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/12 17:26:31 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:54:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 #define ROTATE 1
 
-int	ft_abort_mission(t_all *all)
+int
+	ft_abort_mission(t_all *all)
 {
 	int		i;
 	t_texture	*tmp;
@@ -31,7 +32,8 @@ int	ft_abort_mission(t_all *all)
 	return (0);
 }
 
-void	ft_move_camera_right(t_all *all)
+void
+	ft_move_camera_right(t_all *all)
 {
 	double i;
 	double dirmod;
@@ -46,7 +48,8 @@ void	ft_move_camera_right(t_all *all)
 	ft_create_image(all);
 }
 
-void	ft_move_camera_left(t_all *all)
+void
+	ft_move_camera_left(t_all *all)
 {
 	double i;
 	double dirmod;

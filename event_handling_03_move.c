@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/10 20:32:28 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 18:55:12 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/cub3d.h"
 
-void	ft_move_forward(t_all *all)
+void
+	ft_move_forward(t_all *all)
 {
 	double ncx;
 	double ncy;
@@ -28,7 +29,8 @@ void	ft_move_forward(t_all *all)
 	ft_create_image(all);
 }
 
-void	ft_move_to_the_left(t_all *all)
+void
+	ft_move_to_the_left(t_all *all)
 {
 	double ncx;
 	double ncy;
@@ -46,7 +48,8 @@ void	ft_move_to_the_left(t_all *all)
 	ft_create_image(all);
 }
 
-void	ft_move_backwards(t_all *all)
+void
+	ft_move_backwards(t_all *all)
 {
 	double ncx;
 	double ncy;
@@ -64,7 +67,8 @@ void	ft_move_backwards(t_all *all)
 	ft_create_image(all);
 }
 
-void	ft_move_to_the_right(t_all *all)
+void
+	ft_move_to_the_right(t_all *all)
 {
 	double ncx;
 	double ncy;
