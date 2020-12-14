@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/14 18:54:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 22:16:54 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,9 @@
 #define ROTATE 1
 
 int
-	ft_abort_mission(t_all *all)
+	ft_good_bye(t_all *all)
 {
-	int		i;
-	t_texture	*tmp;
-
-	i = 0;
-	ft_free_all(all);
-	while (i < NTXT)
-	{
-		tmp = &((t_texture *)(&all->text))[i++];
-		mlx_destroy_image(all->disp.mlx_ptr, tmp->pict);
-	}
-	mlx_destroy_image(all->disp.mlx_ptr, all->disp.img);
-	mlx_destroy_window(all->disp.mlx_ptr, all->disp.windo);
+	ft_abort_mission(all);
 	exit(0);
 	return (0);
 }

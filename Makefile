@@ -19,6 +19,7 @@ LIBFT		= cub3d_libft
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d.c \
+		errors_handling.c \
 		parsing_map_data_01.c \
 		parsing_map_data_02.c \
 		parsing_map_data_03_check.c \

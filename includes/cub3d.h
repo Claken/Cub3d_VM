@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/12 18:51:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 22:46:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <math.h>
 # include <stdio.h>
 
+//<unistd.h>
 
 # define KP		2
 # define KR		3
@@ -157,7 +158,9 @@ void			ft_set_dir_and_angle(t_all *all);
 int			ft_window_and_image(t_all *all);
 void			ft_free_all(t_all *all);
 void			ft_free_tab(char **tab);
-int			ft_abort_mission(t_all *all);
+int			ft_error_so_exit(char *sentence, t_all *all);
+void			ft_abort_mission(t_all *all);
+int			ft_good_bye(t_all *all);
 void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
 void			ft_re_set_variables(t_all *all);

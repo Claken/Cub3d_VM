@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 17:41:53 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/10 20:30:54 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 22:22:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void
 {
 	mlx_hook(all->disp.windo, KP, (1L << 0), &ft_key_pressed, all);
 	mlx_hook(all->disp.windo, KR, (1L << 1), &ft_key_released, all);
-	mlx_hook(all->disp.windo, DN, (1L << 17), &ft_abort_mission, all);
+	mlx_hook(all->disp.windo, DN, (1L << 17), &ft_good_bye, all);
 	mlx_loop_hook(all->disp.mlx_ptr, &ft_loop_hook, all);
 	mlx_loop(all->disp.mlx_ptr);
 }

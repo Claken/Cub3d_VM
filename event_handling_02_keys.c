@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:56:33 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/14 18:54:44 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/14 22:21:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int
 	ft_key_pressed(int key, t_all *all)
 {
 	if (key == ESC)
-		ft_abort_mission(all);
+		ft_good_bye(all);
 	else if (key == UP)
 		all->key.up = 1;
 	else if (key == LEFT)
