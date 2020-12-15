@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/14 22:46:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/15 20:02:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ int			ft_window_and_image(t_all *all);
 void			ft_free_all(t_all *all);
 void			ft_free_tab(char **tab);
 int			ft_error_so_exit(char *sentence, t_all *all);
+void			ft_error_message(char *sentence);
 void			ft_abort_mission(t_all *all);
 int			ft_good_bye(t_all *all);
 void			ft_raycasting(t_all *all);

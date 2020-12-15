@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/14 23:14:23 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/15 20:02:34 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ int
 {
 	t_all all;
 
-	if (ac < 2)
+	if (ac < 2 || ac > 3)
+	{
+		ft_error_message("wrong number of arguments.\n");
 		return (0);
+	}
 	ft_init_structs(&all);
 	all.data.fd = open(av[1], O_RDONLY);
 	if (!(all.disp.mlx_ptr = mlx_init()))
@@ -74,7 +77,7 @@ int
 	if (!ft_window_and_image(&all))
 		return (EXIT_FAILURE);
 	if (!ft_parse_tab_pos_play(&all))
-		return (ft_error_so_exit("no player on the map\n", &all));
+		return (ft_error_so_exit("no player on the map.\n", &all));
 	ft_set_variables(&all);
 	ft_create_image(&all);
 	ft_hooks_and_loops(&all);
