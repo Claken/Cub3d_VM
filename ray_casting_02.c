@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 15:13:41 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 19:30:25 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,8 @@ void
 	else
 	{
 		printf("raycol dans crd = %lf\n", all->vect.raycol);
-		if (all->vect.raycol == PI * 2)
-		{
-			all->vect.fvx = all->vect.posx - all->vect.modxl + CASE;
-			all->vect.fvy = all->vect.posy;
-			all->vect.vx = 1;
-		}
-
+		printf("dir = %lf\n", all->vect.dir);
+		ft_raycol_special_cases(all);
 	}
 }
 

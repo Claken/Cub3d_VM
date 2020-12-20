@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/15 20:02:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 18:49:48 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,6 +189,7 @@ void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
 void			ft_raycol_south_west(t_all *all);
 void			ft_raycol_south_east(t_all *all);
+void			ft_raycol_special_cases(t_all *all);
 double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
 

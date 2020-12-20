@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 14:08:04 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 19:17:49 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ static void
 	}
 }
 
+static double
+	ft_set_hyph_special_cases(t_all *all)
+{
+	if (all->vect.raycol == PI * 2)
+		return (10000);
+	else if (all->vect.raycol == PI / 2)
+ 		return (all->vect.modyu);
+	return (0);
+}
+
 double
 	ft_set_hyph(t_all *all)
 {
@@ -53,9 +63,20 @@ double
 	}
 	else
 	{
-		hyph = 100;
+		hyph = ft_set_hyph_special_cases(all);
 	}
 	return (hyph);
+}
+
+static double
+	ft_set_hypv_special_cases(t_all *all)
+{
+	if (all->vect.raycol == PI * 2)
+		return ((all->vect.posx - all->vect.modxl + CASE)
+		- all->vect.posx);
+	else if (all->vect.raycol == PI / 2)
+		return (10000);
+	return (0);
 }
 
 double
@@ -78,8 +99,7 @@ double
 	}
 	else
 	{
-		hypv = (all->vect.posx - all->vect.modxl + CASE)
-		- all->vect.posx;
+		hypv = ft_set_hypv_special_cases(all);
 	}
 	return (hypv);
 }

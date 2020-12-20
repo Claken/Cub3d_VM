@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 13:43:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 19:11:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,21 @@ void
 	* tan(all->vect.teta));
 	all->vect.vx = 1;
 	all->vect.vy = 1 * tan(all->vect.teta);
+}
+
+void
+	ft_raycol_special_cases(t_all *all)
+{
+	if (all->vect.raycol == PI * 2)
+	{
+		all->vect.fvx = all->vect.posx - all->vect.modxl + CASE;
+		all->vect.fvy = all->vect.posy;
+		all->vect.vx = 1;
+	}
+	else if (all->vect.raycol == PI / 2)
+	{
+		all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
+		all->vect.fhx = all->vect.posx;
+		all->vect.hy = -1;
+	}
 }

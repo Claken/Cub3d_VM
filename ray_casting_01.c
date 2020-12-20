@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 15:05:48 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 19:31:36 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,16 @@ static void
 {
 	if (!all->vect.side)
 	{
-		all->vect.distwall = fabs(((all->vect.posx - all->vect.fhx)
-		/ cos(all->vect.raycol)));
+		if (all->vect.raycol == PI / 2)
+		{
+			all->vect.distwall = fabs(((all->vect.posy -
+			all->vect.fhy) / sin(all->vect.raycol)));
+		}
+		else
+		{
+			all->vect.distwall = fabs(((all->vect.posx -
+			all->vect.fhx) / cos(all->vect.raycol)));
+		}
 	}
 	else
 	{
@@ -82,8 +90,7 @@ static void
 
 	all->disp.colhei = (CASE / all->vect.nofisheye)
 	* all->vect.distscreen;
-
-	//if (i <= ((int)all->data.reswid / 2) + 1)
+/*
 	if (all->vect.raycol == PI / 2)
 	{
 		printf("\nraycol = %lf\n", all->vect.raycol);
@@ -103,7 +110,7 @@ static void
 		printf("nofisheye = %lf\n", all->vect.nofisheye);
 		printf("colonne = %d\n", all->disp.colhei);
 	}
-
+*/
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
 
 	if (all->disp.pixbeg < 0)
