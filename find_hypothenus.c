@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/14 18:50:45 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/20 14:08:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ double
 		hyph = ((all->vect.posy - all->vect.modyu + CASE)
 		- all->vect.posy) / sin(all->vect.teta);
 	}
+	else
+	{
+		hyph = 100;
+	}
 	return (hyph);
 }
 
@@ -71,6 +75,11 @@ double
 	|| (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2))
 	{
 		hypv = all->vect.modxl / cos(all->vect.teta);
+	}
+	else
+	{
+		hypv = (all->vect.posx - all->vect.modxl + CASE)
+		- all->vect.posx;
 	}
 	return (hypv);
 }
