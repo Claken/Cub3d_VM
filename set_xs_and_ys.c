@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 19:11:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/25 15:03:49 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,11 @@ void
 		all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 		all->vect.fhx = all->vect.posx;
 		all->vect.hy = -1;
+	}
+	else if (all->vect.raycol == PI)
+	{
+		all->vect.fvx = all->vect.posx - all->vect.modxl - 1;
+		all->vect.fvy = all->vect.posy;
+		all->vect.vx = -1;
 	}
 }

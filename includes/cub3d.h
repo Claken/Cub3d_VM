@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 18:49:48 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/22 14:35:32 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ typedef struct	s_vect
 {
 	double		posy;
 	double		posx;
-	int		mapx;
-	int		mapy;
-	int		movx;
-	int		movy;
 	double		dir;
 	double		fov;
 	double		apr;

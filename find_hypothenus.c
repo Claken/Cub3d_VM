@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/20 19:17:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/25 14:57:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static void
 static double
 	ft_set_hyph_special_cases(t_all *all)
 {
-	if (all->vect.raycol == PI * 2)
-		return (10000);
-	else if (all->vect.raycol == PI / 2)
+	if (all->vect.raycol == PI / 2)
  		return (all->vect.modyu);
+	else
+		return (10000);
 	return (0);
 }
 
@@ -74,7 +74,9 @@ static double
 	if (all->vect.raycol == PI * 2)
 		return ((all->vect.posx - all->vect.modxl + CASE)
 		- all->vect.posx);
-	else if (all->vect.raycol == PI / 2)
+	else if (all->vect.raycol == PI)
+		return (all->vect.modxl);
+	else
 		return (10000);
 	return (0);
 }

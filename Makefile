@@ -1,8 +1,8 @@
 CC		= clang
 
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 
-MFLAGS		= -lX11 -lXext -lm -lbsd -lmlx 
+MFLAGS		= -lX11 -lXext -lm -lbsd -lmlx
 
 NAME		= Cub3D
 
