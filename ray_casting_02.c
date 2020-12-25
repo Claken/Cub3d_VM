@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/25 15:08:22 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/25 18:38:25 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void
 void
 	ft_check_raycol_dir(t_all *all)
 {
-	if (all->vect.raycol < PI / 2 && all->vect.raycol >= 0.0)
+	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
 	{
 		ft_raycol_north_east(all);
 	}
@@ -70,6 +70,7 @@ void
 	else
 	{
 		printf("raycol = %lf\n", all->vect.raycol);
+		printf("dir = %lf\n", all->vect.raycol);
 		ft_raycol_special_cases(all);
 	}
 }
