@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_data_03_check.c                        :+:      :+:    :+:   */
+/*   parsing_map_data_03.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 00:04:45 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/13 00:05:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/28 15:46:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void
 	else if (all->data.posplay == 'W')
 		all->vect.dir = PI;
 }
-
+/*
 static int
 	ft_check_spaces_in_map(char **map, int j, int i)
 {
@@ -112,3 +112,4 @@ int
 	}
 	return (1);
 }
+*/

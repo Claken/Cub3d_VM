@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/25 18:38:25 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/28 15:50:14 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void
 	}
 	else
 	{
-		printf("raycol = %lf\n", all->vect.raycol);
-		printf("dir = %lf\n", all->vect.raycol);
 		ft_raycol_special_cases(all);
 	}
 }

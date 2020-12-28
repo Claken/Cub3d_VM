@@ -22,7 +22,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		errors_handling.c \
 		parsing_map_data_01.c \
 		parsing_map_data_02.c \
-		parsing_map_data_03_check.c \
+		parsing_map_data_03.c \
 		c3d_display_01.c \
 		ray_casting_01.c \
 		ray_casting_02.c \
@@ -60,10 +60,14 @@ re: 		fclean all
 
 run:
 		@make re && make clean
-		@./Cub3D mapex.cub
+		@./Cub3D maps/mapex.cub
 run2:
 		@make re && make clean
-		@./Cub3D squaremap.cub
+		@./Cub3D maps/squaremap.cub
+run3:
+		@make re && make clean
+		@./Cub3D maps/rectmap.cub
+
 testmlx:
 			gcc -I cub3d_mlx -g -L cub3d_mlx -l mlx -framework OpenGL -framework AppKit maingraph.c
 			./a.out
