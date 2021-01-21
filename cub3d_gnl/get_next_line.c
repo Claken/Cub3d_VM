@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:43:58 by sachouam          #+#    #+#             */
-/*   Updated: 2020/06/04 18:40:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/29 19:28:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "../cub3d_includes/get_next_line.h"
 
-static int		ft_buffer_to_str(char **str, char *buffer)
+static int
+	ft_buffer_to_str(char **str, char *buffer)
 {
 	char *tmp;
 
@@ -33,10 +34,11 @@ static int		ft_buffer_to_str(char **str, char *buffer)
 	return (1);
 }
 
-static char		*ft_one_line(char *str)
+static char
+	*ft_one_line(char *str)
 {
-	int		i;
-	char	*line;
+	int i;
+	char*line;
 
 	i = 0;
 	while (str && str[i] != '\n' && str[i])
@@ -53,10 +55,11 @@ static char		*ft_one_line(char *str)
 	return (line);
 }
 
-static char		*ft_next_line(char *str)
+static char
+	*ft_next_line(char *str)
 {
-	int		i;
-	char	*tmp;
+	int i;
+	char*tmp;
 
 	i = 0;
 	tmp = NULL;
@@ -72,7 +75,8 @@ static char		*ft_next_line(char *str)
 	return (str);
 }
 
-static int		ft_end_of_file(char **str, int byte)
+static int
+	ft_end_of_file(char **str, int byte)
 {
 	if (byte == 0 && !ft_strchr2(*str, '\n'))
 	{
@@ -83,11 +87,12 @@ static int		ft_end_of_file(char **str, int byte)
 	return (0);
 }
 
-int				get_next_line(int fd, char **line)
+int
+	get_next_line(int fd, char **line)
 {
-	int			byte;
-	char			buffer[BUFFER_SIZE + 1];
-	static char		*str = NULL;
+	int		byte;
+	char		buffer[BUFFER_SIZE + 1];
+	static char	*str = NULL;
 
 	if (fd < 0 || !line || BUFFER_SIZE == 0)
 		return (-1);

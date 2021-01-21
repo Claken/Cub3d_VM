@@ -18,21 +18,21 @@ LIBFT		= cub3d_libft
 
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
-		cub3d.c \
-		errors_handling.c \
-		parsing_map_data_01.c \
-		parsing_map_data_02.c \
-		parsing_map_data_03.c \
-		c3d_display_01.c \
-		ray_casting_01.c \
-		ray_casting_02.c \
-		ray_casting_03_floor_and_ceiling.c \
-		set_xs_and_ys.c \
-		find_hypothenus.c \
-		event_handling_01_exit_and_cam.c \
-		event_handling_02_keys.c \
-		event_handling_03_move.c \
-		c3d_utils_01.c \
+		cub3d_srcs/cub3d.c \
+		cub3d_srcs/errors_handling.c \
+		cub3d_srcs/parsing_map_data_01.c \
+		cub3d_srcs/parsing_map_data_02.c \
+		cub3d_srcs/parsing_map_data_03.c \
+		cub3d_srcs/c3d_display_01.c \
+		cub3d_srcs/ray_casting_01.c \
+		cub3d_srcs/ray_casting_02.c \
+		cub3d_srcs/ray_casting_03_floor_and_ceiling.c \
+		cub3d_srcs/set_xs_and_ys.c \
+		cub3d_srcs/find_hypothenus.c \
+		cub3d_srcs/event_handling_01_exit_and_cam.c \
+		cub3d_srcs/event_handling_02_keys.c \
+		cub3d_srcs/event_handling_03_move.c \
+		cub3d_srcs/c3d_utils_01.c \
 
 OBJ		= ${SRC:.c=.o}
 
@@ -60,13 +60,13 @@ re: 		fclean all
 
 run:
 		@make re && make clean
-		@./Cub3D maps/mapex.cub
+		@./Cub3D cub3d_maps/mapex.cub
 run2:
 		@make re && make clean
-		@./Cub3D maps/squaremap.cub
+		@./Cub3D cub3d_maps/squaremap.cub
 run3:
 		@make re && make clean
-		@./Cub3D maps/rectmap.cub
+		@./Cub3D cub3d_maps/rectmap.cub
 
 testmlx:
 			gcc -I cub3d_mlx -g -L cub3d_mlx -l mlx -framework OpenGL -framework AppKit maingraph.c

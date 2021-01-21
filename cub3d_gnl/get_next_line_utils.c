@@ -6,13 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:44:07 by sachouam          #+#    #+#             */
-/*   Updated: 2020/06/04 18:41:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2020/12/29 19:29:59 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "../cub3d_includes/get_next_line.h"
 
-int		ft_strlen2(const char *s)
+int
+	ft_strlen2(const char *s)
 {
 	int i;
 
@@ -22,7 +23,8 @@ int		ft_strlen2(const char *s)
 	return (i);
 }
 
-char		*ft_strchr2(const char *s, int c)
+char
+	*ft_strchr2(const char *s, int c)
 {
 	int i;
 
@@ -40,7 +42,8 @@ char		*ft_strchr2(const char *s, int c)
 	return (NULL);
 }
 
-char		*ft_substr2(char const *s, unsigned int start, size_t len)
+char
+	*ft_substr2(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
@@ -58,7 +61,8 @@ char		*ft_substr2(char const *s, unsigned int start, size_t len)
 	return (substr);
 }
 
-static char	*ft_concatenate2(char const *s1, char const *s2, char *str)
+static char
+	*ft_concatenate2(char const *s1, char const *s2, char *str)
 {
 	int i;
 	int j;
@@ -79,10 +83,11 @@ static char	*ft_concatenate2(char const *s1, char const *s2, char *str)
 	return (str);
 }
 
-char		*ft_strjoin2(char const *s1, char const *s2)
+char
+	*ft_strjoin2(char const *s1, char const *s2)
 {
-	char	*str;
-	int		len;
+	char*str;
+	int len;
 
 	if (!s1 && s2)
 		return (ft_substr2(s2, 0, ft_strlen2(s2)));
