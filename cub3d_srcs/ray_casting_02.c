@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/21 23:47:18 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:19:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,9 @@ void
 
 	full = ft_degree_to_radian(360);
 	if (all->vect.raycol > full)
-	{
 		all->vect.raycol = fmod(all->vect.raycol, full);
-	}
 	else if (all->vect.raycol < 0)
-	{
 		all->vect.raycol += full;
-	}
 }
 
 void
@@ -52,25 +48,15 @@ void
 	ft_check_raycol_dir(t_all *all)
 {
 	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
-	{
 		ft_raycol_north_east(all);
-	}
 	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
-	{
 		ft_raycol_north_west(all);
-	}
 	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
-	{
 		ft_raycol_south_west(all);
-	}
 	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
-	{
 		ft_raycol_south_east(all);
-	}
 	else
-	{
 		ft_raycol_special_cases(all);
-	}
 }
 
 void

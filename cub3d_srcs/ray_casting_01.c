@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/21 23:53:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:19:38 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ static void
 	while (!all->vect.hit)
 	{
 		if (hyph < hypv)
-		{
 			ft_if_hyph_is_inferior(all, &hyph);
-		}
 		else
-		{
 			ft_if_hypv_is_inferior(all, &hypv);
-		}
 	}
 }
 
@@ -39,28 +35,20 @@ static void
 	if (all->vect.side == 1 || all->vect.side == 3)
 	{
 		if (all->vect.raycol == PI / 2)
-		{
 			all->vect.distwall = fabs(((all->vect.posy -
 			all->vect.fhy) / sin(all->vect.raycol)));
-		}
 		else
-		{
 			all->vect.distwall = fabs(((all->vect.posx -
 			all->vect.fhx) / cos(all->vect.raycol)));
-		}
 	}
 	else if (all->vect.side == 2 || all->vect.side == 4)
 	{
 		if (all->vect.raycol == PI * 2)
-		{
 			all->vect.distwall = fabs(((all->vect.posx -
 			all->vect.fvx) / cos(all->vect.raycol)));
-		}
 		else
-		{
 			all->vect.distwall = fabs(((all->vect.posy -
 			all->vect.fvy) / sin(all->vect.raycol)));
-		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 00:04:45 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:19:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/01/22 18:27:38 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ int
 		j = -1;
 		while (all->data.map[i][++j])
 		{
-			if (all->data.map[i][j] == 'N' || all->data.map[i][j] == 'S'
-			|| all->data.map[i][j] == 'E' || all->data.map[i][j] == 'W')
+			if (all->data.map[i][j] == 'N'
+			|| all->data.map[i][j] == 'S'
+			|| all->data.map[i][j] == 'E'
+			|| all->data.map[i][j] == 'W')
 			{
 				all->data.posplay = all->data.map[i][j];
 				all->vect.posx = j + 0.5;
