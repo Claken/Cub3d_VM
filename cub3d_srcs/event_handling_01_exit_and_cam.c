@@ -6,12 +6,12 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:17:11 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/05 03:49:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_includes/cub3d.h"
-#define ROTATE 3
+#define ROTATE 1
 
 int
 	ft_good_bye(t_all *all)

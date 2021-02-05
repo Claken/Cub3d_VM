@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 00:04:45 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 18:27:38 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/05 03:30:19 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,67 +51,25 @@ void
 	else if (all->data.posplay == 'W')
 		all->vect.dir = PI;
 }
-/*
-static int
-	ft_check_spaces_in_map(char **map, int j, int i)
-{
-	int end;
-
-	end = ft_strlen(map[j]) - 1;
-	while (map[j][end] == ' ')
-		end--;
-	while (i <= end)
-	{
-		if (map[j][i] == ' ')
-		{
-			if (map[j][i + 1] == '0' ||
-			map[j][i - 1] == '0')
-				return (0);
-			if (map[j - 1])
-			{
-				if (map[j - 1][i] == '0' ||
-				map[j - 1][i + 1] == '0' ||
-				map[j - 1][i - 1] == '0')
-					return (0);
-			}
-			if (map[j + 1])
-			{
-				if (map[j + 1][i] == '0' ||
-				map[j + 1][i - 1] == '0' ||
-				map[j + 1][i + 1] == '0')
-					return (0);
-			}
-		}
-		i++;
-	}
-	return (1);
-}
 
 int
-	ft_check_walls(char **map)
+	ft_check_arguments(char *arg1, char *arg2)
 {
 	int i;
-	int j;
 
-	j = -1;
-	while (map[++j])
+	i = 0;
+	while (arg1[i] && arg1[i] != '.')
+		i++;
+	if (ft_strncmp(arg1 + (i + 1), "cub", 4))
 	{
-		i = 0;
-		while (map[j][i] == ' ')
-			i++;
-		if (!ft_check_spaces_in_map(map, j, i))
-			return (0);
-		if ((j == 0 || map[j + 1] == 0)
-		&& (!ft_strchr(map[j], '1') && !ft_strchr(map[j], ' ')))
-			return (0);
-		if (map[j][i] != '1' && map[j][i] != ' ')
-			return (0);
-		i = ft_strlen(map[j]) - 1;
-		while (map[j][i] == ' ')
-			i--;
-		if (map[j][i] != '1')
-			return (0);
+		ft_error_message("wrong file extension\n");
+		return (0);
 	}
+	if (arg2)
+		if (ft_strncmp(arg2, "--save", 7))
+		{
+			ft_error_message("wrong second argument\n");
+			return (0);
+		}
 	return (1);
 }
-*/

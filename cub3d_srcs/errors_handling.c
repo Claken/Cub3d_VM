@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 19:28:24 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 22:52:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/05 03:30:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,4 @@ int
 	ft_error_message(sentence);
 	exit(EXIT_FAILURE);
 	return (0);
-}
-
-int
-	ft_check_arguments(char *arg1, char *arg2)
-{
-	int i;
-
-	i = 0;
-	while (arg1[i] && arg1[i] != '.')
-		i++;
-	if (ft_strncmp(arg1 + (i + 1), "cub", 4))
-	{
-		ft_error_message("wrong file extension\n");
-		return (0);
-	}
-	if (arg2)
-		if (ft_strncmp(arg2, "--save", 7))
-		{
-			ft_error_message("wrong second argument\n");
-			return (0);
-		}
-	return (1);
 }
