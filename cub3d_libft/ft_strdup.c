@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 11:13:07 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/14 11:36:24 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/06 19:07:37 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char			*str;
+	char		*str;
 	unsigned int	i;
 
 	if (!(str = malloc(sizeof(char) * (ft_strlen(s1) + 1))))

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 21:24:28 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/06 17:35:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,6 @@ void
 	ft_init_structs(t_all *all)
 {
 	ft_bzero(all, sizeof(t_all));
-}
-
-void
-	ft_free_all(t_all *all)
-{
-	int j;
-
-	j = 0;
-	while (all->data.map[j])
-		free(all->data.map[j++]);
-	free(all->data.map);
-	close(all->data.fd);
-}
-
-void
-	ft_abort_mission(t_all *all)
-{
-	int		i;
-	t_texture	*tmp;
-
-	i = 0;
-	ft_free_all(all);
-	while (i < NTXT)
-	{
-		tmp = &((t_texture *)(&all->text))[i++];
-		mlx_destroy_image(all->disp.mlx_ptr, tmp->pict);
-	}
-	mlx_destroy_image(all->disp.mlx_ptr, all->disp.img);
-	mlx_destroy_window(all->disp.mlx_ptr, all->disp.windo);
 }
 
 static void
@@ -63,12 +34,7 @@ int
 {
 	t_all all;
 
-	if (ac < 2 || ac > 3)
-	{
-		ft_error_message("wrong number of arguments\n");
-		return (0);
-	}
-	if (!ft_check_arguments(av[1], av[2]))
+	if (!ft_check_arguments(ac, av[1], av[2]))
 		return (0);
 	ft_init_structs(&all);
 	all.data.fd = open(av[1], O_RDONLY);
@@ -76,6 +42,7 @@ int
 		return (EXIT_FAILURE);
 	if (!(all.data.map = ft_parsing_file_cub(&all, av[1])))
 		return (0);
+	ft_check_cub_data(&all);
 	if (!ft_window_and_image(&all))
 		return (EXIT_FAILURE);
 	if (!ft_parse_tab_pos_play(&all))

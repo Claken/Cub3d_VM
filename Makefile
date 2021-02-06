@@ -19,10 +19,12 @@ LIBFT		= cub3d_libft
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d_srcs/cub3d.c \
+		cub3d_srcs/clear_cub3d.c \
 		cub3d_srcs/errors_handling.c \
-		cub3d_srcs/parsing_map_data_01.c \
-		cub3d_srcs/parsing_map_data_02.c \
-		cub3d_srcs/parsing_map_data_03.c \
+		cub3d_srcs/parsing_map_check_data_01.c \
+		cub3d_srcs/parsing_map_get_data_01.c \
+		cub3d_srcs/parsing_map_get_data_02.c \
+		cub3d_srcs/parsing_map_get_data_03.c \
 		cub3d_srcs/c3d_display_01.c \
 		cub3d_srcs/ray_casting_01.c \
 		cub3d_srcs/ray_casting_02.c \
