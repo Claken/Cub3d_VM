@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 17:35:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:51:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void
 	ft_init_structs(t_all *all)
 {
 	ft_bzero(all, sizeof(t_all));
+	all->data.floor1 = -1;
+	all->data.floor2 = -1;
+	all->data.floor3 = -1;
+	all->data.ceil1 = -1;
+	all->data.ceil2 = -1;
+	all->data.ceil3 = -1;
 }
 
 static void
@@ -34,7 +40,12 @@ int
 {
 	t_all all;
 
-	if (!ft_check_arguments(ac, av[1], av[2]))
+	if (ac < 2 || ac > 3)
+	{
+		ft_error_message("wrong number of arguments\n");
+		return (0);
+	}
+	if (!ft_check_arguments(av[1], av[2]))
 		return (0);
 	ft_init_structs(&all);
 	all.data.fd = open(av[1], O_RDONLY);

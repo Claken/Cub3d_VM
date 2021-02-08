@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:26:00 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 02:26:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:17:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,28 @@ static int
 static int
 	ft_parsing_fc(char *line, t_all *all, int rc)
 {
-	char **tab;
+	int i;
+	char**tab;
 
+	i = 0;
 	if (!(tab = ft_split(line, ", ")))
 		return (0);
-	if (rc == 1)
+	while (tab[i])
+		i++;
+	if (i == 4)
 	{
-		all->data.floor1 = ft_atoi(tab[1]);
-		all->data.floor2 = ft_atoi(tab[2]);
-		all->data.floor3 = ft_atoi(tab[3]);
-	}
-	else if (rc == 2)
-	{
-		all->data.ceil1 = ft_atoi(tab[1]);
-		all->data.ceil2 = ft_atoi(tab[2]);
-		all->data.ceil3 = ft_atoi(tab[3]);
+		if (rc == 1)
+		{
+			all->data.floor1 = ft_atoi(tab[1]);
+			all->data.floor2 = ft_atoi(tab[2]);
+			all->data.floor3 = ft_atoi(tab[3]);
+		}
+		else if (rc == 2)
+		{
+			all->data.ceil1 = ft_atoi(tab[1]);
+			all->data.ceil2 = ft_atoi(tab[2]);
+			all->data.ceil3 = ft_atoi(tab[3]);
+		}
 	}
 	ft_free_tab(tab);
 	return (1);

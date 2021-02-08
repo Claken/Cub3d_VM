@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 18:51:52 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:54:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ typedef struct	s_data
 	unsigned int	reshei;
 	unsigned int	sizex;
 	unsigned int	sizey;
-	unsigned int	floor1;
-	unsigned int	floor2;
-	unsigned int	floor3;
-	unsigned int	ceil1;
-	unsigned int	ceil2;
-	unsigned int	ceil3;
+	int		floor1;
+	int		floor2;
+	int		floor3;
+	int		ceil1;
+	int		ceil2;
+	int		ceil3;
 	char		**map;
 	int		fd;
 	char		posplay;
@@ -148,7 +148,7 @@ typedef struct	s_all
 }			t_all;
 
 void			ft_init_structs(t_all *all);
-int			ft_check_arguments(int ac, char *arg1, char *arg2);
+int			ft_check_arguments(char *arg1, char *arg2);
 void			ft_check_cub_data(t_all *all);
 int			ft_parsing_rfc(char *line, t_all *all);
 char			**ft_parsing_file_cub(t_all *all, char *file);

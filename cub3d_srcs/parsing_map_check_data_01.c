@@ -6,23 +6,18 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/08 03:29:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:37:19 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_includes/cub3d.h"
 
 int
-	ft_check_arguments(int ac, char *arg1, char *arg2)
+	ft_check_arguments(char *arg1, char *arg2)
 {
 	int i;
 	char**tab;
 
-	if (ac < 2 || ac > 3)
-	{
-		ft_error_message("wrong number of arguments\n");
-		return (0);
-	}
 	i = 0;
 	if (!(tab = ft_split(arg1, ".")))
 		return (0);
@@ -48,8 +43,8 @@ static void
 {
 	int		i;
 	int		j;
-	t_texture	*tmp;
 	char		**tab;
+	t_texture	*tmp;
 
 	i = 0;
 	while (i < NTXT)
@@ -71,6 +66,13 @@ static void
 	}
 }
 
+static int	ft_check_fc_colors(int r, int g, int b)
+{
+	if ((r < 0 || 255 < r) || (g < 0 || 255 < g) || (b < 0 || 255 < b))
+		return (0);
+	return (1);
+}
+
 static void
 	ft_check_cub_characters(t_all *all)
 {
@@ -83,14 +85,10 @@ static void
 		j = -1;
 		while (all->data.map[i][++j])
 		{
-			if (all->data.map[i][j] != '0'
-			&& all->data.map[i][j] != '1'
-			&& all->data.map[i][j] != '2'
-			&& all->data.map[i][j] != 'N'
-			&& all->data.map[i][j] != 'S'
-			&& all->data.map[i][j] != 'E'
-			&& all->data.map[i][j] != 'W'
-			&& all->data.map[i][j] != ' '
+			if (all->data.map[i][j] != '0' && all->data.map[i][j] != '1'
+			&& all->data.map[i][j] != '2' && all->data.map[i][j] != 'N'
+			&& all->data.map[i][j] != 'S' && all->data.map[i][j] != 'E'
+			&& all->data.map[i][j] != 'W' && all->data.map[i][j] != ' '
 			&& all->data.map[i][j] != '\n')
 				ft_error_so_exit("wrong character(s) in the map\n", all);
 		}
@@ -100,8 +98,13 @@ static void
 void
 	ft_check_cub_data(t_all *all)
 {
-	if (all->data.reswid == 0 || all->data.reshei == 0)
+	if (all->data.reswid <= 0 || all->data.reshei <= 0)
 		ft_error_so_exit("resolution(s) missing\n", all);
 	ft_check_images(all);
+	if (!ft_check_fc_colors(all->data.floor1,
+	all->data.floor2, all->data.floor3)
+	|| !ft_check_fc_colors(all->data.ceil1,
+	all->data.ceil2, all->data.ceil3))
+		ft_error_so_exit("wrong data for the color(s)\n", all);
 	ft_check_cub_characters(all);
 }
