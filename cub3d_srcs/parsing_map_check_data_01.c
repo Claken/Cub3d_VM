@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 23:43:46 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/08 03:29:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int
 		i++;
 	if (ft_strncmp(tab[i - 1], "cub", 4))
 	{
-		ft_error_message("wrong cub file extension\n");
+		ft_error_message("wrong path or cub file extension\n");
 		ft_free_tab(tab);
 		return (0);
 	}
@@ -65,9 +65,35 @@ static void
 		if (ft_strncmp(tab[j - 1], "xpm", 4))
 		{
 			ft_free_tab(tab);
-			ft_error_so_exit("wrong xpm file extension\n", all);
+			ft_error_so_exit("wrong path or xpm file extension\n", all);
 		}
 		ft_free_tab(tab);
+	}
+}
+
+static void
+	ft_check_cub_characters(t_all *all)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (all->data.map[++i])
+	{
+		j = -1;
+		while (all->data.map[i][++j])
+		{
+			if (all->data.map[i][j] != '0'
+			&& all->data.map[i][j] != '1'
+			&& all->data.map[i][j] != '2'
+			&& all->data.map[i][j] != 'N'
+			&& all->data.map[i][j] != 'S'
+			&& all->data.map[i][j] != 'E'
+			&& all->data.map[i][j] != 'W'
+			&& all->data.map[i][j] != ' '
+			&& all->data.map[i][j] != '\n')
+				ft_error_so_exit("wrong character(s) in the map\n", all);
+		}
 	}
 }
 
@@ -77,4 +103,5 @@ void
 	if (all->data.reswid == 0 || all->data.reshei == 0)
 		ft_error_so_exit("resolution(s) missing\n", all);
 	ft_check_images(all);
+	ft_check_cub_characters(all);
 }
