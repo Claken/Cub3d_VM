@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/08 20:37:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/10 18:17:48 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,12 @@ int
 		return (0);
 	}
 	ft_free_tab(tab);
-	if (arg2 && ft_strncmp(arg2, "--save", 7))
-	{
-		ft_error_message("wrong second argument\n");
-		return (0);
-	}
+	if (arg2)
+		if (ft_strncmp(arg2, "--save", 7))
+		{
+			ft_error_message("wrong second argument\n");
+			return (0);
+		}
 	return (1);
 }
 
@@ -52,7 +53,7 @@ static void
 		j = 0;
 		tmp = &((t_texture *)(&all->text))[i++];
 		if (tmp->path == NULL)
-			ft_error_so_exit("texture(s) missing\n", all);
+			ft_error_so_exit("image(s) missing\n", all);
 		if (!(tab = ft_split(tmp->path, ".")))
 			return ;
 		while (tab[j])
@@ -66,15 +67,18 @@ static void
 	}
 }
 
-static int	ft_check_fc_colors(int r, int g, int b)
+static int
+	ft_check_fc_colors(int r, int g, int b)
 {
-	if ((r < 0 || 255 < r) || (g < 0 || 255 < g) || (b < 0 || 255 < b))
+	if ((r < 0 || 255 < r)
+	|| (g < 0 || 255 < g)
+	|| (b < 0 || 255 < b))
 		return (0);
 	return (1);
 }
 
 static void
-	ft_check_cub_characters(t_all *all)
+	ft_check_map_characters(t_all *all)
 {
 	int i;
 	int j;
@@ -106,5 +110,5 @@ void
 	|| !ft_check_fc_colors(all->data.ceil1,
 	all->data.ceil2, all->data.ceil3))
 		ft_error_so_exit("wrong data for the color(s)\n", all);
-	ft_check_cub_characters(all);
+	ft_check_map_characters(all);
 }
