@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/10 19:53:48 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/13 11:57:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ typedef struct	s_vect
 	double		distscreen;
 	double		distwall;
 	double		nofisheye;
-	int		hit;
 	int		side;
 
 	int		pixbeg;
@@ -166,8 +165,8 @@ void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
 void			ft_re_set_variables(t_all *all);
 void			ft_check_raycol_dir(t_all *all);
-void			ft_if_hyph_is_inferior(t_all *all, double *hyph);
-void			ft_if_hypv_is_inferior(t_all *all, double *hypv);
+void			ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit);
+void			ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit);
 int			ft_key_pressed(int key, t_all *all);
 int			ft_key_released(int key, t_all *all);
 void			ft_key_management(t_all *all);

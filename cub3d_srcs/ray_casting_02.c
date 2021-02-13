@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 18:19:28 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/13 12:12:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void
 	all->vect.hy = 0;
 	all->vect.vx = 0;
 	all->vect.vy = 0;
-	all->vect.hit = 0;
 	all->vect.side = 0;
 	all->disp.colhei = 0;
 	all->vect.distwall = 0;
@@ -60,16 +59,15 @@ void
 }
 
 void
-	ft_if_hyph_is_inferior(t_all *all, double *hyph)
+	ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit)
 {
-	if (all->data.map[(int)all->vect.fhy]
-	[(int)all->vect.fhx] == '1')
+	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
 	{
 		if (all->vect.hy == -1)
 			all->vect.side = 1;
 		else if (all->vect.hy == 1)
 			all->vect.side = 3;
-		all->vect.hit = 1;
+		*hit = 1;
 	}
 	else
 	{
@@ -80,16 +78,15 @@ void
 }
 
 void
-	ft_if_hypv_is_inferior(t_all *all, double *hypv)
+	ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit)
 {
-	if (all->data.map[(int)all->vect.fvy]
-	[(int)all->vect.fvx] == '1')
+	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
 	{
 		if (all->vect.vx == -1)
 			all->vect.side = 4;
 		else if (all->vect.vx == 1)
 			all->vect.side = 2;
-		all->vect.hit = 1;
+		*hit = 1;
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 18:19:38 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/13 12:21:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,20 @@ static void
 {
 	double hyph;
 	double hypv;
+	int hit;
 
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
-	while (!all->vect.hit)
+	hit = 0;
+	printf("hyph = %lf, hypv = %lf\n", hyph, hypv);
+	while (!hit)
 	{
+		printf("fhx = %lf, fhy = %lf\n", all->vect.fhx, all->vect.fhy);
+		printf("fvx = %lf, fvy = %lf\n", all->vect.fvx, all->vect.fvy);
 		if (hyph < hypv)
-			ft_if_hyph_is_inferior(all, &hyph);
+			ft_if_hyph_is_inferior(all, &hyph, &hit);
 		else
-			ft_if_hypv_is_inferior(all, &hypv);
+			ft_if_hypv_is_inferior(all, &hypv, &hit);
 	}
 }
 
@@ -66,8 +71,7 @@ static void
 {
 	int j;
 
-	all->disp.colhei = (CASE / all->vect.nofisheye)
-	* all->vect.distscreen;
+	all->disp.colhei = (CASE / all->vect.nofisheye) * all->vect.distscreen;
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
 		all->disp.pixbeg = -1;
