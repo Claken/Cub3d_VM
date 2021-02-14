@@ -6,16 +6,16 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:32:31 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:15:41 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 01:02:57 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_includes/cub3d.h"
 
-double
+float
 	ft_degree_to_radian(int degree)
 {
-	double radian;
+	float radian;
 
 	radian = (degree * PI) / 180.0f;
 	return (radian);

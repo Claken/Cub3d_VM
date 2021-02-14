@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/13 11:27:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 00:56:56 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 void
 	ft_move_forward(t_all *all)
 {
-	double csn;
-	double sn;
-	double ncx;
-	double ncy;
+	float csn;
+	float sn;
+	float ncx;
+	float ncy;
 
 	csn = cos(all->vect.dir) / SLOWING;
 	sn = -sin(all->vect.dir) / SLOWING;
@@ -37,10 +37,10 @@ void
 void
 	ft_move_to_the_left(t_all *all)
 {
-	double csn;
-	double sn;
-	double ncx;
-	double ncy;
+	float csn;
+	float sn;
+	float ncx;
+	float ncy;
 
 	all->vect.dir += (PI + (PI / 2));
 	csn = -cos(all->vect.dir) / SLOWING;
@@ -60,10 +60,10 @@ void
 void
 	ft_move_backwards(t_all *all)
 {
-	double csn;
-	double sn;
-	double ncx;
-	double ncy;
+	float csn;
+	float sn;
+	float ncx;
+	float ncy;
 
 	all->vect.dir += PI;
 	csn = cos(all->vect.dir) / SLOWING;
@@ -83,10 +83,10 @@ void
 void
 	ft_move_to_the_right(t_all *all)
 {
-	double csn;
-	double sn;
-	double ncx;
-	double ncy;
+	float csn;
+	float sn;
+	float ncx;
+	float ncy;
 
 	all->vect.dir += (PI / 2);
 	csn = -cos(all->vect.dir) / SLOWING;

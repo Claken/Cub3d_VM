@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/13 11:26:18 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 00:55:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int
 void
 	ft_move_camera_right(t_all *all)
 {
-	double i;
-	double dirmod;
-	double full;
+	float i;
+	float dirmod;
+	float full;
 
 	i = ft_degree_to_radian(ROTATE);
 	full = ft_degree_to_radian(360);
@@ -40,9 +40,9 @@ void
 void
 	ft_move_camera_left(t_all *all)
 {
-	double i;
-	double dirmod;
-	double full;
+	float i;
+	float dirmod;
+	float full;
 
 	i = ft_degree_to_radian(ROTATE);
 	full = ft_degree_to_radian(360);

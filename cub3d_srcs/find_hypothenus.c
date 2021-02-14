@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2021/01/22 18:25:44 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 01:05:36 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void
 		all->vect.teta = (2 * PI) - all->vect.raycol;
 }
 
-static double
+static float
 	ft_set_hyph_special_cases(t_all *all)
 {
 	if (all->vect.raycol == PI / 2)
- 		return (all->vect.modyu);
+		return (all->vect.modyu);
 	else if (all->vect.raycol == PI + (PI / 2))
 		return ((all->vect.posy - all->vect.modyu + CASE)
 		- all->vect.posy);
@@ -38,10 +38,10 @@ static double
 	return (0);
 }
 
-double
+float
 	ft_set_hyph(t_all *all)
 {
-	double hyph;
+	float hyph;
 
 	hyph = 0;
 	ft_set_teta(all);
@@ -57,7 +57,7 @@ double
 	return (hyph);
 }
 
-static double
+static float
 	ft_set_hypv_special_cases(t_all *all)
 {
 	if (all->vect.raycol == PI * 2)
@@ -70,10 +70,10 @@ static double
 	return (0);
 }
 
-double
+float
 	ft_set_hypv(t_all *all)
 {
-	double hypv;
+	float hypv;
 
 	hypv = 0;
 	ft_set_teta(all);
