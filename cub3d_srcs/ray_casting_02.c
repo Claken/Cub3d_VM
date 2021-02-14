@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/14 00:58:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 13:31:22 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void
 	ft_check_raycol_value(t_all *all)
 {
-	float full;
+	double full;
 
 	full = ft_degree_to_radian(360);
 	if (all->vect.raycol > full)
@@ -59,7 +59,7 @@ void
 }
 
 void
-	ft_if_hyph_is_inferior(t_all *all, float *hyph, int *hit)
+	ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit)
 {
 	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
 	{
@@ -78,7 +78,7 @@ void
 }
 
 void
-	ft_if_hypv_is_inferior(t_all *all, float *hypv, int *hit)
+	ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit)
 {
 	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
 	{

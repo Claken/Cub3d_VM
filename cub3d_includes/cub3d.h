@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/14 01:03:56 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/14 12:46:54 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,36 +80,36 @@ typedef struct	s_elem
 
 typedef struct	s_vect
 {
-	float		posy;
-	float		posx;
-	float		dir;
-	float		fov;
-	float		apr;
-	float		raycol;
-	float		teta;
+	double		posy;
+	double		posx;
+	double		dir;
+	double		fov;
+	double		apr;
+	double		raycol;
+	double		teta;
 
-	float		fhx;
-	float		fhy;
+	double		fhx;
+	double		fhy;
 
-	float		fvx;
-	float		fvy;
+	double		fvx;
+	double		fvy;
 
-	float		hx;
-	float		hy;
+	double		hx;
+	double		hy;
 
-	float		vx;
-	float		vy;
+	double		vx;
+	double		vy;
 
-	float		distscreen;
-	float		distwall;
-	float		nofisheye;
+	double		distscreen;
+	double		distwall;
+	double		nofisheye;
 	int		side;
 
 	int		pixbeg;
 	int		pixend;
 
-	float		modxl;
-	float		modyu;
+	double		modxl;
+	double		modyu;
 }			t_vect;
 
 typedef struct	s_mlx
@@ -165,8 +165,8 @@ void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
 void			ft_re_set_variables(t_all *all);
 void			ft_check_raycol_dir(t_all *all);
-void			ft_if_hyph_is_inferior(t_all *all, float *hyph, int *hit);
-void			ft_if_hypv_is_inferior(t_all *all, float *hypv, int *hit);
+void			ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit);
+void			ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit);
 int			ft_key_pressed(int key, t_all *all);
 int			ft_key_released(int key, t_all *all);
 void			ft_key_management(t_all *all);
@@ -182,14 +182,14 @@ int			ft_get_color(unsigned int r,
 			unsigned int g, unsigned int b);
 void			ft_draw_pixel(t_all *all, int y, int x);
 void			ft_hooks_and_loops(t_all *all);
-float			ft_degree_to_radian(int degree);
+double			ft_degree_to_radian(int degree);
 void			ft_create_image(t_all *all);
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
 void			ft_raycol_south_west(t_all *all);
 void			ft_raycol_south_east(t_all *all);
 void			ft_raycol_special_cases(t_all *all);
-float			ft_set_hyph(t_all *all);
-float			ft_set_hypv(t_all *all);
+double			ft_set_hyph(t_all *all);
+double			ft_set_hypv(t_all *all);
 
 #endif
