@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/14 12:46:54 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/25 04:06:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ typedef struct	s_texture
 	int		width;
 	int		height;
 	char		*path;
+	int		*img_addr;
+	int		img_bpp;
+	int		img_end;
+	int		img_ll;
+
 }			t_texture;
 
 typedef struct	s_elem
@@ -110,6 +115,8 @@ typedef struct	s_vect
 
 	double		modxl;
 	double		modyu;
+
+	int		index;
 }			t_vect;
 
 typedef struct	s_mlx
@@ -119,10 +126,10 @@ typedef struct	s_mlx
 	void		*img;
 	int		*addr;
 	int		bpp;
-	int		colhei;
 	int		endian;
-	int		color;
 	int		ll;
+	int		colhei;
+	int		color;
 	int		pixbeg;
 	int		pixend;
 }			t_mlx;
@@ -164,7 +171,8 @@ int			ft_good_bye(t_all *all);
 void			ft_raycasting(t_all *all);
 void			ft_check_raycol_value(t_all *all);
 void			ft_re_set_variables(t_all *all);
-void			ft_check_raycol_dir(t_all *all);
+void			ft_raycol_dir(t_all *all);
+int			ft_check_raycol_direction(t_all *all);
 void			ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit);
 void			ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit);
 int			ft_key_pressed(int key, t_all *all);
@@ -188,8 +196,10 @@ void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
 void			ft_raycol_south_west(t_all *all);
 void			ft_raycol_south_east(t_all *all);
-void			ft_raycol_special_cases(t_all *all);
+void			ft_raycol_special_cases(t_all *all, int direction);
 double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
+
+void			printf_distances(int i, t_all *all);
 
 #endif

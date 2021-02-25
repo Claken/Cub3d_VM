@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/14 13:30:20 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/25 02:46:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,17 @@ static void
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
 	hit = 0;
+	//if (all->vect.index <= (int)all->data.reswid / 2)
+	//	printf("\n1st hyph %lf, 1st hypv %lf\n", hyph, hypv);
 	while (!hit)
 	{
+		//if (all->vect.index <= (int)all->data.reswid / 2)
+		//{
+			//printf("raycol = %lf\n", all->vect.raycol);
+			//printf("fhy %lf, fhx %lf\n", all->vect.fhy, all->vect.fhx);
+			//printf("fvy %lf, fvx %lf\n", all->vect.fvy, all->vect.fvx);
+		//	printf("hyph %lf, hypv %lf\n", hyph, hypv);
+		//}
 		if (hyph < hypv)
 			ft_if_hyph_is_inferior(all, &hyph, &hit);
 		else
@@ -36,25 +45,21 @@ static void
 {
 	if (all->vect.side == 1 || all->vect.side == 3)
 	{
-		if (all->vect.raycol == PI / 2)
-		{
-			all->vect.distwall = fabs(((all->vect.posy -
-			all->vect.fhy) / sin(all->vect.raycol)));
-		}
-		else
-		{
-			all->vect.distwall = fabs(((all->vect.posx -
-			all->vect.fhx) / cos(all->vect.raycol)));
-		}
+		//if ((float)all->vect.raycol == (float)(PI / 2))
+		//	all->vect.distwall = fabs(((all->vect.posy -
+		//	all->vect.fhy) / sin(all->vect.raycol)));
+		//else
+		all->vect.distwall = fabs(((all->vect.posx -
+		all->vect.fhx) / cos(all->vect.raycol)));
 	}
 	else if (all->vect.side == 2 || all->vect.side == 4)
 	{
-		if (all->vect.raycol == PI * 2)
-			all->vect.distwall = fabs(((all->vect.posx -
-			all->vect.fvx) / cos(all->vect.raycol)));
-		else
-			all->vect.distwall = fabs(((all->vect.posy -
-			all->vect.fvy) / sin(all->vect.raycol)));
+		//if ((float)all->vect.raycol == (float)(PI * 2))
+		//	all->vect.distwall = fabs(((all->vect.posx -
+		//	all->vect.fvx) / cos(all->vect.raycol)));
+		//else
+		all->vect.distwall = fabs(((all->vect.posy -
+		all->vect.fvy) / sin(all->vect.raycol)));
 	}
 }
 
@@ -66,61 +71,6 @@ static void
 	beta = fabs(all->vect.dir - all->vect.raycol);
 	all->vect.nofisheye = all->vect.distwall * cos(beta);
 }
-
-/*
-	if (i <= (int)all->data.reswid / 2)
-	{
-		printf("raycol = %lf\n", all->vect.raycol);
-		printf("PI / 2 = %lf\n", PI / 2);
-		if (all->vect.side == 1 || all->vect.side == 3)
-		{
-			if (all->vect.raycol == PI / 2)
-			{
-				printf("1\n");
-			}
-			else
-			{
-				printf("2\n");
-			}
-			printf("posy = %lf\n", all->vect.posy);
-			printf("fhy = %lf\n", all->vect.fhy);
-			printf("sin(raycol) = %lf\n", sin(all->vect.raycol));
-			printf("distwall = %lf\n", fabs(((all->vect.posy - all->vect.fhy)
-			/ sin(all->vect.raycol))));
-			printf("posx = %lf\n", all->vect.posx);
-			printf("fhx = %lf\n", all->vect.fhx);
-			printf("cos(raycol) = %lf\n", cos(all->vect.raycol));
-			printf("distwall = %lf\n\n", fabs(((all->vect.posx - all->vect.fhx)
-			/ cos(all->vect.raycol))));
-
-		}
-		//else if (all->vect.side == 2 || all->vect.side == 4)
-		{
-			//if (all->vect.raycol == PI * 2)
-			//{
-				//printf("3\n");
-				//printf("posx = %lf\n", all->vect.posx);
-				//printf("fvx = %lf\n", all->vect.fvy);
-				//printf("cos(raycol) = %lf\n", cos(all->vect.raycol));
-				//printf("distwall = %lf\n", fabs(((all->vect.posx - all->vect.fvx)
-				/// cos(all->vect.raycol))));
-			//}
-			//else
-			//{
-				//printf("4\n");
-				//printf("posy = %lf\n", all->vect.posy);
-				//printf("fvy = %lf\n", all->vect.fvy);
-				//printf("sin(raycol) = %lf\n", sin(all->vect.raycol));
-				//printf("distwall = %lf\n\n", fabs(((all->vect.posy - all->vect.fvy)
-				/// sin(all->vect.raycol))));
-			//}
-		}
-		//printf("distwall = %lf\n", all->vect.distwall);
-		//printf("nofisheye = %lf\n", all->vect.nofisheye);
-		//printf("colonne height = %d\n\n", all->disp.colhei);
-	}
-*/
-
 
 static void
 	ft_drawing_column(t_all *all, int i)
@@ -151,15 +101,19 @@ void
 	all->vect.modxl = fmod(all->vect.posx, 1);
 	all->vect.modyu = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
+	//all->vect.index = i;
+	//while (++all->vect.index < (int)all->data.reswid)
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
-		ft_check_raycol_dir(all);
+		ft_raycol_dir(all);
 		ft_check_for_walls(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
+		//i = all->vect.index;
 		ft_drawing_column(all, i);
+//		printf_distances(i, all);
 		all->vect.raycol -= all->vect.apr;
 	}
 }

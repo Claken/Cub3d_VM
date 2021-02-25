@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/14 13:31:22 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/02/25 04:02:44 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,21 @@ void
 }
 
 void
-	ft_check_raycol_dir(t_all *all)
+	ft_raycol_dir(t_all *all)
 {
-	if (all->vect.raycol < PI / 2 && all->vect.raycol > 0.0)
+	int direction;
+
+	direction = ft_check_raycol_direction(all);
+	if (direction == 1)
 		ft_raycol_north_east(all);
-	else if (all->vect.raycol > PI / 2 && all->vect.raycol < PI)
+	else if (direction == 2)
 		ft_raycol_north_west(all);
-	else if (all->vect.raycol > PI && all->vect.raycol < PI + PI / 2)
+	else if (direction == 3)
 		ft_raycol_south_west(all);
-	else if (all->vect.raycol > PI + PI / 2 && all->vect.raycol < 2 * PI)
+	else if (direction == 4)
 		ft_raycol_south_east(all);
 	else
-		ft_raycol_special_cases(all);
+		ft_raycol_special_cases(all, direction);
 }
 
 void

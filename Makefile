@@ -12,7 +12,7 @@ NAME_MLX	= libmlx.a
 
 INCLUDES	= includes
 
-MLX 		= /usr/local/include
+MLX		= /usr/local/include
 
 LIBFT		= cub3d_libft
 
@@ -20,6 +20,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d_srcs/cub3d.c \
 		cub3d_srcs/clear_cub3d.c \
+		cub3d_srcs/check_raycol_direction.c \
 		cub3d_srcs/errors_handling.c \
 		cub3d_srcs/parsing_map_check_data_01.c \
 		cub3d_srcs/parsing_map_get_data_01.c \
@@ -35,11 +36,13 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/event_handling_02_keys.c \
 		cub3d_srcs/event_handling_03_move.c \
 		cub3d_srcs/c3d_utils_01.c \
+		debugging.c \
 
 OBJ		= ${SRC:.c=.o}
 
 .c.o:
-		$(CC) $(CFLAGS) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) $(SRC) $(NAME_LIBFT) -o $(NAME) $(MFLAGS) #-g3 -fsanitize=address
+		$(CC) $(CFLAGS) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) $(SRC) $(NAME_LIBFT) -o $(NAME) $(MFLAGS)
+		#-g3 -fsanitize=address
 
 all:            $(NAME)
 
@@ -58,7 +61,7 @@ fclean:		clean
 		make fclean -C $(LIBFT)
 		rm -rf $(NAME_MLX)
 
-re: 		fclean all
+re:		fclean all
 
 run:
 		@make re && make clean
@@ -70,11 +73,8 @@ run3:
 		@make re && make clean
 		@./Cub3D cub3d_maps/rectmap.cub
 
-testmlx:
-			gcc -I cub3d_mlx -g -L cub3d_mlx -l mlx -framework OpenGL -framework AppKit maingraph.c
-			./a.out
 testpars:
-			gcc -I $(MLX) -I $(PRTF) -g -L $(MLX) -l mlx -framework OpenGL -framework AppKit maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c cub3d_libft/*.c cub3d_libft/ft_printf/*.c
-			./a.out mapex.cub
+		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS)
+		./a.out cub3d_maps/mapex.cub
 
 .PHONY: all clean fclean re
