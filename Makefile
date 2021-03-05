@@ -23,6 +23,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/check_raycol_direction.c \
 		cub3d_srcs/errors_handling.c \
 		cub3d_srcs/parsing_map_check_data_01.c \
+		cub3d_srcs/parsing_map_check_data_02.c \
 		cub3d_srcs/parsing_map_get_data_01.c \
 		cub3d_srcs/parsing_map_get_data_02.c \
 		cub3d_srcs/parsing_map_get_data_03.c \
