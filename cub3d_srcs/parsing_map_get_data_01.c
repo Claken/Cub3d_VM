@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:25:43 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 19:44:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:13:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,22 @@ static int
 }
 
 static char
-	*ft_one_line_map(char *line)
+	*ft_one_line_map(char *line, int size)
 {
 	char*oneline;
 	int i;
+	int len;
 
-	if (!(oneline = malloc(sizeof(char) * (ft_strlen(line) + 1))))
+	len = ft_strlen(line);
+	if (!(oneline = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	i = 0;
-	while (line[i])
-	{
+	i = -1;
+	while (line[++i])
 		oneline[i] = line[i];
-		i++;
-	}
 	oneline[i] = '\0';
+	oneline = ft_replace_in_str(oneline, ' ', '1');
+	if (len < size)
+		oneline = ft_reset_line_size(oneline, size, i);
 	return (oneline);
 }
 
@@ -90,12 +92,17 @@ static void
 		all->text.east.path, &all->text.east.width, &all->text.east.height);
 	else if (*line == 'S')
 		all->text.sprite.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->text.sprite.path, &all->text.sprite.width, &all->text.sprite.height);
+		all->text.sprite.path, &all->text.sprite.width,
+		&all->text.sprite.height);
 }
 
 static int
 	ft_ifs_for_parsing(char *line, t_all *all, char **map, int *j)
 {
+	static int size;
+
+	if (*j == 0)
+		size = ft_strlen(line);
 	if (line[0] == 'R' || line[0] == 'F' || line[0] == 'C')
 	{
 		if (!ft_parsing_rfc(line, all))
@@ -104,7 +111,7 @@ static int
 	else if (line[0] == ' ' || line[0] == '0'
 	|| line[0] == '1' || line[0] == '2')
 	{
-		if (!(map[*j] = ft_one_line_map(line)))
+		if (!(map[*j] = ft_one_line_map(line, size)))
 			return (0);
 		*j += 1;
 	}

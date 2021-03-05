@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 04:06:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/05 03:39:25 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,11 @@ typedef struct	s_all
 void			ft_init_structs(t_all *all);
 int			ft_check_arguments(char *arg1, char *arg2);
 void			ft_check_cub_data(t_all *all);
+char			*ft_replace_in_str(char *str, char a, char b);
+void			*ft_realloc(void *ptr, size_t size);
+char			*ft_reset_line_size(char *line, int size, int i);
+int			ft_check_first_or_last(char *line);
+int			ft_check_beginning_and_end(char *line);
 int			ft_parsing_rfc(char *line, t_all *all);
 char			**ft_parsing_file_cub(t_all *all, char *file);
 int			ft_parse_tab_pos_play(t_all *all);

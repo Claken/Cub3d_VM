@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 19:39:07 by sachouam          #+#    #+#             */
-/*   Updated: 2019/10/24 17:32:40 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/02 19:20:42 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *temp;
+	t_list *tmp;
 
-	temp = *alst;
+	tmp = *alst;
 	if (new)
 	{
 		if (!(*alst))
-			*alst = new;
+			*alst = ft_lstnew(new);
 		else
 		{
 			while ((*alst)->next != NULL)
 				*alst = (*alst)->next;
-			(*alst)->next = new;
-			*alst = temp;
+			(*alst)->next = ft_lstnew(new);
+			*alst = tmp;
 		}
 	}
 }

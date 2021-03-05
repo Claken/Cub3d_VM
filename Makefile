@@ -36,6 +36,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/event_handling_02_keys.c \
 		cub3d_srcs/event_handling_03_move.c \
 		cub3d_srcs/c3d_utils_01.c \
+		cub3d_srcs/functions_for_map_parsing.c \
 		debugging.c \
 
 OBJ		= ${SRC:.c=.o}
@@ -47,7 +48,7 @@ OBJ		= ${SRC:.c=.o}
 all:            $(NAME)
 
 makefirst:
-		make all -C $(LIBFT)
+		make bonus -C $(LIBFT)
 		cp /usr/local/lib/libmlx.a .
 
 $(NAME):        makefirst $(OBJ)
