@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 13:50:22 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/05 15:53:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,8 +162,9 @@ char			*ft_reset_line_size(char *line, int size, int i);
 int			ft_check_first_or_last(char *line);
 int			ft_check_beginning_and_end(char *line);
 void			ft_check_walls(t_all *all);
-int			ft_parsing_rfc(char *line, t_all *all);
 char			**ft_parsing_file_cub(t_all *all, char *file);
+void			ft_parsing_text(char *line, t_all *all);
+int			ft_parsing_rfc(char *line, t_all *all);
 int			ft_parse_tab_pos_play(t_all *all);
 void			ft_set_dir_and_angle(t_all *all);
 int			ft_window_and_image(t_all *all);
