@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:26:35 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/12 13:46:24 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/12 20:18:13 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,12 @@ static void
 		x = -1;
 		while (++x < (int)all->data.reswid)
 		{
-			bmp->buffer[bmp->i++] = all->disp.addr[y * all->data.reswid + x] >> 0;
-			bmp->buffer[bmp->i++] = all->disp.addr[y * all->data.reswid + x] >> 8;
-			bmp->buffer[bmp->i++] = all->disp.addr[y * all->data.reswid + x] >> 16;
+			bmp->buffer[bmp->i++] =
+			all->disp.addr[y * all->data.reswid + x] >> 0;
+			bmp->buffer[bmp->i++] =
+			all->disp.addr[y * all->data.reswid + x] >> 8;
+			bmp->buffer[bmp->i++] =
+			all->disp.addr[y * all->data.reswid + x] >> 16;
 		}
 		x = -1;
 		while (++x < (int)((4 - (all->data.reswid * 3) % 4) % 4))
@@ -87,14 +90,14 @@ int
 	(((4 - (all->data.reswid * 3) % 4) % 4) * all->data.reshei);
 	if (!(bmp.buffer = malloc(sizeof(char) * bmp.size)))
 		return (0);
-	if ((fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC)) < 0)
+	if ((fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0700)) == -1)
 		return (0);
 	ft_fill_bmp_header(&bmp);
 	ft_fill_bmp_info(all, &bmp);
 	ft_fill_bmp_with_pixels(all, &bmp);
-	write(fd, bmp.buffer, bmp.size);
+	if (write(fd, bmp.buffer, bmp.size) == -1)
+		return (0);
 	free(bmp.buffer);
 	close(fd);
 	return (1);
 }
-
