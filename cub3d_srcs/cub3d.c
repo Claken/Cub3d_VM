@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/08 18:51:30 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:02:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int
 		ft_error_message("wrong number of arguments\n");
 		return (0);
 	}
-	if (!ft_check_arguments(av[1], av[2]))
-		return (0);
 	ft_init_structs(&all);
+	if (!ft_check_arguments(av[1], av[2], &all))
+		return (0);
 	all.data.fd = open(av[1], O_RDONLY);
 	if (!(all.disp.mlx_ptr = mlx_init()))
 		return (EXIT_FAILURE);
@@ -60,6 +60,9 @@ int
 		return (ft_error_so_exit("no player on the map\n", &all));
 	ft_set_variables(&all);
 	ft_create_image(&all);
+	if (all.bmp.save)
+		if (ft_save_bmp_image(&all, "first_image.bmp"))
+			return (ft_good_bye(&all));
 	ft_hooks_and_loops(&all);
 	return (0);
 }

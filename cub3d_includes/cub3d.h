@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:53:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:01:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,14 @@ typedef struct	s_keys
 	int		l_arr;
 }			t_keys;
 
+typedef struct	s_bmp
+{
+	int		save;
+	unsigned char	*buffer;
+	size_t		i;
+	size_t		size;
+}			t_bmp;
+
 typedef struct	s_all
 {
 	t_data		data;
@@ -151,10 +159,11 @@ typedef struct	s_all
 	t_mlx		disp;
 	t_elem		text;
 	t_keys		key;
+	t_bmp		bmp;
 }			t_all;
 
 void			ft_init_structs(t_all *all);
-int			ft_check_arguments(char *arg1, char *arg2);
+int			ft_check_arguments(char *arg1, char *arg2, t_all *all);
 void			ft_check_cub_data(t_all *all);
 char			*ft_replace_in_str(char *str, char a, char b);
 void			*ft_realloc(void *ptr, size_t size);
@@ -167,6 +176,7 @@ void			ft_parsing_text(char *line, t_all *all);
 int			ft_parsing_rfc(char *line, t_all *all);
 int			ft_parse_tab_pos_play(t_all *all);
 void			ft_set_dir_and_angle(t_all *all);
+int			ft_save_bmp_image(t_all *all, char *filename);
 int			ft_window_and_image(t_all *all);
 void			ft_free_all(t_all *all);
 void			ft_destroy_images(t_all *all);

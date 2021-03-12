@@ -39,6 +39,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/event_handling_03_move.c \
 		cub3d_srcs/c3d_utils_01.c \
 		cub3d_srcs/functions_for_map_parsing.c \
+		cub3d_srcs/save_bmp_image.c \
 		debugging.c \
 
 OBJ		= ${SRC:.c=.o}
@@ -77,7 +78,11 @@ run3:
 		@./Cub3D cub3d_maps/rectmap.cub
 
 testpars:
-		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS)
-		./a.out cub3d_maps/mapex.cub
+		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS) -o pars
+		./pars cub3d_maps/mapex.cub
+
+testgraph:
+		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maingraph.c $(MFLAGS) -o graph
+		./graph
 
 .PHONY: all clean fclean re

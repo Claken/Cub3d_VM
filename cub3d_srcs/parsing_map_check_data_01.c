@@ -6,14 +6,14 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 13:49:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/09 17:22:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d_includes/cub3d.h"
 
 int
-	ft_check_arguments(char *arg1, char *arg2)
+	ft_check_arguments(char *arg1, char *arg2, t_all *all)
 {
 	int i;
 	char**tab;
@@ -31,11 +31,14 @@ int
 	}
 	ft_free_tab(tab);
 	if (arg2)
+	{
 		if (ft_strncmp(arg2, "--save", 7))
 		{
 			ft_error_message("wrong second argument\n");
 			return (0);
 		}
+		all->bmp.save = 1;
+	}
 	return (1);
 }
 

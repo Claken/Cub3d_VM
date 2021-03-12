@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 17:41:03 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:03:11 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/07 19:56:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void
 	j = -1;
 	while (all->data.map[++j])
 	{
-		printf("map = %s\n", all->data.map[j]);
 		if (j == 0)
 		{
 			len = ft_strlen(all->data.map[j]);

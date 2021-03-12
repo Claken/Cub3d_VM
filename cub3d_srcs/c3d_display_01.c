@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 17:41:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/13 11:25:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:38:02 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int
 int
 	ft_window_and_image(t_all *all)
 {
-	if (!(all->disp.windo = mlx_new_window(all->disp.mlx_ptr,
-	all->data.reswid, all->data.reshei, "Cub3D")))
-		return (0);
+	if (!all->bmp.save)
+		if (!(all->disp.windo = mlx_new_window(all->disp.mlx_ptr,
+		all->data.reswid, all->data.reshei, "Cub3D")))
+			return (0);
 	if (!(all->disp.img = mlx_new_image(all->disp.mlx_ptr,
 	all->data.reswid, all->data.reshei)))
 		return (0);
@@ -50,6 +51,7 @@ void
 {
 	ft_draw_ceil_and_floor(all);
 	ft_raycasting(all);
-	mlx_put_image_to_window(all->disp.mlx_ptr,
-	all->disp.windo, all->disp.img, 0, 0);
+	if (!all->bmp.save)
+		mlx_put_image_to_window(all->disp.mlx_ptr,
+		all->disp.windo, all->disp.img, 0, 0);
 }
