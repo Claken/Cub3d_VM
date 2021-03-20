@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handling_01_exit_and_cam.c                   :+:      :+:    :+:   */
+/*   exit_and_cam.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/13 22:09:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 04:31:27 by sachouam         ###   ########.fr       */
+/*   Created: 2021/03/19 17:34:34 by sachouam          #+#    #+#             */
+/*   Updated: 2021/03/19 17:34:37 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 #define ROTATE 2
 
 int

@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 02:12:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 04:07:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:38:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 int
 	ft_check_raycol_direction(t_all *all)

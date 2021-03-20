@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 19:28:24 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/05 03:30:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:18:46 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 void
 	ft_error_message(char *sentence)

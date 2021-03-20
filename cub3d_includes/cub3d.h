@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/12 14:01:41 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/17 11:41:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ typedef struct	s_texture
 	int		width;
 	int		height;
 	char		*path;
-	int		*img_addr;
-	int		img_bpp;
-	int		img_end;
-	int		img_ll;
+	int		*addr;
+	int		bpp;
+	int		endian;
+	int		ll;
 
 }			t_texture;
 

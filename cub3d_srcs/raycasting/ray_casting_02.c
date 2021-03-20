@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 04:02:44 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:46:02 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 void
 	ft_check_raycol_value(t_all *all)

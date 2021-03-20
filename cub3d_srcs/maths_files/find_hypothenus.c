@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 03:48:20 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:39:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 static void
 	ft_set_teta(t_all *all, int direction)

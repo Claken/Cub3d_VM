@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_check_data_01.c                        :+:      :+:    :+:   */
+/*   check_data.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/09 17:22:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:40:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 int
 	ft_check_arguments(char *arg1, char *arg2, t_all *all)

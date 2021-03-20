@@ -18,28 +18,28 @@ LIBFT		= cub3d_libft
 
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
+		cub3d_srcs/bmp_save/save_bmp_image.c \
+		cub3d_srcs/clear_cub3d/clear_cub3d.c \
 		cub3d_srcs/cub3d.c \
-		cub3d_srcs/clear_cub3d.c \
-		cub3d_srcs/check_raycol_direction.c \
-		cub3d_srcs/errors_handling.c \
-		cub3d_srcs/parsing_map_check_data_01.c \
-		cub3d_srcs/parsing_map_check_data_02.c \
-		cub3d_srcs/parsing_map_get_data_01.c \
-		cub3d_srcs/parsing_map_get_data_02.c \
-		cub3d_srcs/parsing_map_get_data_03.c \
-		cub3d_srcs/parsing_map_get_data_04.c \
-		cub3d_srcs/c3d_display_01.c \
-		cub3d_srcs/ray_casting_01.c \
-		cub3d_srcs/ray_casting_02.c \
-		cub3d_srcs/ray_casting_03_floor_and_ceiling.c \
-		cub3d_srcs/set_xs_and_ys.c \
-		cub3d_srcs/find_hypothenus.c \
-		cub3d_srcs/event_handling_01_exit_and_cam.c \
-		cub3d_srcs/event_handling_02_keys.c \
-		cub3d_srcs/event_handling_03_move.c \
-		cub3d_srcs/c3d_utils_01.c \
-		cub3d_srcs/functions_for_map_parsing.c \
-		cub3d_srcs/save_bmp_image.c \
+		cub3d_srcs/display/c3d_display_01.c \
+		cub3d_srcs/errors_handling/errors_handling.c \
+		cub3d_srcs/event_handling/exit_and_cam.c \
+		cub3d_srcs/event_handling/keys.c \
+		cub3d_srcs/event_handling/move.c \
+		cub3d_srcs/functions/c3d_utils_01.c \
+		cub3d_srcs/functions/check_raycol_direction.c \
+		cub3d_srcs/functions/functions_for_map_parsing.c \
+		cub3d_srcs/maths_files/find_hypothenus.c \
+		cub3d_srcs/maths_files/set_xs_and_ys.c \
+		cub3d_srcs/parsing_map/check_data/check_data.c \
+		cub3d_srcs/parsing_map/check_data/check_walls.c \
+		cub3d_srcs/parsing_map/get_data/get_file_cub_and_map.c \
+		cub3d_srcs/parsing_map/get_data/get_player_and_direction.c \
+		cub3d_srcs/parsing_map/get_data/get_res_flo_and_ceil.c \
+		cub3d_srcs/parsing_map/get_data/get_textures_and_sprite.c \
+		cub3d_srcs/raycasting/ray_casting_01.c \
+		cub3d_srcs/raycasting/ray_casting_02.c \
+		cub3d_srcs/raycasting/ray_casting_03_floor_and_ceiling.c \
 		debugging.c \
 
 OBJ		= ${SRC:.c=.o}

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_check_data_02.c                        :+:      :+:    :+:   */
+/*   check_walls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 17:41:03 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/07 19:56:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:40:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 void
 	ft_check_walls(t_all *all)

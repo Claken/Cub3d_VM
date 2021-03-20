@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_get_data_03.c                          :+:      :+:    :+:   */
+/*   get_res_flo_and_ceil.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:50:03 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:50:31 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:43:33 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 static int
 	ft_parsing_r(char *line, t_all *all)

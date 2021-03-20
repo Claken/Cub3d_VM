@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 17:41:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/12 15:38:02 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:18:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 int
 	ft_loop_hook(t_all *all)

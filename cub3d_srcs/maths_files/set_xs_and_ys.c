@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 04:04:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:39:36 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 void
 	ft_raycol_north_east(t_all *all)

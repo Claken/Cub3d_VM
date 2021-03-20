@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_get_data_02.c                          :+:      :+:    :+:   */
+/*   get_textures_and_sprite.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:49:49 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:49:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:44:15 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 static void
 	ft_parsing_text_path(char *line, t_all *all)

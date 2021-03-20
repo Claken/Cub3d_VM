@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_get_data_04.c                          :+:      :+:    :+:   */
+/*   get_player_and_direction.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:50:42 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:50:44 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:43:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 int
 	ft_parse_tab_pos_play(t_all *all)

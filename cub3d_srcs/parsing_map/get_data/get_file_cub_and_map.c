@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_map_get_data_01.c                          :+:      :+:    :+:   */
+/*   get_file_cub_and_map.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:48:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/05 15:48:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:41:43 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../../cub3d_includes/cub3d.h"
 
 static int
 	ft_count_lines_map(int fd, char *line, char *av)

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/12 14:02:39 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 18:17:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int
 	ft_init_structs(&all);
 	if (!ft_check_arguments(av[1], av[2], &all))
 		return (0);
-	all.data.fd = open(av[1], O_RDONLY);
+	if ((all.data.fd = open(av[1], O_RDONLY)) == -1)
+		return (0);
 	if (!(all.disp.mlx_ptr = mlx_init()))
 		return (EXIT_FAILURE);
 	if (!(all.data.map = ft_parsing_file_cub(&all, av[1])))

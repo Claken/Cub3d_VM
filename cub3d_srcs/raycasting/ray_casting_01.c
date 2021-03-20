@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/25 02:46:10 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:46:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 static void
 	ft_check_for_walls(t_all *all)

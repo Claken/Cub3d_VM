@@ -6,11 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:19:53 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:20:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/19 17:46:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 void
 	ft_draw_ceil_and_floor(t_all *all)

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handling_02_keys.c                           :+:      :+:    :+:   */
+/*   keys.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 17:56:33 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:17:27 by sachouam         ###   ########.fr       */
+/*   Created: 2021/03/19 17:35:23 by sachouam          #+#    #+#             */
+/*   Updated: 2021/03/19 17:35:51 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/cub3d.h"
+#include "../../cub3d_includes/cub3d.h"
 
 int
 	ft_key_pressed(int key, t_all *all)
