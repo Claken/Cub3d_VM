@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/17 11:41:30 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/21 18:44:00 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,12 +186,10 @@ void			ft_error_message(char *sentence);
 void			ft_abort_mission(t_all *all);
 int			ft_good_bye(t_all *all);
 void			ft_raycasting(t_all *all);
-void			ft_check_raycol_value(t_all *all);
-void			ft_re_set_variables(t_all *all);
-void			ft_raycol_dir(t_all *all);
+void			ft_check_for_walls(t_all *all);
+void			ft_distance_calculation(t_all *all);
+void			ft_distance_with_no_fisheye(t_all *all);
 int			ft_check_raycol_direction(t_all *all);
-void			ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit);
-void			ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit);
 int			ft_key_pressed(int key, t_all *all);
 int			ft_key_released(int key, t_all *all);
 void			ft_key_management(t_all *all);

@@ -1,67 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray_casting_02.c                                   :+:      :+:    :+:   */
+/*   check_for_walls.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/10 18:29:15 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:46:02 by sachouam         ###   ########.fr       */
+/*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
+/*   Updated: 2021/03/21 18:18:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
 
-void
-	ft_check_raycol_value(t_all *all)
-{
-	double full;
-
-	full = ft_degree_to_radian(360);
-	if (all->vect.raycol > full)
-		all->vect.raycol = fmod(all->vect.raycol, full);
-	else if (all->vect.raycol < 0)
-		all->vect.raycol += full;
-}
-
-void
-	ft_re_set_variables(t_all *all)
-{
-	all->vect.fhx = 0;
-	all->vect.fhy = 0;
-	all->vect.fvx = 0;
-	all->vect.fvy = 0;
-	all->vect.hx = 0;
-	all->vect.hy = 0;
-	all->vect.vx = 0;
-	all->vect.vy = 0;
-	all->vect.side = 0;
-	all->disp.colhei = 0;
-	all->vect.distwall = 0;
-	all->disp.pixbeg = 0;
-	all->disp.pixend = 0;
-	all->vect.teta = all->vect.raycol;
-}
-
-void
-	ft_raycol_dir(t_all *all)
-{
-	int direction;
-
-	direction = ft_check_raycol_direction(all);
-	if (direction == 1)
-		ft_raycol_north_east(all);
-	else if (direction == 2)
-		ft_raycol_north_west(all);
-	else if (direction == 3)
-		ft_raycol_south_west(all);
-	else if (direction == 4)
-		ft_raycol_south_east(all);
-	else
-		ft_raycol_special_cases(all, direction);
-}
-
-void
+static void
 	ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit)
 {
 	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
@@ -80,7 +31,7 @@ void
 	}
 }
 
-void
+static void
 	ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit)
 {
 	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
@@ -96,5 +47,33 @@ void
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
+	}
+}
+
+void
+	ft_check_for_walls(t_all *all)
+{
+	double hyph;
+	double hypv;
+	int hit;
+
+	hyph = ft_set_hyph(all);
+	hypv = ft_set_hypv(all);
+	hit = 0;
+	//if (all->vect.index <= (int)all->data.reswid / 2)
+	//	printf("\n1st hyph %lf, 1st hypv %lf\n", hyph, hypv);
+	while (!hit)
+	{
+		//if (all->vect.index <= (int)all->data.reswid / 2)
+		//{
+			//printf("raycol = %lf\n", all->vect.raycol);
+			//printf("fhy %lf, fhx %lf\n", all->vect.fhy, all->vect.fhx);
+			//printf("fvy %lf, fvx %lf\n", all->vect.fvy, all->vect.fvx);
+		//	printf("hyph %lf, hypv %lf\n", hyph, hypv);
+		//}
+		if (hyph < hypv)
+			ft_if_hyph_is_inferior(all, &hyph, &hit);
+		else
+			ft_if_hypv_is_inferior(all, &hypv, &hit);
 	}
 }

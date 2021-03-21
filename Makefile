@@ -28,6 +28,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/event_handling/move.c \
 		cub3d_srcs/functions/c3d_utils_01.c \
 		cub3d_srcs/functions/check_raycol_direction.c \
+		cub3d_srcs/functions/draw_floor_and_ceiling.c \
 		cub3d_srcs/functions/functions_for_map_parsing.c \
 		cub3d_srcs/maths_files/find_hypothenus.c \
 		cub3d_srcs/maths_files/set_xs_and_ys.c \
@@ -37,9 +38,9 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/parsing_map/get_data/get_player_and_direction.c \
 		cub3d_srcs/parsing_map/get_data/get_res_flo_and_ceil.c \
 		cub3d_srcs/parsing_map/get_data/get_textures_and_sprite.c \
-		cub3d_srcs/raycasting/ray_casting_01.c \
-		cub3d_srcs/raycasting/ray_casting_02.c \
-		cub3d_srcs/raycasting/ray_casting_03_floor_and_ceiling.c \
+		cub3d_srcs/raycasting/check_for_walls.c \
+		cub3d_srcs/raycasting/distance.c \
+		cub3d_srcs/raycasting/ray_casting.c \
 		debugging.c \
 
 OBJ		= ${SRC:.c=.o}
