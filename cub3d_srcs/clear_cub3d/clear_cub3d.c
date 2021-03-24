@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 05:27:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:17:56 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:44:37 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,17 @@ void
 	ft_destroy_images(t_all *all)
 {
 	int		i;
-	t_texture	*tmp;
+	t_images	*tmp;
 
-	i = 0;
+	i = -1;
 	tmp = NULL;
-	while (i < NTXT)
+	while (++i < NTXT)
 	{
-		tmp = &((t_texture *)(&all->text))[i];
+		tmp = &((t_images *)(&all->image))[i];
 		if (tmp != NULL && tmp->pict != NULL)
 			mlx_destroy_image(all->disp.mlx_ptr, tmp->pict);
 		if (tmp->path)
 			free(tmp->path);
-		i++;
 	}
 }
 

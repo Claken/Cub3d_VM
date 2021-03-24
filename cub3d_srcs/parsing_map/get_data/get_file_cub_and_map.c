@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:48:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:41:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:53:20 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int
 	else if (line[0] == 'N' || line[0] == 'S'
 	|| line[0] == 'E' || line[0] == 'W')
 	{
-		ft_parsing_text(line, all);
+		ft_parsing_image(line, all);
 	}
 	return (1);
 }

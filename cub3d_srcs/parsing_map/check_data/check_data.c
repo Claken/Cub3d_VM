@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:40:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:48:13 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ static void
 	int		i;
 	int		j;
 	char		**tab;
-	t_texture	*tmp;
+	t_images	*tmp;
 
 	i = 0;
 	while (i < NTXT)
 	{
 		j = 0;
-		tmp = &((t_texture *)(&all->text))[i++];
+		tmp = &((t_images *)(&all->image))[i++];
 		if (tmp->path == NULL)
 			ft_error_so_exit("image(s) missing\n", all);
 		if (!(tab = ft_split(tmp->path, ".")))

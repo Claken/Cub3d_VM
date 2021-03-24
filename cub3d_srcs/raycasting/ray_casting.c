@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/21 18:28:40 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:03:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void
 		ft_distance_with_no_fisheye(all);
 		//i = all->vect.index;
 		ft_drawing_column(all, i);
+		ft_textures_management(all, i);
 //		printf_distances(i, all);
 		all->vect.raycol -= all->vect.apr;
 	}

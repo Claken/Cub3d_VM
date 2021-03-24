@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 17:41:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:18:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:20:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int
 	all->data.reswid, all->data.reshei)))
 		return (0);
 	if (!(all->disp.addr = (int *)mlx_get_data_addr(all->disp.img,
-	&all->disp.bpp, &all->disp.ll, &all->disp.endian)))
+	&all->disp.bpp, &all->disp.linelen, &all->disp.endian)))
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:32:31 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:37:57 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/22 20:04:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ double
 }
 
 int
-	ft_get_color(unsigned int r, unsigned int g, unsigned int b)
+	ft_get_color(unsigned int r,
+	unsigned int g, unsigned int b)
 {
 	int color;
 
@@ -35,7 +36,8 @@ int
 void
 	ft_draw_pixel(t_all *all, int y, int x)
 {
-	all->disp.addr[y * all->data.reswid + x] = all->disp.color;
+	all->disp.addr[y * all->data.reswid + x]
+	= all->disp.color;
 }
 
 void

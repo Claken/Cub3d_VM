@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/21 18:44:00 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:03:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct	s_data
 	char		posplay;
 }			t_data;
 
-typedef struct	s_texture
+typedef struct	s_images
 {
 	void		*pict;
 	int		width;
@@ -70,17 +70,16 @@ typedef struct	s_texture
 	int		*addr;
 	int		bpp;
 	int		endian;
-	int		ll;
-
-}			t_texture;
+	int		linelen;
+}			t_images;
 
 typedef struct	s_elem
 {
-	t_texture	north;
-	t_texture	south;
-	t_texture	west;
-	t_texture	east;
-	t_texture	sprite;
+	t_images	north;
+	t_images	south;
+	t_images	west;
+	t_images	east;
+	t_images	sprite;
 }			t_elem;
 
 typedef struct	s_vect
@@ -127,7 +126,7 @@ typedef struct	s_mlx
 	int		*addr;
 	int		bpp;
 	int		endian;
-	int		ll;
+	int		linelen;
 	int		colhei;
 	int		color;
 	int		pixbeg;
@@ -157,7 +156,7 @@ typedef struct	s_all
 	t_data		data;
 	t_vect		vect;
 	t_mlx		disp;
-	t_elem		text;
+	t_elem		image;
 	t_keys		key;
 	t_bmp		bmp;
 }			t_all;
@@ -172,7 +171,7 @@ int			ft_check_first_or_last(char *line);
 int			ft_check_beginning_and_end(char *line);
 void			ft_check_walls(t_all *all);
 char			**ft_parsing_file_cub(t_all *all, char *file);
-void			ft_parsing_text(char *line, t_all *all);
+void			ft_parsing_image(char *line, t_all *all);
 int			ft_parsing_rfc(char *line, t_all *all);
 int			ft_parse_tab_pos_play(t_all *all);
 void			ft_set_dir_and_angle(t_all *all);
@@ -216,5 +215,6 @@ double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
 
 void			printf_distances(int i, t_all *all);
+void			ft_textures_management(t_all *all, int index);
 
 #endif
