@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:48:43 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/24 19:51:56 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/03/28 00:23:35 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,41 @@
 // utiliser pixend ? pixbeg ? colhei ?
 
 static void
-	ft_test_text_map(t_all *all, int index,
+	ft_test_text_map(t_all *all, int x,
 	t_images *texture)
 {
-	int x = 0;
-	int y = 0;
-	int i;
-	static int j = -1;
+	int y;
+	int k;
+	double i;
+	double test;
 
-	x = index;
 	y = all->disp.pixbeg;
+	k = -1;
 	i = 0;
-	while (i < texture->height)
-	{
-		all->disp.addr[y * all->data.reswid + x]
-		= texture->addr[i * texture->width + j];
-		y++;
-		i++;
-	}
-	if (++j > texture->width)
-		j = 0;
+	test = 1 / ((double)all->disp.colhei / (double)texture->height);
+	//if (all->vect.side == 2
+	//|| all->vect.side == 4)
+	//{
+		static double j = 0;
+		//if (j == 0)
+		//{
+			//printf("colhei %d\n", all->disp.colhei);
+			//printf("text height %d\n", texture->height);
+			//printf("div %lf\n", (double)all->disp.colhei / (double)texture->height);
+			//printf("test %lf\n", test);
+		//}
+			//printf("colhei %d\n", all->disp.colhei);
+		while (++k <= all->disp.colhei)
+		{
+			all->disp.addr[y * all->data.reswid + x]
+			= texture->addr[(int)i * texture->width + (int)j];
+			y++;
+			i += test;
+		}
+		j += test;
+		if ((int)j > texture->width)
+			j = 0;
+	//}
 }
 
 static void
