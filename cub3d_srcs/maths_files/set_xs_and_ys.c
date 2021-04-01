@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 17:58:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:39:36 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 19:57:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,6 @@ void
 	all->vect.fhy = all->vect.posy - all->vect.modyu - 1;
 	all->vect.fhx = all->vect.posx +
 	((all->vect.posy - (all->vect.fhy + 1)) / tan(all->vect.teta));
-/*	
-	if (all->vect.index <= (int)all->data.reswid / 2)
-	{
-		printf("\nlà\n");
-		printf("posx = %lf\n", all->vect.posx);
-		printf("posy = %lf\n", all->vect.posy);
-		printf("fhy + 1 = %lf\n", all->vect.fhy + 1);
-		printf("tan = %lf\n", tan(all->vect.teta));
-	}
-*/
 	all->vect.hy = -1;
 	all->vect.hx = 1 / tan(all->vect.teta);
 	all->vect.fvx = all->vect.posx - all->vect.modxl + CASE;

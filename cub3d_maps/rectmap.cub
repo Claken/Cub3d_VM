@@ -1,7 +1,7 @@
 R 1920 1080
-NO ./cub3d_textures/wall_1.xpm
-SO ./cub3d_textures/wall_2.xpm
+NO ./cub3d_textures/wood.xpm
 WE ./cub3d_textures/wall_3.xpm
+SO ./cub3d_textures/bluestone.xpm
 EA ./cub3d_textures/wall_4.xpm
 S ./cub3d_textures/sprite_1.xpm
 F 220,100,0

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:34:34 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:34:37 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 20:01:36 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void
 	dirmod = fmod(all->vect.dir, full);
 	if (all->vect.dir < 0)
 		all->vect.dir = full + dirmod;
-	ft_create_image(all);
 }
 
 void
@@ -50,5 +49,4 @@ void
 	dirmod = fmod(all->vect.dir, full);
 	if (all->vect.dir >= full)
 		all->vect.dir = dirmod;
-	ft_create_image(all);
 }

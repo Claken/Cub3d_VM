@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/21 18:18:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 19:54:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static void
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
 	}
+	//if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
+	//{
+	//	
+	//}
 }
 
 static void
@@ -48,6 +52,10 @@ static void
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
 	}
+	//if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
+	//{
+	//	
+	//}
 }
 
 void
@@ -60,20 +68,15 @@ void
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);
 	hit = 0;
-	//if (all->vect.index <= (int)all->data.reswid / 2)
-	//	printf("\n1st hyph %lf, 1st hypv %lf\n", hyph, hypv);
 	while (!hit)
 	{
-		//if (all->vect.index <= (int)all->data.reswid / 2)
-		//{
-			//printf("raycol = %lf\n", all->vect.raycol);
-			//printf("fhy %lf, fhx %lf\n", all->vect.fhy, all->vect.fhx);
-			//printf("fvy %lf, fvx %lf\n", all->vect.fvy, all->vect.fvx);
-		//	printf("hyph %lf, hypv %lf\n", hyph, hypv);
-		//}
 		if (hyph < hypv)
+		{
 			ft_if_hyph_is_inferior(all, &hyph, &hit);
+		}
 		else
+		{
 			ft_if_hypv_is_inferior(all, &hypv, &hit);
+		}
 	}
 }

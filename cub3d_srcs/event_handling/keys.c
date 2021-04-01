@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:35:23 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:35:51 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 20:26:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int
 		all->key.right = 0;
 	else if (key == RARROW)
 		all->key.r_arr = 0;
-	else if (key == LARROW)
+	else if (key == L)
 		all->key.l_arr = 0;
 	return (0);
 }
@@ -55,14 +55,14 @@ void
 {
 	if (all->key.up)
 		ft_move_forward(all);
-	else if (all->key.left)
+	if (all->key.left)
 		ft_move_to_the_left(all);
-	else if (all->key.down)
+	if (all->key.down)
 		ft_move_backwards(all);
-	else if (all->key.right)
+	if (all->key.right)
 		ft_move_to_the_right(all);
-	else if (all->key.r_arr)
+	if (all->key.r_arr)
 		ft_move_camera_right(all);
-	else if (all->key.l_arr)
+	if (all->key.l_arr)
 		ft_move_camera_left(all);
 }

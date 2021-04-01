@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/29 19:27:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 19:55:57 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ void
 	all->vect.modxl = fmod(all->vect.posx, 1);
 	all->vect.modyu = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	//all->vect.index = i;
-	//while (++all->vect.index < (int)all->data.reswid)
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
@@ -100,10 +98,8 @@ void
 		ft_check_for_walls(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
-		//i = all->vect.index;
 		ft_drawing_column(all, i);
 		ft_textures_management(all, i);
-//		printf_distances(i, all);
 		all->vect.raycol -= all->vect.apr;
 	}
 }

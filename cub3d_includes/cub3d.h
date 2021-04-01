@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/24 16:03:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:30:32 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,23 @@ typedef struct	s_elem
 	t_images	east;
 	t_images	sprite;
 }			t_elem;
-
+/*
+typedef struct	s_sprite
+{
+	double		x;
+	double		y;
+	int		side;
+	double		sdist;
+	double		colhei;
+	double		pixbeg;
+	double		pixend;
+	int		xbeg; // debut colonne de 
+	int		xend; // fin colonne de 
+	double		*raycols;
+	s_sprite	*next;
+}
+			t_sprite;
+*/
 typedef struct	s_vect
 {
 	double		posy;

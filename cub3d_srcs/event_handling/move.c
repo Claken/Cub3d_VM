@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/30 23:07:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/01 20:03:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
 }
 
 void
@@ -54,7 +53,6 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
 }
 
 void
@@ -77,7 +75,6 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
 }
 
 void
@@ -100,5 +97,4 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
-	ft_create_image(all);
 }
