@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 19:54:04 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/03 20:40:03 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static void
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
 	}
-	//if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
-	//{
-	//	
-	//}
+	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
+	{
+
+	}
 }
 
 static void
@@ -52,10 +52,10 @@ static void
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
 	}
-	//if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
-	//{
-	//	
-	//}
+	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
+	{
+
+	}
 }
 
 void

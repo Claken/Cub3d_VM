@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 19:55:57 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/03 18:46:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void
 	all->disp.colhei = (CASE / all->vect.nofisheye) * all->vect.distscreen;
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
-		all->disp.pixbeg = -1;
+		all->disp.pixbeg = 0;
 	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
@@ -77,8 +77,11 @@ static void
 	if (all->vect.side == 2 || all->vect.side == 4)
 		all->disp.color /= 2;
 	j = all->disp.pixbeg;
-	while (j++ < all->disp.pixend)
+	while (j < all->disp.pixend)
+	{
 		ft_draw_pixel(all, j, i);
+		j++;
+	}
 }
 
 void

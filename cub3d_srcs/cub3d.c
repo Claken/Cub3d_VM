@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 18:17:24 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/03 18:20:31 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ void
 	all->data.ceil1 = -1;
 	all->data.ceil2 = -1;
 	all->data.ceil3 = -1;
+}
+
+static int
+	ft_about_arguments(int ac, char **av, t_all *all)
+{
+	if (ac < 2 || ac > 3)
+	{
+		ft_error_message("wrong number of arguments\n");
+		return (0);
+	}
+	if (!ft_check_arguments(av[1], av[2], all))
+		return (0);
+	return (1);
 }
 
 static void
@@ -40,13 +53,8 @@ int
 {
 	t_all all;
 
-	if (ac < 2 || ac > 3)
-	{
-		ft_error_message("wrong number of arguments\n");
-		return (0);
-	}
 	ft_init_structs(&all);
-	if (!ft_check_arguments(av[1], av[2], &all))
+	if (!ft_about_arguments(ac, av, &all))
 		return (0);
 	if ((all.data.fd = open(av[1], O_RDONLY)) == -1)
 		return (0);

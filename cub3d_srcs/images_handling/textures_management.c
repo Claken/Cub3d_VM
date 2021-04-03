@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:48:43 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/31 17:23:54 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/03 18:48:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ static void
 	double	texty;
 	double	textx;
 
-	if (all->disp.pixbeg < 0)
-		y = 0;
-	else
-		y = all->disp.pixbeg;
+	y = all->disp.pixbeg;
 	i = (double)texture->height / (double)all->disp.colhei;
 	texty = (y - (all->data.reshei / 2 - all->disp.colhei / 2)) * i;
 	if (all->vect.side == 2 || all->vect.side == 4)

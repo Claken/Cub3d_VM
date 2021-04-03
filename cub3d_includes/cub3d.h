@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 17:30:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/03 19:38:42 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,22 @@ typedef struct	s_sprite
 	double		colhei;
 	double		pixbeg;
 	double		pixend;
-	int		xbeg; // debut colonne de 
-	int		xend; // fin colonne de 
+	int		xbeg; // debut colonne de x
+	int		xend; // fin colonne de x
 	double		*raycols;
 	s_sprite	*next;
-}
-			t_sprite;
+}			t_sprite;
 */
+typedef struct s_sprite
+{
+	int		rayx;
+	int		j;
+	double		x;
+	double		y;
+	double		side;
+	double		sdist;
+}			t_sprite;
+
 typedef struct	s_vect
 {
 	double		posy;
@@ -175,6 +184,7 @@ typedef struct	s_all
 	t_elem		image;
 	t_keys		key;
 	t_bmp		bmp;
+	t_sprite	spr;
 }			t_all;
 
 void			ft_init_structs(t_all *all);
@@ -230,7 +240,6 @@ void			ft_raycol_special_cases(t_all *all, int direction);
 double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
 
-void			printf_distances(int i, t_all *all);
 void			ft_textures_management(t_all *all, int index);
 
 #endif

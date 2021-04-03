@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:35:23 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 20:26:24 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/02 00:14:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int
 		all->key.right = 0;
 	else if (key == RARROW)
 		all->key.r_arr = 0;
-	else if (key == L)
+	else if (key == LARROW)
 		all->key.l_arr = 0;
 	return (0);
 }
