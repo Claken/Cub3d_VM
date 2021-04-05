@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/03 19:38:42 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/05 11:49:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,9 @@ typedef struct s_sprite
 	int		j;
 	double		x;
 	double		y;
-	double		side;
-	double		sdist;
+	int		side;
+	double		distwall;
+	double		*raycols;
 }			t_sprite;
 
 typedef struct	s_vect
@@ -211,7 +212,7 @@ void			ft_error_message(char *sentence);
 void			ft_abort_mission(t_all *all);
 int			ft_good_bye(t_all *all);
 void			ft_raycasting(t_all *all);
-void			ft_check_for_walls(t_all *all);
+void			ft_check_for_walls_and_sprites(t_all *all, int i);
 void			ft_distance_calculation(t_all *all);
 void			ft_distance_with_no_fisheye(t_all *all);
 int			ft_check_raycol_direction(t_all *all);
@@ -241,5 +242,9 @@ double			ft_set_hyph(t_all *all);
 double			ft_set_hypv(t_all *all);
 
 void			ft_textures_management(t_all *all, int index);
+
+void			ft_get_sprite_data(t_all *all, int i, int side);
+void			ft_sprite_calculations(t_all *all);
+void			ft_sprite_mapping(t_all *all);
 
 #endif

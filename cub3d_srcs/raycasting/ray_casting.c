@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/03 18:46:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/05 12:15:45 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,16 +93,43 @@ void
 	all->vect.modxl = fmod(all->vect.posx, 1);
 	all->vect.modyu = fmod(all->vect.posy, 1);
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
+	all->spr.rayx = 0;
+	all->spr.j = 0;
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
 		ft_raycol_dir(all);
-		ft_check_for_walls(all);
+		ft_check_for_walls_and_sprites(all, i);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
 		ft_drawing_column(all, i);
 		ft_textures_management(all, i);
 		all->vect.raycol -= all->vect.apr;
 	}
+	ft_sprite_calculations(all);
+	ft_sprite_mapping(all);
+	/*
+	i = -1;
+	while (++i < all->spr.j)
+		printf("raycol %d = %lf\n", i, all->spr.raycols[i]);
+	printf("rayx     %d\n", all->spr.rayx);
+	printf("j        %d\n", all->spr.j);
+	printf("x        %lf\n", all->spr.x);
+	printf("y        %lf\n", all->spr.y);
+	printf("posx     %lf\n", all->vect.posx);
+	printf("posy     %lf\n", all->vect.posy);
+	double xx;
+	double yy;
+	//double beta;
+
+	xx = all->vect.posx - all->spr.x;
+	yy = all->vect.posy - all->spr.y;
+	//beta = fabs(all->vect.dir - all->spr.raycols[all->spr.j / 2]);
+	//all->spr.distwall = sqrt(pow(xx, 2) + pow(yy, 2));
+	printf("distwall %lf\n\n", all->spr.distwall);
+	//all->spr.distwall *= cos(beta);
+	//printf("distwall %lf\n\n", all->spr.distwall);
+	*/
+	//free(all->spr.raycols);
 }

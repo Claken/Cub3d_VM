@@ -6,15 +6,20 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/03 20:40:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/04 18:35:48 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
 
 static void
-	ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit)
+	ft_if_hyph_is_inferior(t_all *all,
+	double *hyph, int *hit, int i)
 {
+	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
+	{
+		ft_get_sprite_data(all, i, 0);
+	}
 	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
 	{
 		if (all->vect.hy == -1)
@@ -29,15 +34,16 @@ static void
 		all->vect.fhy += all->vect.hy;
 		*hyph += CASE / sin(all->vect.teta);
 	}
-	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
-	{
-
-	}
 }
 
 static void
-	ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit)
+	ft_if_hypv_is_inferior(t_all *all,
+	double *hypv, int *hit, int i)
 {
+	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
+	{
+		ft_get_sprite_data(all, i, 1);
+	}
 	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
 	{
 		if (all->vect.vx == -1)
@@ -52,14 +58,10 @@ static void
 		all->vect.fvy += all->vect.vy;
 		*hypv += CASE / cos(all->vect.teta);
 	}
-	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
-	{
-
-	}
 }
 
 void
-	ft_check_for_walls(t_all *all)
+	ft_check_for_walls_and_sprites(t_all *all, int i)
 {
 	double hyph;
 	double hypv;
@@ -72,11 +74,11 @@ void
 	{
 		if (hyph < hypv)
 		{
-			ft_if_hyph_is_inferior(all, &hyph, &hit);
+			ft_if_hyph_is_inferior(all, &hyph, &hit, i);
 		}
 		else
 		{
-			ft_if_hypv_is_inferior(all, &hypv, &hit);
+			ft_if_hypv_is_inferior(all, &hypv, &hit, i);
 		}
 	}
 }

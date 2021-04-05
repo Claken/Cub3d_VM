@@ -6,12 +6,12 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 20:03:07 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/05 20:41:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
-#define SLOWING 3
+#define SLOWING 5
 
 void
 	ft_move_forward(t_all *all)
@@ -31,6 +31,7 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
+	ft_create_image(all);
 }
 
 void
@@ -53,6 +54,7 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
+	ft_create_image(all);
 }
 
 void
@@ -75,6 +77,7 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
+	ft_create_image(all);
 }
 
 void
@@ -97,4 +100,5 @@ void
 		all->vect.posx = ncx;
 		all->vect.posy = ncy;
 	}
+	ft_create_image(all);
 }
