@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/06 14:22:58 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/06 20:41:59 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ void
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
 	all->spr.begx = (all->spr.rayx - (all->spr.j / 2)) - all->disp.colhei / 2;
-	if (all->spr.begx < 0)
-		all->spr.begx = 0;
+	if (all->spr.begx < all->spr.rayx - all->spr.j)
+		all->spr.begx = all->spr.rayx - all->spr.j;
 	all->spr.endx = (all->spr.rayx - (all->spr.j / 2)) + all->disp.colhei / 2;
-	if (all->spr.endx >= (int)all->data.reswid)
-		all->spr.endx = all->data.reswid - 1;
+	if (all->spr.endx > all->spr.rayx)
+		all->spr.endx = all->spr.rayx;
 }
 
 void
@@ -75,7 +75,7 @@ void
 
 	x = all->spr.begx;
 	ii = (double)all->image.sprite.width / (double)all->disp.colhei;
-	sprx = (x - (all->spr.rayx - (all->spr.j / 2) - all->disp.colhei / 2)) * ii;
+	sprx = (x - ((all->spr.rayx - (all->spr.j / 2)) - all->disp.colhei / 2)) * ii;
 	i = (double)all->image.sprite.height / (double)all->disp.colhei;
 	while (x < all->spr.endx)
 	{
@@ -91,6 +91,7 @@ void
 			y++;
 		}
 		sprx += ii;
+		printf("x = %d\n", x);
 		x++;
 	}
 }
