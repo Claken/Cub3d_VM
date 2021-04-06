@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/05 21:25:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/06 14:22:58 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ void
 	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
+	all->spr.begx = (all->spr.rayx - (all->spr.j / 2)) - all->disp.colhei / 2;
+	if (all->spr.begx < 0)
+		all->spr.begx = 0;
+	all->spr.endx = (all->spr.rayx - (all->spr.j / 2)) + all->disp.colhei / 2;
+	if (all->spr.endx >= (int)all->data.reswid)
+		all->spr.endx = all->data.reswid - 1;
 }
 
 void
@@ -67,15 +73,11 @@ void
 	double sprx;
 	double spry;
 
-	x = all->spr.rayx - all->spr.j;
-	i = (double)all->image.sprite.height / (double)all->disp.colhei;
-	//ii = (double)CASE / (double)all->image.sprite.width;
+	x = all->spr.begx;
 	ii = (double)all->image.sprite.width / (double)all->disp.colhei;
-	if (all->spr.side)
-		sprx = all->image.sprite.width * fmod(all->spr.y, CASE);
-	else
-		sprx = all->image.sprite.width * fmod(all->spr.x, CASE);
-	while (x < all->spr.rayx)
+	sprx = (x - (all->spr.rayx - (all->spr.j / 2) - all->disp.colhei / 2)) * ii;
+	i = (double)all->image.sprite.height / (double)all->disp.colhei;
+	while (x < all->spr.endx)
 	{
 		y = all->disp.pixbeg;
 		spry = (y - (all->data.reshei / 2 - all->disp.colhei / 2)) * i;
@@ -83,7 +85,7 @@ void
 		{
 			all->disp.color = all->image.sprite.addr[(int)spry
 			* all->image.sprite.width + (int)sprx];
-			//if (all->disp.color != 0x00000000)
+			if (all->disp.color != 0x00000000)
 				all->disp.addr[y * all->data.reswid + x] = all->disp.color;
 			spry += i;
 			y++;

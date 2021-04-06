@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/05 11:49:41 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/06 12:02:18 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ typedef struct s_sprite
 {
 	int		rayx;
 	int		j;
+	int		begx;
+	int		endx;
 	double		x;
 	double		y;
 	int		side;

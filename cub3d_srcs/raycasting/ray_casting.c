@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/05 12:15:45 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/06 13:55:26 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void
 	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
 	all->spr.rayx = 0;
 	all->spr.j = 0;
+	all->spr.begx = 0;
+	all->spr.endx = 0;
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
@@ -131,5 +133,4 @@ void
 	//all->spr.distwall *= cos(beta);
 	//printf("distwall %lf\n\n", all->spr.distwall);
 	*/
-	//free(all->spr.raycols);
 }
