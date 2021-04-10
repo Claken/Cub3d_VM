@@ -8,11 +8,11 @@ NAME		= Cub3D
 
 NAME_LIBFT	= cub3d_libft/libft.a
 
-NAME_MLX	= libmlx.a
+NAME_MLX	= cub3d_mlx/libmlx.a
 
 INCLUDES	= includes
 
-MLX		= /usr/local/include
+MLX		= cub3d_mlx/mlx.h
 
 LIBFT		= cub3d_libft
 
@@ -54,7 +54,7 @@ all:            $(NAME)
 
 makefirst:
 		make bonus -C $(LIBFT)
-		cp /usr/local/lib/libmlx.a .
+#		cp /usr/local/lib/libmlx.a .
 
 $(NAME):        makefirst $(OBJ)
 
@@ -65,7 +65,6 @@ clean:
 fclean:		clean
 		rm -rf $(NAME)
 		make fclean -C $(LIBFT)
-		rm -rf $(NAME_MLX)
 
 re:		fclean all
 
