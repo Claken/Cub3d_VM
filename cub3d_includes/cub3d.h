@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/10 22:14:50 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/10 23:18:19 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ typedef struct s_sprite
 	double		y;
 	int		side;
 	double		distwall;
-	double		*raycols;
+	double		*distances;
 }			t_sprite;
 
 typedef struct	s_vect
@@ -189,60 +189,106 @@ typedef struct	s_all
 	t_sprite	spr;
 }			t_all;
 
+// BMP_SAVE
+
+int			ft_save_bmp_image(t_all *all, char *filename);
+
+// CLEAR_CUB3D
+
+void			ft_free_all(t_all *all);
+void			ft_destroy_images(t_all *all);
+void			ft_abort_mission(t_all *all);
+
+// CUB3D.C
+
 void			ft_init_structs(t_all *all);
-int			ft_check_arguments(char *arg1, char *arg2, t_all *all);
-void			ft_check_cub_data(t_all *all);
+
+// DISPLAY
+
+int			ft_loop_hook(t_all *all);
+int			ft_window_and_image(t_all *all);
+void			ft_hooks_and_loops(t_all *all);
+void			ft_create_image(t_all *all);
+
+// ERRORS_HANDLING
+
+void			ft_error_message(char *sentence);
+int			ft_error_so_exit(char *sentence, t_all *all);
+
+// EVENT_HANDLING
+
+int			ft_good_bye(t_all *all);
+void			ft_move_camera_right(t_all *all);
+void			ft_move_camera_left(t_all *all);
+
+int			ft_key_pressed(int key, t_all *all);
+int			ft_key_released(int key, t_all *all);
+void			ft_key_management(t_all *all);
+
+void			ft_move_forward(t_all *all);
+void			ft_move_to_the_left(t_all *all);
+void			ft_move_backwards(t_all *all);
+void			ft_move_to_the_right(t_all *all);
+
+// FUNCTIONS
+
+double			ft_degree_to_radian(int degree);
+int			ft_get_color(unsigned int r,
+			unsigned int g, unsigned int b);
+void			ft_draw_pixel(t_all *all, int y, int x);
+void			ft_free_tab(char **tab);
+
+int			ft_check_raycol_direction(t_all *all);
+
+void			ft_draw_ceil_and_floor(t_all *all);
+
 char			*ft_replace_in_str(char *str, char a, char b);
 void			*ft_realloc(void *ptr, size_t size);
 char			*ft_reset_line_size(char *line, int size, int i);
 int			ft_check_first_or_last(char *line);
 int			ft_check_beginning_and_end(char *line);
-void			ft_check_walls(t_all *all);
-char			**ft_parsing_file_cub(t_all *all, char *file);
-void			ft_parsing_image(char *line, t_all *all);
-int			ft_parsing_rfc(char *line, t_all *all);
-int			ft_parse_tab_pos_play(t_all *all);
-void			ft_set_dir_and_angle(t_all *all);
-int			ft_save_bmp_image(t_all *all, char *filename);
-int			ft_window_and_image(t_all *all);
-void			ft_free_all(t_all *all);
-void			ft_destroy_images(t_all *all);
-void			ft_free_tab(char **tab);
-int			ft_error_so_exit(char *sentence, t_all *all);
-void			ft_error_message(char *sentence);
-void			ft_abort_mission(t_all *all);
-int			ft_good_bye(t_all *all);
-void			ft_raycasting(t_all *all);
-void			ft_check_for_walls_and_sprites(t_all *all, int i);
-void			ft_distance_calculation(t_all *all);
-void			ft_distance_with_no_fisheye(t_all *all);
-int			ft_check_raycol_direction(t_all *all);
-int			ft_key_pressed(int key, t_all *all);
-int			ft_key_released(int key, t_all *all);
-void			ft_key_management(t_all *all);
-void			ft_move_forward(t_all *all);
-void			ft_move_to_the_left(t_all *all);
-void			ft_move_backwards(t_all *all);
-void			ft_move_to_the_right(t_all *all);
-void			ft_move_camera_right(t_all *all);
-void			ft_move_camera_left(t_all *all);
-int			ft_loop_hook(t_all *all);
-void			ft_draw_ceil_and_floor(t_all *all);
-int			ft_get_color(unsigned int r,
-			unsigned int g, unsigned int b);
-void			ft_draw_pixel(t_all *all, int y, int x);
-void			ft_hooks_and_loops(t_all *all);
-double			ft_degree_to_radian(int degree);
-void			ft_create_image(t_all *all);
+
+// IMAGES_HANDLING
+
+void			ft_textures_management(t_all *all, int index);
+
+// MATHS_FILES
+
+double			ft_set_hyph(t_all *all);
+double			ft_set_hypv(t_all *all);
+
 void			ft_raycol_north_east(t_all *all);
 void			ft_raycol_north_west(t_all *all);
 void			ft_raycol_south_west(t_all *all);
 void			ft_raycol_south_east(t_all *all);
 void			ft_raycol_special_cases(t_all *all, int direction);
-double			ft_set_hyph(t_all *all);
-double			ft_set_hypv(t_all *all);
 
-void			ft_textures_management(t_all *all, int index);
+// PARSING_MAP
+
+//// CHECK_DATA
+int			ft_check_arguments(char *arg1, char *arg2, t_all *all);
+void			ft_check_cub_data(t_all *all);
+void			ft_check_walls(t_all *all);
+
+//// GET_DATA
+char			**ft_parsing_file_cub(t_all *all, char *file);
+
+int			ft_parse_tab_pos_play(t_all *all);
+void			ft_set_dir_and_angle(t_all *all);
+
+int			ft_parsing_rfc(char *line, t_all *all);
+
+void			ft_parsing_image(char *line, t_all *all);
+
+// RAYCASTING
+
+void			ft_raycasting(t_all *all);
+void			ft_check_for_walls_and_sprites(t_all *all, int i);
+void			ft_distance_calculation(t_all *all);
+void			ft_distance_with_no_fisheye(t_all *all);
+
+
+
 
 void			ft_get_sprite_data(t_all *all, int i, int side);
 void			ft_sprite_calculations(t_all *all);
