@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/06 12:02:18 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/10 22:14:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # define CUB3D_H
 
 # include "../cub3d_mlx/mlx.h"
-# include "/usr/include/X11/X.h"
 # include "get_next_line.h"
 # include "../cub3d_libft/libft.h"
 # include <sys/types.h>
