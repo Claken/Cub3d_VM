@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/10 23:18:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:56:11 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,11 @@ typedef struct s_sprite
 	double		x;
 	double		y;
 	int		side;
-	double		distwall;
-	double		*distances;
+	double		distance;
+	double		*distwalls;
+	double		raycol;
+	double		atan2;
+	double		tmpx;
 }			t_sprite;
 
 typedef struct	s_vect
@@ -233,6 +236,7 @@ void			ft_move_to_the_right(t_all *all);
 // FUNCTIONS
 
 double			ft_degree_to_radian(int degree);
+int			ft_radian_to_degree(double radian);
 int			ft_get_color(unsigned int r,
 			unsigned int g, unsigned int b);
 void			ft_draw_pixel(t_all *all, int y, int x);

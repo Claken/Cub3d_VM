@@ -6,11 +6,30 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/06 13:55:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/15 19:57:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
+
+static void
+	ft_set_var_before_raycasting(t_all *all)
+{
+	all->vect.modxl = fmod(all->vect.posx, 1);
+	all->vect.modyu = fmod(all->vect.posy, 1);
+	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
+	all->spr.distwalls = malloc(sizeof(double) * all->data.reswid);
+	if (all->spr.distwalls == NULL)
+		return ;
+	all->spr.j = 0;
+	all->spr.x = 0;
+	all->spr.y = 0;
+	all->spr.rayx = 0;
+	all->spr.tmpx = 0;
+	all->spr.begx = 0;
+	all->spr.endx = 0;
+	all->spr.distance = 0;
+}
 
 static void
 	ft_check_raycol_value(t_all *all)
@@ -90,13 +109,7 @@ void
 	int i;
 
 	i = -1;
-	all->vect.modxl = fmod(all->vect.posx, 1);
-	all->vect.modyu = fmod(all->vect.posy, 1);
-	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	all->spr.rayx = 0;
-	all->spr.j = 0;
-	all->spr.begx = 0;
-	all->spr.endx = 0;
+	ft_set_var_before_raycasting(all);
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
@@ -105,32 +118,12 @@ void
 		ft_check_for_walls_and_sprites(all, i);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
+		all->spr.distwalls[i] = all->vect.nofisheye;
 		ft_drawing_column(all, i);
 		ft_textures_management(all, i);
 		all->vect.raycol -= all->vect.apr;
 	}
 	ft_sprite_calculations(all);
 	ft_sprite_mapping(all);
-	/*
-	i = -1;
-	while (++i < all->spr.j)
-		printf("raycol %d = %lf\n", i, all->spr.raycols[i]);
-	printf("rayx     %d\n", all->spr.rayx);
-	printf("j        %d\n", all->spr.j);
-	printf("x        %lf\n", all->spr.x);
-	printf("y        %lf\n", all->spr.y);
-	printf("posx     %lf\n", all->vect.posx);
-	printf("posy     %lf\n", all->vect.posy);
-	double xx;
-	double yy;
-	//double beta;
-
-	xx = all->vect.posx - all->spr.x;
-	yy = all->vect.posy - all->spr.y;
-	//beta = fabs(all->vect.dir - all->spr.raycols[all->spr.j / 2]);
-	//all->spr.distwall = sqrt(pow(xx, 2) + pow(yy, 2));
-	printf("distwall %lf\n\n", all->spr.distwall);
-	//all->spr.distwall *= cos(beta);
-	//printf("distwall %lf\n\n", all->spr.distwall);
-	*/
+	free(all->spr.distwalls);
 }

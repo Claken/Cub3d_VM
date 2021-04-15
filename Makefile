@@ -54,7 +54,6 @@ all:            $(NAME)
 
 makefirst:
 		make bonus -C $(LIBFT)
-#		cp /usr/local/lib/libmlx.a .
 
 $(NAME):        makefirst $(OBJ)
 

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:32:31 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 20:05:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/14 18:01:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ double
 
 	radian = (degree * PI) / 180.0f;
 	return (radian);
+}
+
+int
+	ft_radian_to_degree(double radian)
+{
+	int degree;
+
+	degree = (radian * 180.0f) / PI;
+	return (degree);
 }
 
 int

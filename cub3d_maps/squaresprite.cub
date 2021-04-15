@@ -1,0 +1,20 @@
+R 1920 1080
+NO ./cub3d_textures/wall_1.xpm
+SO ./cub3d_textures/wall_2.xpm
+WE ./cub3d_textures/wall_3.xpm
+EA ./cub3d_textures/wall_4.xpm
+S ./cub3d_textures/sprite_1.xpm
+F 220,100,0
+C 225,30,0
+
+11111111111
+10000000001
+10000000001
+10000000001
+10000000001
+10000000021
+10000000001
+10000000001
+10000N00001
+10000000001
+11111111111
