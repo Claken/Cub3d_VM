@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/15 15:56:11 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 00:01:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ typedef struct s_sprite
 	int		rayx;
 	int		j;
 	int		begx;
+	int		centerx;
 	int		endx;
 	double		x;
 	double		y;
@@ -108,8 +109,6 @@ typedef struct s_sprite
 	double		distance;
 	double		*distwalls;
 	double		raycol;
-	double		atan2;
-	double		tmpx;
 }			t_sprite;
 
 typedef struct	s_vect
@@ -287,14 +286,14 @@ void			ft_parsing_image(char *line, t_all *all);
 // RAYCASTING
 
 void			ft_raycasting(t_all *all);
-void			ft_check_for_walls_and_sprites(t_all *all, int i);
+void			ft_check_for_walls_and_sprites(t_all *all);
 void			ft_distance_calculation(t_all *all);
 void			ft_distance_with_no_fisheye(t_all *all);
 
 
 
 
-void			ft_get_sprite_data(t_all *all, int i, int side);
+void			ft_get_sprite_data(t_all *all, int side);
 void			ft_sprite_calculations(t_all *all);
 void			ft_sprite_mapping(t_all *all);
 

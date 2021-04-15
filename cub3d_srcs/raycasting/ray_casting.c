@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/15 19:57:07 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/15 21:00:52 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ static void
 	all->spr.j = 0;
 	all->spr.x = 0;
 	all->spr.y = 0;
-	all->spr.rayx = 0;
-	all->spr.tmpx = 0;
 	all->spr.begx = 0;
+	all->spr.centerx = 0;
 	all->spr.endx = 0;
 	all->spr.distance = 0;
 }
@@ -115,7 +114,7 @@ void
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
 		ft_raycol_dir(all);
-		ft_check_for_walls_and_sprites(all, i);
+		ft_check_for_walls_and_sprites(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
 		all->spr.distwalls[i] = all->vect.nofisheye;

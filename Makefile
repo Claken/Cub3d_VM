@@ -38,7 +38,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/parsing_map/get_data/get_player_and_direction.c \
 		cub3d_srcs/parsing_map/get_data/get_res_flo_and_ceil.c \
 		cub3d_srcs/parsing_map/get_data/get_textures_and_sprite.c \
-		cub3d_srcs/raycasting/check_for_walls.c \
+		cub3d_srcs/raycasting/check_for_walls_and_sprites.c \
 		cub3d_srcs/raycasting/distance.c \
 		cub3d_srcs/raycasting/ray_casting.c \
 		cub3d_srcs/images_handling/textures_management.c \

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/15 20:21:54 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 00:01:38 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "../../cub3d_includes/cub3d.h"
 
 void
-	ft_get_sprite_data(t_all *all, int i, int side)
+	ft_get_sprite_data(t_all *all, int side)
 {
 	if (all->spr.j == 0)
 	{
@@ -32,53 +32,54 @@ void
 			all->spr.x = all->vect.fvx - fmod(all->vect.fvx, 1) + 0.5;
 			all->spr.y = all->vect.fvy - fmod(all->vect.fvy, 1) + 0.5;
 		}
-		all->spr.rayx = i;
 	}
 	all->spr.j++;
+}
+
+static void
+	ft_find_centerx_of_sprite(t_all *all)
+{
+	double xs;
+	double ys;
+	double teta;
+	double tmpy;
+
+	xs = all->spr.x - all->vect.posx;
+	ys = all->vect.posy - all->spr.y;
+	teta = atan2(ys, xs);
+	if (teta < 0)
+		teta += PI * 2;
+	tmpy = all->vect.dir + all->vect.fov / 2 - teta;
+	if (teta > PI + (PI / 2) && all->vect.dir < PI / 2)
+		tmpy += PI * 2;
+	else if (all->vect.dir > PI + (PI / 2) && teta < PI / 2)
+		tmpy -= PI * 2;
+	all->spr.centerx = tmpy * all->data.reswid / all->vect.fov;
 }
 
 void
 	ft_sprite_calculations(t_all *all)
 {
-	double xs;
-	double ys;
-	double tmpy;
-	double teta;
 	double xx;
 	double yy;
 
-		xs = all->spr.x - all->vect.posx;
-		ys = all->vect.posy - all->spr.y;
-		teta = atan2(ys, xs);
-		if (teta < 0)
-			teta += PI * 2;
-		tmpy = all->vect.dir + all->vect.fov / 2 - teta;
-		if (teta > PI + (PI / 2) && all->vect.dir < PI / 2)
-			tmpy += PI * 2;
-		else if (all->vect.dir > PI + (PI / 2) && teta < PI / 2)
-			tmpy -= PI * 2;
-		all->spr.tmpx = tmpy * all->data.reswid / all->vect.fov;
-
-
-		xx = all->vect.posx - all->spr.x;
-		yy = all->vect.posy - all->spr.y;
-		all->spr.distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
-
-
-		all->disp.colhei = (CASE / all->spr.distance) * all->vect.distscreen;
-		all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
-		if (all->disp.pixbeg < 0)
-			all->disp.pixbeg = 0;
-		all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
-		if (all->disp.pixend >= (int)all->data.reshei)
-			all->disp.pixend = all->data.reshei - 1;
-
-		all->spr.begx = all->spr.tmpx - (all->disp.colhei / 2);
-		if (all->spr.begx < 0)
-			all->spr.begx = 0;
-		all->spr.endx = all->spr.tmpx + (all->disp.colhei / 2);
-		if (all->spr.endx >= (int)all->data.reswid)
-			all->spr.endx = all->data.reswid - 1;
+	xx = all->vect.posx - all->spr.x;
+	yy = all->vect.posy - all->spr.y;
+	all->spr.distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
+	all->disp.colhei = (CASE / all->spr.distance) * all->vect.distscreen;
+	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
+	if (all->disp.pixbeg < 0)
+		all->disp.pixbeg = 0;
+	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
+	if (all->disp.pixend >= (int)all->data.reshei)
+		all->disp.pixend = all->data.reshei - 1;
+	ft_find_centerx_of_sprite(all);
+	all->spr.begx = all->spr.centerx - (all->disp.colhei / 2);
+	if (all->spr.begx < 0)
+		all->spr.begx = 0;
+	all->spr.endx = all->spr.centerx + (all->disp.colhei / 2);
+	if (all->spr.endx >= (int)all->data.reswid)
+		all->spr.endx = all->data.reswid - 1;
 }
 
 void
@@ -93,7 +94,7 @@ void
 
 	x = all->spr.begx;
 	ii = (double)all->image.sprite.width / (double)all->disp.colhei;
-	sprx = (x - (all->spr.tmpx - all->disp.colhei / 2)) * ii;
+	sprx = (x - (all->spr.centerx - (all->disp.colhei / 2))) * ii;
 	i = (double)all->image.sprite.height / (double)all->disp.colhei;
 	while (x < all->spr.endx)
 	{
@@ -107,11 +108,11 @@ void
 				if (all->disp.color && all->disp.color != (int)0xff000000)
 					all->disp.addr[y *
 					all->data.reswid + x] = all->disp.color;
-				spry += i;
 				y++;
+				spry += i;
 			}
-		sprx += ii;
 		x++;
+		sprx += ii;
 	}
 }
 
