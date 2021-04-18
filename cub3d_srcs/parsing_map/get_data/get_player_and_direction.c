@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:50:42 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:43:01 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:21:55 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void
 	ft_set_dir_and_angle(t_all *all)
 {
 	if (all->data.posplay == 'N')
-		all->vect.dir = PI / 2;
+		all->angle.dir = PI / 2;
 	else if (all->data.posplay == 'S')
-		all->vect.dir = PI + (PI / 2);
+		all->angle.dir = PI + (PI / 2);
 	else if (all->data.posplay == 'E')
-		all->vect.dir = 0.0;
+		all->angle.dir = 0.0;
 	else if (all->data.posplay == 'W')
-		all->vect.dir = PI;
+		all->angle.dir = PI;
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites_management.c                               :+:      :+:    :+:   */
+/*   sprites_management_01.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 00:01:38 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:08:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ static void
 	teta = atan2(ys, xs);
 	if (teta < 0)
 		teta += PI * 2;
-	tmpy = all->vect.dir + all->vect.fov / 2 - teta;
-	if (teta > PI + (PI / 2) && all->vect.dir < PI / 2)
+	tmpy = all->angle.dir + all->angle.fov / 2 - teta;
+	if (teta > PI + (PI / 2) && all->angle.dir < PI / 2)
 		tmpy += PI * 2;
-	else if (all->vect.dir > PI + (PI / 2) && teta < PI / 2)
+	else if (all->angle.dir > PI + (PI / 2) && teta < PI / 2)
 		tmpy -= PI * 2;
-	all->spr.centerx = tmpy * all->data.reswid / all->vect.fov;
+	all->spr.centerx = tmpy * all->data.reswid / all->angle.fov;
 }
 
 void
@@ -66,7 +66,7 @@ void
 	xx = all->vect.posx - all->spr.x;
 	yy = all->vect.posy - all->spr.y;
 	all->spr.distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
-	all->disp.colhei = (CASE / all->spr.distance) * all->vect.distscreen;
+	all->disp.colhei = (CASE / all->spr.distance) * all->calcul.distscreen;
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
 		all->disp.pixbeg = 0;
@@ -80,39 +80,37 @@ void
 	all->spr.endx = all->spr.centerx + (all->disp.colhei / 2);
 	if (all->spr.endx >= (int)all->data.reswid)
 		all->spr.endx = all->data.reswid - 1;
+	all->spr.ix = (double)all->image.sprite.width / (double)all->disp.colhei;
+	all->spr.iy = (double)all->image.sprite.height / (double)all->disp.colhei;
 }
 
 void
 	ft_sprite_mapping(t_all *all)
 {
-	int x;
-	int y;
-	double ii;
-	double i;
-	double sprx;
-	double spry;
+	int	x;
+	int	y;
+	double	sprx;
+	double	spry;
 
-	x = all->spr.begx;
-	ii = (double)all->image.sprite.width / (double)all->disp.colhei;
-	sprx = (x - (all->spr.centerx - (all->disp.colhei / 2))) * ii;
-	i = (double)all->image.sprite.height / (double)all->disp.colhei;
-	while (x < all->spr.endx)
+	x = all->spr.begx - 1;
+	sprx = ((x + 1) - (all->spr.centerx - (all->disp.colhei / 2)))
+	* all->spr.ix;
+	while (++x < all->spr.endx)
 	{
-		y = all->disp.pixbeg;
-		spry = (y - (all->data.reshei / 2 - all->disp.colhei / 2)) * i;
-		if (all->spr.distwalls[x] + 0.5 > all->spr.distance)
-			while (y <= all->disp.pixend)
+		y = all->disp.pixbeg - 1;
+		spry = ((y + 1) - (all->data.reshei / 2 - all->disp.colhei / 2))
+		* all->spr.iy;
+		if (all->distwalls[x] + 0.5 > all->spr.distance)
+			while (++y <= all->disp.pixend)
 			{
 				all->disp.color = all->image.sprite.addr[(int)spry
 				* all->image.sprite.width + (int)sprx];
 				if (all->disp.color && all->disp.color != (int)0xff000000)
 					all->disp.addr[y *
 					all->data.reswid + x] = all->disp.color;
-				y++;
-				spry += i;
+				spry += all->spr.iy;
 			}
-		x++;
-		sprx += ii;
+		sprx += all->spr.ix;
 	}
 }
 

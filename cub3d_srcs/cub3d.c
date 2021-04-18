@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/11 12:28:32 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:05:27 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static int
 static void
 	ft_set_variables(t_all *all)
 {
-	all->vect.fov = ft_degree_to_radian(FOV);
+	all->angle.fov = ft_degree_to_radian(FOV);
 	ft_set_dir_and_angle(all);
-	all->vect.distscreen = (all->data.reswid / 2)
-	/ tan(all->vect.fov / 2);
-	all->vect.raycol = all->vect.dir + (all->vect.fov / 2);
-	all->vect.apr = all->vect.fov / all->data.reswid;
+	all->calcul.distscreen = (all->data.reswid / 2)
+	/ tan(all->angle.fov / 2);
+	all->angle.raycol = all->angle.dir + (all->angle.fov / 2);
+	all->angle.apr = all->angle.fov / all->data.reswid;
 }
 
 int

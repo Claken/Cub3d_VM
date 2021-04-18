@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/15 21:02:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:25:12 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void
 	{
 		all->vect.fhx += all->vect.hx;
 		all->vect.fhy += all->vect.hy;
-		*hyph += CASE / sin(all->vect.teta);
+		*hyph += CASE / sin(all->angle.teta);
 	}
 }
 
@@ -50,7 +50,7 @@ static void
 	{
 		all->vect.fvx += all->vect.vx;
 		all->vect.fvy += all->vect.vy;
-		*hypv += CASE / cos(all->vect.teta);
+		*hypv += CASE / cos(all->angle.teta);
 	}
 }
 

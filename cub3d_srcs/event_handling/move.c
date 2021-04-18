@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/05 20:41:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:08:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void
 	double ncx;
 	double ncy;
 
-	csn = cos(all->vect.dir) / SLOWING;
-	sn = -sin(all->vect.dir) / SLOWING;
+	csn = cos(all->angle.dir) / SLOWING;
+	sn = -sin(all->angle.dir) / SLOWING;
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
 	if (all->data.map[(int)ncy][(int)ncx] != '1'
@@ -42,10 +42,10 @@ void
 	double ncx;
 	double ncy;
 
-	all->vect.dir += (PI + (PI / 2));
-	csn = -cos(all->vect.dir) / SLOWING;
-	sn = sin(all->vect.dir) / SLOWING;
-	all->vect.dir -= (PI + (PI / 2));
+	all->angle.dir += (PI + (PI / 2));
+	csn = -cos(all->angle.dir) / SLOWING;
+	sn = sin(all->angle.dir) / SLOWING;
+	all->angle.dir -= (PI + (PI / 2));
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
 	if (all->data.map[(int)ncy][(int)ncx] != '1'
@@ -65,10 +65,10 @@ void
 	double ncx;
 	double ncy;
 
-	all->vect.dir += PI;
-	csn = cos(all->vect.dir) / SLOWING;
-	sn = -sin(all->vect.dir) / SLOWING;
-	all->vect.dir -= PI;
+	all->angle.dir += PI;
+	csn = cos(all->angle.dir) / SLOWING;
+	sn = -sin(all->angle.dir) / SLOWING;
+	all->angle.dir -= PI;
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
 	if (all->data.map[(int)ncy][(int)ncx] != '1'
@@ -88,10 +88,10 @@ void
 	double ncx;
 	double ncy;
 
-	all->vect.dir += (PI / 2);
-	csn = -cos(all->vect.dir) / SLOWING;
-	sn = sin(all->vect.dir) / SLOWING;
-	all->vect.dir -= (PI / 2);
+	all->angle.dir += (PI / 2);
+	csn = -cos(all->angle.dir) / SLOWING;
+	sn = sin(all->angle.dir) / SLOWING;
+	all->angle.dir -= (PI / 2);
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
 	if (all->data.map[(int)ncy][(int)ncx] != '1'

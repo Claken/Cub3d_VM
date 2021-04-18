@@ -42,7 +42,7 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/raycasting/distance.c \
 		cub3d_srcs/raycasting/ray_casting.c \
 		cub3d_srcs/images_handling/textures_management.c \
-		cub3d_srcs/images_handling/sprites_management.c \
+		cub3d_srcs/images_handling/sprites_management_01.c \
 
 OBJ		= ${SRC:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:34:34 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/10 23:11:04 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:07:35 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void
 
 	i = ft_degree_to_radian(ROTATE);
 	full = ft_degree_to_radian(360);
-	all->vect.dir -= i;
-	dirmod = fmod(all->vect.dir, full);
-	if (all->vect.dir < 0)
-		all->vect.dir = full + dirmod;
+	all->angle.dir -= i;
+	dirmod = fmod(all->angle.dir, full);
+	if (all->angle.dir < 0)
+		all->angle.dir = full + dirmod;
 	ft_create_image(all);
 }
 
@@ -46,9 +46,9 @@ void
 
 	i = ft_degree_to_radian(ROTATE);
 	full = ft_degree_to_radian(360);
-	all->vect.dir += i;
-	dirmod = fmod(all->vect.dir, full);
-	if (all->vect.dir >= full)
-		all->vect.dir = dirmod;
+	all->angle.dir += i;
+	dirmod = fmod(all->angle.dir, full);
+	if (all->angle.dir >= full)
+		all->angle.dir = dirmod;
 	ft_create_image(all);
 }

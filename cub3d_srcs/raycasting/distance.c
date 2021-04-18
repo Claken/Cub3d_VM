@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:19:26 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 19:51:57 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:37:22 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void
 {
 	if (dir == 6 || dir == 8)
 	{
-		all->vect.distwall = fabs(((all->vect.posy -
-		all->vect.fhy) / sin(all->vect.raycol)));
+		all->calcul.distwall = fabs(((all->vect.posy -
+		all->vect.fhy) / sin(all->angle.raycol)));
 		if (dir == 6)
-			all->vect.distwall -= 1;
+			all->calcul.distwall -= 1;
 	}
 	else
 	{
-		all->vect.distwall = fabs(((all->vect.posx -
-		all->vect.fhx) / cos(all->vect.raycol)));
+		all->calcul.distwall = fabs(((all->vect.posx -
+		all->vect.fhx) / cos(all->angle.raycol)));
 	}
 }
 
@@ -33,17 +33,17 @@ static void
 	ft_dist_for_east_and_west(t_all *all, int dir)
 {
 	if (dir == 5 || dir == 7
-	|| (dir == 1 && all->vect.raycol < all->vect.apr))
+	|| (dir == 1 && all->angle.raycol < all->angle.apr))
 	{
-		all->vect.distwall = fabs(((all->vect.posx -
-		all->vect.fvx) / cos(all->vect.raycol)));
+		all->calcul.distwall = fabs(((all->vect.posx -
+		all->vect.fvx) / cos(all->angle.raycol)));
 		if (dir == 7)
-			all->vect.distwall -= 1;
+			all->calcul.distwall -= 1;
 	}
 	else
 	{
-		all->vect.distwall = fabs(((all->vect.posy -
-		all->vect.fvy) / sin(all->vect.raycol)));
+		all->calcul.distwall = fabs(((all->vect.posy -
+		all->vect.fvy) / sin(all->angle.raycol)));
 	}
 }
 
@@ -68,6 +68,6 @@ void
 {
 	double beta;
 
-	beta = fabs(all->vect.dir - all->vect.raycol);
-	all->vect.nofisheye = all->vect.distwall * cos(beta);
+	beta = fabs(all->angle.dir - all->angle.raycol);
+	all->calcul.nofisheye = all->calcul.distwall * cos(beta);
 }

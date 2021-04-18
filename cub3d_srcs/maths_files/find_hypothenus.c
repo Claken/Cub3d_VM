@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/01 19:56:53 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:13:52 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ static void
 	ft_set_teta(t_all *all, int direction)
 {
 	if (direction == 1)
-		all->vect.teta = all->vect.raycol;
+		all->angle.teta = all->angle.raycol;
 	else if (direction == 2)
-		all->vect.teta = PI - all->vect.raycol;
+		all->angle.teta = PI - all->angle.raycol;
 	else if (direction == 3)
-		all->vect.teta = all->vect.raycol - PI;
+		all->angle.teta = all->angle.raycol - PI;
 	else if (direction == 4)
-		all->vect.teta = (2 * PI) - all->vect.raycol;
+		all->angle.teta = (2 * PI) - all->angle.raycol;
 }
 
 static double
 	ft_set_hyph_special_cases(t_all *all, int direction)
 {
 	if (direction == 6)
-		return (all->vect.modyu);
+		return (all->calcul.modyu);
 	else if (direction == 8)
-		return ((all->vect.posy - all->vect.modyu + CASE)
+		return ((all->vect.posy - all->calcul.modyu + CASE)
 		- all->vect.posy);
 	else
 		return (10000);
@@ -48,10 +48,10 @@ double
 	direction = ft_check_raycol_direction(all);
 	ft_set_teta(all, direction);
 	if (direction == 1 || direction == 2)
-		hyph = all->vect.modyu / sin(all->vect.teta);
+		hyph = all->calcul.modyu / sin(all->angle.teta);
 	else if (direction == 3 || direction == 4)
-		hyph = ((all->vect.posy - all->vect.modyu + CASE)
-		- all->vect.posy) / sin(all->vect.teta);
+		hyph = ((all->vect.posy - all->calcul.modyu + CASE)
+		- all->vect.posy) / sin(all->angle.teta);
 	else
 		hyph = ft_set_hyph_special_cases(all, direction);
 	return (hyph);
@@ -61,10 +61,10 @@ static double
 	ft_set_hypv_special_cases(t_all *all, int direction)
 {
 	if (direction == 5)
-		return ((all->vect.posx - all->vect.modxl + CASE)
+		return ((all->vect.posx - all->calcul.modxl + CASE)
 		- all->vect.posx);
 	else if (direction == 7)
-		return (all->vect.modxl);
+		return (all->calcul.modxl);
 	else
 		return (10000);
 	return (0);
@@ -80,10 +80,10 @@ double
 	direction = ft_check_raycol_direction(all);
 	ft_set_teta(all, direction);
 	if (direction == 1 || direction == 4)
-		hypv = ((all->vect.posx - all->vect.modxl + CASE)
-		- all->vect.posx) / cos(all->vect.teta);
+		hypv = ((all->vect.posx - all->calcul.modxl + CASE)
+		- all->vect.posx) / cos(all->angle.teta);
 	else if (direction == 2 || direction == 3)
-		hypv = all->vect.modxl / cos(all->vect.teta);
+		hypv = all->calcul.modxl / cos(all->angle.teta);
 	else
 		hypv = ft_set_hypv_special_cases(all, direction);
 	return (hypv);

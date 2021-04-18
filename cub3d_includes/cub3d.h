@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 00:01:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:05:12 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,53 +98,48 @@ typedef struct	s_sprite
 */
 typedef struct s_sprite
 {
-	int		rayx;
 	int		j;
 	int		begx;
 	int		centerx;
 	int		endx;
+	double		ix;
+	double		iy;
 	double		x;
 	double		y;
-	int		side;
 	double		distance;
-	double		*distwalls;
-	double		raycol;
 }			t_sprite;
 
-typedef struct	s_vect
+typedef struct	s_angle
 {
-	double		posy;
-	double		posx;
 	double		dir;
 	double		fov;
 	double		apr;
 	double		raycol;
 	double		teta;
+}			t_angle;
 
-	double		fhx;
-	double		fhy;
-
-	double		fvx;
-	double		fvy;
-
-	double		hx;
-	double		hy;
-
-	double		vx;
-	double		vy;
-
+typedef struct	s_calcul
+{
 	double		distscreen;
 	double		distwall;
 	double		nofisheye;
-	int		side;
-
-	int		pixbeg;
-	int		pixend;
-
 	double		modxl;
 	double		modyu;
+}			t_calcul;
 
-	int		index;
+typedef struct	s_vect
+{
+	double		posy;
+	double		posx;
+	double		fhx;
+	double		fhy;
+	double		fvx;
+	double		fvy;
+	double		hx;
+	double		hy;
+	double		vx;
+	double		vy;
+	int		side;
 }			t_vect;
 
 typedef struct	s_mlx
@@ -184,11 +179,14 @@ typedef struct	s_all
 {
 	t_data		data;
 	t_vect		vect;
+	t_angle		angle;
+	t_calcul	calcul;
 	t_mlx		disp;
 	t_elem		image;
 	t_keys		key;
 	t_bmp		bmp;
 	t_sprite	spr;
+	double		*distwalls;
 }			t_all;
 
 // BMP_SAVE
