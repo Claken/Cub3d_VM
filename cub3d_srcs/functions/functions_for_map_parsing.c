@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 23:38:54 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/10 18:59:27 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/19 20:06:53 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ void
 char
 	*ft_reset_line_size(char *line, int size, int i)
 {
-	if (!(line = (void*)ft_realloc((char*)line, size)))
+	char *new;
+
+	if (!(new = (void*)ft_realloc((char*)line, size)))
 		return (0);
 	while (i < size)
-		line[i++] = '1';
-	line[i] = '\0';
-	return (line);
+		new[i++] = '1';
+	new[i] = '\0';
+	return (new);
 }
 
 int

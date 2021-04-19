@@ -6,27 +6,26 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:43:58 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:28:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/19 20:24:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/get_next_line.h"
+#include "get_next_line.h"
 
-static int
-	ft_buffer_to_str(char **str, char *buffer)
+static int		ft_buffer_to_str(char **str, char *buffer)
 {
 	char *tmp;
 
 	tmp = NULL;
 	if (!*str)
 	{
-		if (!(*str = ft_substr2(buffer, 0, ft_strlen2(buffer))))
+		if (!(*str = ft_substr(buffer, 0, ft_strlen(buffer))))
 			return (0);
 	}
 	else if (*str)
 	{
 		tmp = *str;
-		if (!(*str = ft_strjoin2(*str, buffer)))
+		if (!(*str = ft_strjoin(*str, buffer)))
 			return (0);
 		free(tmp);
 		tmp = NULL;
@@ -34,11 +33,10 @@ static int
 	return (1);
 }
 
-static char
-	*ft_one_line(char *str)
+static char		*ft_one_line(char *str)
 {
-	int i;
-	char*line;
+	int		i;
+	char	*line;
 
 	i = 0;
 	while (str && str[i] != '\n' && str[i])
@@ -55,11 +53,10 @@ static char
 	return (line);
 }
 
-static char
-	*ft_next_line(char *str)
+static char		*ft_next_line(char *str)
 {
-	int i;
-	char*tmp;
+	int		i;
+	char	*tmp;
 
 	i = 0;
 	tmp = NULL;
@@ -68,17 +65,16 @@ static char
 	if (str[i])
 		i++;
 	tmp = str;
-	if (!(str = ft_substr2(str, i, ft_strlen2(str))))
+	if (!(str = ft_substr(str, i, ft_strlen(str))))
 		return (NULL);
 	free(tmp);
 	tmp = NULL;
 	return (str);
 }
 
-static int
-	ft_end_of_file(char **str, int byte)
+static int		ft_end_of_file(char **str, int byte)
 {
-	if (byte == 0 && !ft_strchr2(*str, '\n'))
+	if (byte == 0 && !ft_strchr(*str, '\n'))
 	{
 		free(*str);
 		*str = NULL;
@@ -87,17 +83,16 @@ static int
 	return (0);
 }
 
-int
-	get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
-	int		byte;
-	char		buffer[BUFFER_SIZE + 1];
-	static char	*str = NULL;
+	int			byte;
+	char			buffer[BUFFER_SIZE + 1];
+	static char		*str = NULL;
 
 	if (fd < 0 || !line || BUFFER_SIZE == 0)
 		return (-1);
 	byte = 1;
-	while (!ft_strchr2(str, '\n') && byte > 0)
+	while (!ft_strchr(str, '\n') && byte > 0)
 	{
 		if ((byte = read(fd, buffer, BUFFER_SIZE)) == -1)
 			return (-1);

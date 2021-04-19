@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 05:27:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/19 14:05:43 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/19 21:25:41 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ void
 	if (all->disp.windo)
 		mlx_destroy_window(all->disp.mlx_ptr, all->disp.windo);
 	if (all->disp.mlx_ptr)
+	{
 		mlx_destroy_display(all->disp.mlx_ptr);
+		free(all->disp.mlx_ptr);
+	}
 }

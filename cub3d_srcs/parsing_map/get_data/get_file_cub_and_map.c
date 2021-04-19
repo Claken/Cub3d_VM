@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:48:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/22 17:53:20 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/19 20:29:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ char
 			return (NULL);
 		free(line);
 	}
+	free(line);
 	map[j] = 0;
 	return (map);
 }

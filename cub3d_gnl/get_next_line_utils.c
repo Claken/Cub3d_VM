@@ -6,14 +6,13 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:44:07 by sachouam          #+#    #+#             */
-/*   Updated: 2020/12/29 19:29:59 by sachouam         ###   ########.fr       */
+/*   Updated: 2019/11/18 22:29:04 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d_includes/get_next_line.h"
+#include "get_next_line.h"
 
-int
-	ft_strlen2(const char *s)
+int				ft_strlen(const char *s)
 {
 	int i;
 
@@ -23,8 +22,7 @@ int
 	return (i);
 }
 
-char
-	*ft_strchr2(const char *s, int c)
+char			*ft_strchr(const char *s, int c)
 {
 	int i;
 
@@ -42,8 +40,7 @@ char
 	return (NULL);
 }
 
-char
-	*ft_substr2(char const *s, unsigned int start, size_t len)
+char			*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
@@ -51,7 +48,7 @@ char
 	if (!s || !(substr = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	i = 0;
-	if (start < (unsigned int)ft_strlen2(s))
+	if (start < (unsigned int)ft_strlen(s))
 		while (i < len && s[i + start])
 		{
 			substr[i] = s[i + start];
@@ -61,8 +58,7 @@ char
 	return (substr);
 }
 
-static char
-	*ft_concatenate2(char const *s1, char const *s2, char *str)
+static char		*ft_concatenate(char const *s1, char const *s2, char *str)
 {
 	int i;
 	int j;
@@ -83,21 +79,20 @@ static char
 	return (str);
 }
 
-char
-	*ft_strjoin2(char const *s1, char const *s2)
+char			*ft_strjoin(char const *s1, char const *s2)
 {
-	char*str;
-	int len;
+	char	*str;
+	int		len;
 
 	if (!s1 && s2)
-		return (ft_substr2(s2, 0, ft_strlen2(s2)));
+		return (ft_substr(s2, 0, ft_strlen(s2)));
 	if (!s2 && s1)
-		return (ft_substr2(s1, 0, ft_strlen2(s1)));
+		return (ft_substr(s1, 0, ft_strlen(s1)));
 	if (!s1 && !s2)
 		return (NULL);
-	len = ft_strlen2(s1) + ft_strlen2(s2);
+	len = ft_strlen(s1) + ft_strlen(s2);
 	if (!(str = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	str = ft_concatenate2(s1, s2, str);
+	str = ft_concatenate(s1, s2, str);
 	return (str);
 }

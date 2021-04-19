@@ -1,9 +1,3 @@
-CC		= clang
-
-CFLAGS		= -Wall -Wextra -Werror -g
-
-MFLAGS		= -lX11 -lXext -lm -lbsd -Lcub3d_mlx -lmlx
-
 NAME		= Cub3D
 
 NAME_LIBFT	= cub3d_libft/libft.a
@@ -17,6 +11,12 @@ MLXH		= cub3d_mlx/mlx.h
 LIBFT		= cub3d_libft
 
 MLX		= cub3d_mlx
+
+CC		= clang
+
+MFLAGS		= -lX11 -lXext -lm -lbsd -L $(MLX) -lmlx
+
+CFLAGS		= -Wall -Wextra -Werror #-g
 
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
@@ -63,11 +63,11 @@ $(NAME):        makefirst $(OBJ)
 clean:
 		rm -rf $(OBJ)
 		make clean -C $(LIBFT)
+		make clean -C $(MLX)
 
 fclean:		clean
 		rm -rf $(NAME)
 		make fclean -C $(LIBFT)
-		make clean -C $(MLX)
 
 re:		fclean all
 
