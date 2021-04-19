@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 19:25:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:38:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void
 	ft_if_hyph_is_inferior(t_all *all, double *hyph, int *hit)
 {
 	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '2')
-		ft_get_sprite_data(all, 0);
+		ft_get_sprite_data(all,
+		all->vect.fhx, all->vect.fhy);
 	if (all->data.map[(int)all->vect.fhy][(int)all->vect.fhx] == '1')
 	{
 		if (all->vect.hy == -1)
@@ -37,7 +38,8 @@ static void
 	ft_if_hypv_is_inferior(t_all *all, double *hypv, int *hit)
 {
 	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '2')
-		ft_get_sprite_data(all, 1);
+		ft_get_sprite_data(all,
+		all->vect.fvx, all->vect.fvy);
 	if (all->data.map[(int)all->vect.fvy][(int)all->vect.fvx] == '1')
 	{
 		if (all->vect.vx == -1)

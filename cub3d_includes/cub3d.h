@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 20:05:12 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/18 19:58:51 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct s_sprite
 	double		x;
 	double		y;
 	double		distance;
+	struct s_sprite	*next;
 }			t_sprite;
 
 typedef struct	s_angle
@@ -291,7 +292,7 @@ void			ft_distance_with_no_fisheye(t_all *all);
 
 
 
-void			ft_get_sprite_data(t_all *all, int side);
+void			ft_get_sprite_data(t_all *all, double sx, double sy);
 void			ft_sprite_calculations(t_all *all);
 void			ft_sprite_mapping(t_all *all);
 

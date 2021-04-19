@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 20:08:50 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/18 16:39:16 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,12 @@
 #include "../../cub3d_includes/cub3d.h"
 
 void
-	ft_get_sprite_data(t_all *all, int side)
+	ft_get_sprite_data(t_all *all, double sx, double sy)
 {
 	if (all->spr.j == 0)
 	{
-		if (side == 0)
-		{
-			all->spr.x = all->vect.fhx - fmod(all->vect.fhx, 1) + 0.5;
-			all->spr.y = all->vect.fhy - fmod(all->vect.fhy, 1) + 0.5;
-		}
-		else if (side == 1)
-		{
-			all->spr.x = all->vect.fvx - fmod(all->vect.fvx, 1) + 0.5;
-			all->spr.y = all->vect.fvy - fmod(all->vect.fvy, 1) + 0.5;
-		}
+		all->spr.x = sx - fmod(sx, 1) + 0.5;
+		all->spr.y = sy - fmod(sy, 1) + 0.5;
 	}
 	all->spr.j++;
 }
@@ -68,16 +60,16 @@ void
 	all->spr.distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
 	all->disp.colhei = (CASE / all->spr.distance) * all->calcul.distscreen;
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
+	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
 		all->disp.pixbeg = 0;
-	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
 	ft_find_centerx_of_sprite(all);
 	all->spr.begx = all->spr.centerx - (all->disp.colhei / 2);
+	all->spr.endx = all->spr.centerx + (all->disp.colhei / 2);
 	if (all->spr.begx < 0)
 		all->spr.begx = 0;
-	all->spr.endx = all->spr.centerx + (all->disp.colhei / 2);
 	if (all->spr.endx >= (int)all->data.reswid)
 		all->spr.endx = all->data.reswid - 1;
 	all->spr.ix = (double)all->image.sprite.width / (double)all->disp.colhei;

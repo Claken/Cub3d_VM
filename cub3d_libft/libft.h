@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:50:32 by sachouam          #+#    #+#             */
-/*   Updated: 2020/08/17 18:17:49 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/18 17:08:34 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct	s_list
 {
 	void			*content;
-	struct s_list	*next;
+	struct s_list		*next;
 }				t_list;
 
 int			ft_atoi(const char *str);

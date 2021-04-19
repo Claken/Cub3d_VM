@@ -2,7 +2,7 @@ CC		= clang
 
 CFLAGS		= -Wall -Wextra -Werror -g
 
-MFLAGS		= -lX11 -lXext -lm -lbsd -lmlx
+MFLAGS		= -lX11 -lXext -lm -lbsd -Lcub3d_mlx -lmlx
 
 NAME		= Cub3D
 
@@ -10,11 +10,13 @@ NAME_LIBFT	= cub3d_libft/libft.a
 
 NAME_MLX	= cub3d_mlx/libmlx.a
 
-INCLUDES	= includes
+INCLUDES	= cub3d_includes
 
-MLX		= cub3d_mlx/mlx.h
+MLXH		= cub3d_mlx/mlx.h
 
 LIBFT		= cub3d_libft
+
+MLX		= cub3d_mlx
 
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
@@ -47,13 +49,14 @@ SRC 		= cub3d_gnl/get_next_line.c \
 OBJ		= ${SRC:.c=.o}
 
 .c.o:
-		$(CC) $(CFLAGS) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) $(SRC) $(NAME_LIBFT) -o $(NAME) $(MFLAGS)
+		$(CC) $(CFLAGS) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) $(SRC) $(NAME_LIBFT) -o $(NAME) $(MFLAGS)
 		#-g3 -fsanitize=address
 
 all:            $(NAME)
 
 makefirst:
 		make bonus -C $(LIBFT)
+		make -C $(MLX)
 
 $(NAME):        makefirst $(OBJ)
 
@@ -64,6 +67,7 @@ clean:
 fclean:		clean
 		rm -rf $(NAME)
 		make fclean -C $(LIBFT)
+		make clean -C $(MLX)
 
 re:		fclean all
 
@@ -78,11 +82,15 @@ run3:
 		@./Cub3D cub3d_maps/rectmap.cub
 
 testpars:
-		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS) -o pars
+		$(CC) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS) -o pars
 		./pars cub3d_maps/mapex.cub
 
 testgraph:
-		$(CC) -I $(INCLUDES) -I $(MLX) $(NAME_MLX) maingraph.c $(MFLAGS) -o graph
+		$(CC) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) maingraph.c $(MFLAGS) -o graph
 		./graph
+
+testlist:
+		clang -I cub3d_includes mainlst.c -o mainlst -lm
+		./mainlst
 
 .PHONY: all clean fclean re
