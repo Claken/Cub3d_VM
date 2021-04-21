@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/31 16:05:40 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/18 16:39:16 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/21 18:13:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,36 @@
 void
 	ft_get_sprite_data(t_all *all, double sx, double sy)
 {
-	if (all->spr.j == 0)
+	double		xx;
+	double		yy;
+	t_sprite	*svg;
+
+	if ((int)sx != all->sx || (int)sy != all->sy)
 	{
-		all->spr.x = sx - fmod(sx, 1) + 0.5;
-		all->spr.y = sy - fmod(sy, 1) + 0.5;
+		all->sx = (int)sx;
+		all->sy = (int)sy;
+		if (!(ft_add_sprite_back(&all->sprites, sx, sy)))
+			return ;
+		svg = all->sprites;
+		while (all->sprites->next)
+			all->sprites = all->sprites->next;
+		xx = all->vect.posx - all->sprites->x;
+		yy = all->vect.posy - all->sprites->y;
+		all->sprites->distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
+		all->sprites = svg;
 	}
-	all->spr.j++;
 }
 
 static void
-	ft_find_centerx_of_sprite(t_all *all)
+	ft_find_centerx_of_sprite(t_all *all, t_sprite **spr)
 {
 	double xs;
 	double ys;
 	double teta;
 	double tmpy;
 
-	xs = all->spr.x - all->vect.posx;
-	ys = all->vect.posy - all->spr.y;
+	xs = (*spr)->x - all->vect.posx;
+	ys = all->vect.posy - (*spr)->y;
 	teta = atan2(ys, xs);
 	if (teta < 0)
 		teta += PI * 2;
@@ -46,53 +58,48 @@ static void
 		tmpy += PI * 2;
 	else if (all->angle.dir > PI + (PI / 2) && teta < PI / 2)
 		tmpy -= PI * 2;
-	all->spr.centerx = tmpy * all->data.reswid / all->angle.fov;
+	(*spr)->centerx = tmpy * all->data.reswid / all->angle.fov;
 }
 
 void
-	ft_sprite_calculations(t_all *all)
+	ft_sprite_calculations(t_all *all, t_sprite **spr)
 {
-	double xx;
-	double yy;
 
-	xx = all->vect.posx - all->spr.x;
-	yy = all->vect.posy - all->spr.y;
-	all->spr.distance = (sqrt(pow(xx, 2) + pow(yy, 2)));
-	all->disp.colhei = (CASE / all->spr.distance) * all->calcul.distscreen;
+	all->disp.colhei = (CASE / (*spr)->distance) * all->calcul.distscreen;
 	all->disp.pixbeg = -all->disp.colhei / 2 + all->data.reshei / 2;
 	all->disp.pixend = all->disp.colhei / 2 + all->data.reshei / 2;
 	if (all->disp.pixbeg < 0)
 		all->disp.pixbeg = 0;
 	if (all->disp.pixend >= (int)all->data.reshei)
 		all->disp.pixend = all->data.reshei - 1;
-	ft_find_centerx_of_sprite(all);
-	all->spr.begx = all->spr.centerx - (all->disp.colhei / 2);
-	all->spr.endx = all->spr.centerx + (all->disp.colhei / 2);
-	if (all->spr.begx < 0)
-		all->spr.begx = 0;
-	if (all->spr.endx >= (int)all->data.reswid)
-		all->spr.endx = all->data.reswid - 1;
-	all->spr.ix = (double)all->image.sprite.width / (double)all->disp.colhei;
-	all->spr.iy = (double)all->image.sprite.height / (double)all->disp.colhei;
+	ft_find_centerx_of_sprite(all, spr);
+	(*spr)->begx = (*spr)->centerx - (all->disp.colhei / 2);
+	(*spr)->endx = (*spr)->centerx + (all->disp.colhei / 2);
+	if ((*spr)->begx < 0)
+		(*spr)->begx = 0;
+	if ((*spr)->endx >= (int)all->data.reswid)
+		(*spr)->endx = all->data.reswid - 1;
+	(*spr)->ix = (double)all->image.sprite.width / (double)all->disp.colhei;
+	(*spr)->iy = (double)all->image.sprite.height / (double)all->disp.colhei;
 }
 
 void
-	ft_sprite_mapping(t_all *all)
+	ft_sprite_mapping(t_all *all, t_sprite *spr)
 {
 	int	x;
 	int	y;
 	double	sprx;
 	double	spry;
 
-	x = all->spr.begx - 1;
-	sprx = ((x + 1) - (all->spr.centerx - (all->disp.colhei / 2)))
-	* all->spr.ix;
-	while (++x < all->spr.endx)
+	x = spr->begx - 1;
+	sprx = ((x + 1) - (spr->centerx - (all->disp.colhei / 2)))
+	* spr->ix;
+	while (++x < spr->endx)
 	{
 		y = all->disp.pixbeg - 1;
 		spry = ((y + 1) - (all->data.reshei / 2 - all->disp.colhei / 2))
-		* all->spr.iy;
-		if (all->distwalls[x] + 0.5 > all->spr.distance)
+		* spr->iy;
+		if (all->distwalls[x] + 0.5 > spr->distance)
 			while (++y <= all->disp.pixend)
 			{
 				all->disp.color = all->image.sprite.addr[(int)spry
@@ -100,9 +107,9 @@ void
 				if (all->disp.color && all->disp.color != (int)0xff000000)
 					all->disp.addr[y *
 					all->data.reswid + x] = all->disp.color;
-				spry += all->spr.iy;
+				spry += spr->iy;
 			}
-		sprx += all->spr.ix;
+		sprx += spr->ix;
 	}
 }
 

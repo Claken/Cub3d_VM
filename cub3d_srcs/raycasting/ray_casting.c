@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 20:08:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/21 17:49:05 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ static void
 	all->distwalls = malloc(sizeof(double) * all->data.reswid);
 	if (all->distwalls == NULL)
 		return ;
-	all->spr.j = 0;
-	all->spr.x = 0;
-	all->spr.y = 0;
-	all->spr.begx = 0;
-	all->spr.centerx = 0;
-	all->spr.endx = 0;
-	all->spr.distance = 0;
+	all->sx = 0;
+	all->sy = 0;
+	all->sprites = NULL;
 }
 
 static void
@@ -122,7 +118,16 @@ void
 		ft_textures_management(all, i);
 		all->angle.raycol -= all->angle.apr;
 	}
-	ft_sprite_calculations(all);
-	ft_sprite_mapping(all);
+	t_sprite *svg;
+	svg = all->sprites;
+	ft_sort_sprites(&all->sprites);
+	while (all->sprites)
+	{
+		ft_sprite_calculations(all, &all->sprites);
+		ft_sprite_mapping(all, all->sprites);
+		all->sprites = all->sprites->next;
+	}
+	all->sprites = svg;
 	free(all->distwalls);
+	ft_sprclear(&all->sprites);
 }
