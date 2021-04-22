@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/21 17:43:56 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 12:57:19 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,8 +189,6 @@ typedef struct	s_all
 	t_sprite	spr;
 	t_sprite	*sprites;
 	double		*distwalls;
-	int		sx;
-	int		sy;
 }			t_all;
 
 // BMP_SAVE
@@ -255,6 +253,16 @@ int			ft_check_beginning_and_end(char *line);
 
 // IMAGES_HANDLING
 
+int			ft_add_sprite_back(t_sprite **spr, double sx, double sy);
+void			ft_sort_sprites(t_sprite **spr);
+void			ft_sprclear(t_sprite **spr);
+
+void			ft_check_sprites_on_the_map(t_all *all);
+void			ft_sprite_calculations(t_all *all, t_sprite **spr);
+void			ft_sprite_mapping(t_all *all, t_sprite *spr);
+
+void			ft_sprites_management(t_all *all);
+
 void			ft_textures_management(t_all *all, int index);
 
 // MATHS_FILES
@@ -288,21 +296,8 @@ void			ft_parsing_image(char *line, t_all *all);
 // RAYCASTING
 
 void			ft_raycasting(t_all *all);
-void			ft_check_for_walls_and_sprites(t_all *all);
+void			ft_check_for_walls(t_all *all);
 void			ft_distance_calculation(t_all *all);
 void			ft_distance_with_no_fisheye(t_all *all);
-
-
-
-
-void			ft_get_sprite_data(t_all *all, double sx, double sy);
-void			ft_sprite_calculations(t_all *all, t_sprite **spr);
-void			ft_sprite_mapping(t_all *all, t_sprite *spr);
-
-t_sprite		*ft_new_sprite(double sx, double sy);
-int			ft_add_sprite_back(t_sprite **spr, double sx, double sy);
-void			ft_sprclear(t_sprite **spr);
-void			ft_swap_sprites(t_sprite *curr, t_sprite *next);
-void			ft_sort_sprites(t_sprite **spr);
 
 #endif

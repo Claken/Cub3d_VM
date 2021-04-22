@@ -23,12 +23,12 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/bmp_save/save_bmp_image.c \
 		cub3d_srcs/clear_cub3d/clear_cub3d.c \
 		cub3d_srcs/cub3d.c \
-		cub3d_srcs/display/c3d_display_01.c \
+		cub3d_srcs/display/c3d_display.c \
 		cub3d_srcs/errors_handling/errors_handling.c \
 		cub3d_srcs/event_handling/exit_and_cam.c \
 		cub3d_srcs/event_handling/keys.c \
 		cub3d_srcs/event_handling/move.c \
-		cub3d_srcs/functions/c3d_utils_01.c \
+		cub3d_srcs/functions/c3d_utils.c \
 		cub3d_srcs/functions/check_raycol_direction.c \
 		cub3d_srcs/functions/draw_floor_and_ceiling.c \
 		cub3d_srcs/functions/functions_for_map_parsing.c \
@@ -40,12 +40,13 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/parsing_map/get_data/get_player_and_direction.c \
 		cub3d_srcs/parsing_map/get_data/get_res_flo_and_ceil.c \
 		cub3d_srcs/parsing_map/get_data/get_textures_and_sprite.c \
-		cub3d_srcs/raycasting/check_for_walls_and_sprites.c \
+		cub3d_srcs/raycasting/check_for_walls.c \
 		cub3d_srcs/raycasting/distance.c \
 		cub3d_srcs/raycasting/ray_casting.c \
+		cub3d_srcs/images_handling/functions_list_sprites.c \
+		cub3d_srcs/images_handling/sprites_data_calcul_mapping.c \
+		cub3d_srcs/images_handling/sprites_management.c \
 		cub3d_srcs/images_handling/textures_management.c \
-		cub3d_srcs/images_handling/sprites_management_01.c \
-		cub3d_srcs/images_handling/sprites_management_02.c \
 
 OBJ		= ${SRC:.c=.o}
 

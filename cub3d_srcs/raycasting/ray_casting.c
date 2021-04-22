@@ -6,25 +6,11 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/21 17:49:05 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 13:11:17 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
-
-static void
-	ft_set_var_before_raycasting(t_all *all)
-{
-	all->calcul.modxl = fmod(all->vect.posx, 1);
-	all->calcul.modyu = fmod(all->vect.posy, 1);
-	all->angle.raycol = all->angle.dir + (all->angle.fov / 2);
-	all->distwalls = malloc(sizeof(double) * all->data.reswid);
-	if (all->distwalls == NULL)
-		return ;
-	all->sx = 0;
-	all->sy = 0;
-	all->sprites = NULL;
-}
 
 static void
 	ft_check_raycol_value(t_all *all)
@@ -104,13 +90,18 @@ void
 	int i;
 
 	i = -1;
-	ft_set_var_before_raycasting(all);
+	all->calcul.modxl = fmod(all->vect.posx, 1);
+	all->calcul.modyu = fmod(all->vect.posy, 1);
+	all->angle.raycol = all->angle.dir + (all->angle.fov / 2);
+	if (!(all->distwalls = malloc(sizeof(double) * all->data.reswid)))
+		return ;
+	all->sprites = NULL;
 	while (++i < (int)all->data.reswid)
 	{
 		ft_check_raycol_value(all);
 		ft_re_set_variables(all);
 		ft_raycol_dir(all);
-		ft_check_for_walls_and_sprites(all);
+		ft_check_for_walls(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
 		all->distwalls[i] = all->calcul.nofisheye;
@@ -118,16 +109,4 @@ void
 		ft_textures_management(all, i);
 		all->angle.raycol -= all->angle.apr;
 	}
-	t_sprite *svg;
-	svg = all->sprites;
-	ft_sort_sprites(&all->sprites);
-	while (all->sprites)
-	{
-		ft_sprite_calculations(all, &all->sprites);
-		ft_sprite_mapping(all, all->sprites);
-		all->sprites = all->sprites->next;
-	}
-	all->sprites = svg;
-	free(all->distwalls);
-	ft_sprclear(&all->sprites);
 }

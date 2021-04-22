@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/22 17:48:13 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 13:35:25 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int
 static void
 	ft_check_images(t_all *all)
 {
-	int		i;
-	int		j;
-	char		**tab;
-	t_images	*tmp;
+	int	i;
+	int	j;
+	char	**tab;
+	t_images*tmp;
 
 	i = 0;
 	while (i < NTXT)

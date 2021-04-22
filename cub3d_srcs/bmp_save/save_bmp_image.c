@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 18:26:35 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:17:25 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 13:06:01 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ static void
 int
 	ft_save_bmp_image(t_all *all, char *filename)
 {
-	int	fd;
 	t_bmp	bmp;
+	int	fd;
 
 	ft_bzero(&bmp, sizeof(t_bmp));
 	bmp.size = 54 + (3 * all->data.reswid * all->data.reshei);
