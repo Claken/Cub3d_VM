@@ -6,12 +6,12 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:03:20 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 17:54:26 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_includes/cub3d.h"
-#define SLOWING 4
+#define SLOWING 5
 
 void
 	ft_move_forward(t_all *all)
@@ -25,7 +25,7 @@ void
 	sn = -sin(all->angle.dir) / SLOWING;
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
-	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	if (all->distwalls[all->data.reswid / 2] > 0.5
 	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
@@ -47,7 +47,8 @@ void
 	all->angle.dir -= (PI + (PI / 2));
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
-	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	if (all->distwalls[0] > 0.5 &&
+	all->data.map[(int)ncy][(int)ncx] != '1'
 	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
@@ -91,7 +92,8 @@ void
 	all->angle.dir -= (PI / 2);
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
-	if (all->data.map[(int)ncy][(int)ncx] != '1'
+	if (all->distwalls[all->data.reswid - 1] > 0.5
+	&& all->data.map[(int)ncy][(int)ncx] != '1'
 	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
