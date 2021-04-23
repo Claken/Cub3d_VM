@@ -18,6 +18,8 @@ MFLAGS		= -lX11 -lXext -lm -lbsd -L $(MLX) -lmlx
 
 CFLAGS		= -Wall -Wextra -Werror #-g
 
+DIR		= obj
+
 SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d_srcs/bmp_save/save_bmp_image.c \
@@ -48,19 +50,19 @@ SRC 		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/images_handling/sprites_management.c \
 		cub3d_srcs/images_handling/textures_management.c \
 
-OBJ		= ${SRC:.c=.o}
+OBJ		= $(SRC:.c=.o)
 
-.c.o:
-		$(CC) $(CFLAGS) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) $(SRC) $(NAME_LIBFT) -o $(NAME) $(MFLAGS)
-		#-g3 -fsanitize=address
+all:		$(NAME)
 
-all:            $(NAME)
+%.o : %.c
+	$(CC) -I$(INCLUDES) -o $@ -c $< $(CFLAGS)
 
 makefirst:
 		make bonus -C $(LIBFT)
 		make -C $(MLX)
 
-$(NAME):        makefirst $(OBJ)
+$(NAME):	makefirst $(OBJ)
+		$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $@ $(MFLAGS)
 
 clean:
 		rm -rf $(OBJ)
@@ -72,6 +74,12 @@ fclean:		clean
 		make fclean -C $(LIBFT)
 
 re:		fclean all
+
+$(DIR):
+	mkdir $@
+
+$(DIR)/%.o: %.c | $(DIR)
+	$(CC) $(CFLAGS) -I $(INCLUDES) $(NAME_MLX) $(NAME_LIBFT) -c $< -o $@
 
 run:
 		@make re && make clean

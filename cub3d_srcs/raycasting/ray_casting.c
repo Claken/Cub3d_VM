@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:11:17 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:41:07 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void
 	all->calcul.modxl = fmod(all->vect.posx, 1);
 	all->calcul.modyu = fmod(all->vect.posy, 1);
 	all->angle.raycol = all->angle.dir + (all->angle.fov / 2);
+	if (all->distwalls)
+		free(all->distwalls);
 	if (!(all->distwalls = malloc(sizeof(double) * all->data.reswid)))
 		return ;
 	all->sprites = NULL;

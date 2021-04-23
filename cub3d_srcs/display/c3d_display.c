@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 17:41:53 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 02:42:11 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:40:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void
 	ft_draw_ceil_and_floor(all);
 	ft_raycasting(all);
 	ft_sprites_management(all);
-	free(all->distwalls);
 	if (!all->bmp.save)
 		mlx_put_image_to_window(all->disp.mlx_ptr,
 		all->disp.windo, all->disp.img, 0, 0);

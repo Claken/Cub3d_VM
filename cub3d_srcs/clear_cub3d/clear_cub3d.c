@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 05:27:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:33:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/22 18:33:21 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void
 void
 	ft_abort_mission(t_all *all)
 {
+	if (all->distwalls)
+		free(all->distwalls);
 	if (all->data.map)
 		ft_free_all(all);
 	ft_destroy_images(all);
