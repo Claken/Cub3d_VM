@@ -75,12 +75,6 @@ fclean:		clean
 
 re:		fclean all
 
-$(DIR):
-	mkdir $@
-
-$(DIR)/%.o: %.c | $(DIR)
-	$(CC) $(CFLAGS) -I $(INCLUDES) $(NAME_MLX) $(NAME_LIBFT) -c $< -o $@
-
 run:
 		@make re && make clean
 		@./Cub3D cub3d_maps/mapex.cub
