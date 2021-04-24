@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:43:58 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/19 20:24:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:32:28 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ static int		ft_end_of_file(char **str, int byte)
 int				get_next_line(int fd, char **line)
 {
 	int			byte;
-	char			buffer[BUFFER_SIZE + 1];
-	static char		*str = NULL;
+	char		buffer[BUFFER_SIZE + 1];
+	static char	*str = NULL;
 
 	if (fd < 0 || !line || BUFFER_SIZE == 0)
 		return (-1);
