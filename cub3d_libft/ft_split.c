@@ -6,7 +6,7 @@
 /*   By: sachouam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 17:36:48 by sachouam          #+#    #+#             */
-/*   Updated: 2020/06/21 00:44:03 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:51:05 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int		ft_count_words(char *str, char *charset)
 char	**ft_split(char *str, char *charset)
 {
 	char	**tab;
-	int	nb;
-	int	i;
-	int	j;
+	int		nb;
+	int		i;
+	int		j;
 
 	nb = ft_count_words(str, charset);
 	i = 0;

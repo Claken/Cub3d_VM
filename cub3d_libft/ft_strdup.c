@@ -6,16 +6,17 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 11:13:07 by sachouam          #+#    #+#             */
-/*   Updated: 2021/02/06 19:07:37 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:49:55 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char
+	*ft_strdup(const char *s1)
 {
-	char		*str;
-	unsigned int	i;
+	char	*str;
+	int		i;
 
 	if (!(str = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
 		return (NULL);
