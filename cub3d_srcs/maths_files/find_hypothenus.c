@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 18:01:14 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:38:40 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:17:29 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ double
 	ft_set_hyph(t_all *all)
 {
 	double	hyph;
-	int	direction;
+	int		direction;
 
 	hyph = 0;
 	direction = ft_check_raycol_direction(all);
@@ -74,7 +74,7 @@ double
 	ft_set_hypv(t_all *all)
 {
 	double	hypv;
-	int	direction;
+	int		direction;
 
 	hypv = 0;
 	direction = ft_check_raycol_direction(all);

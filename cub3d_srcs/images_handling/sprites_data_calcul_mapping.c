@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/22 12:35:47 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:14:46 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:15:46 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void
 void
 	ft_sprite_mapping(t_all *all, t_sprite *spr)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	double	sprx;
 	double	spry;
 

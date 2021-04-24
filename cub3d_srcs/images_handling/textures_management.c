@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/20 13:48:43 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 17:24:54 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:16:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void
 	ft_texture_mapping(t_all *all, int x, t_images *texture)
 {
-	int	y;
+	int		y;
 	double	i;
 	double	texty;
 	double	textx;

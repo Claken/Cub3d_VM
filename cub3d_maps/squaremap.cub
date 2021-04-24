@@ -1,4 +1,4 @@
-R 1920 1080
+R 4000 4000
 NO ./cub3d_textures/wall_1.xpm
 SO ./cub3d_textures/wall_2.xpm
 WE ./cub3d_textures/wall_3.xpm

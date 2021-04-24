@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:49:49 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:41:28 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:20:10 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void
 	ft_get_images_addr(t_all *all)
 {
-	int	i;
+	int		i;
 	t_images*tmp;
 
 	i = -1;

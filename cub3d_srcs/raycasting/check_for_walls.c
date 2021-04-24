@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 18:15:27 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 13:27:48 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:21:24 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void
 {
 	double	hyph;
 	double	hypv;
-	int	hit;
+	int		hit;
 
 	hyph = ft_set_hyph(all);
 	hypv = ft_set_hypv(all);

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 12:48:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 15:39:59 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@
 # include <math.h>
 # include <stdio.h>
 
-//# include <unistd.h>
-
 # define KP		2
 # define KR		3
-# define DN		17
+# define DN		33
 # define NTXT		5
 
 # define UP		122

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 05:27:32 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 18:33:21 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 16:14:09 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void
 void
 	ft_destroy_images(t_all *all)
 {
-	int	i;
+	int		i;
 	t_images*tmp;
 
 	i = -1;
