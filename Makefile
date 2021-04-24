@@ -10,15 +10,17 @@ MLXH		= cub3d_mlx/mlx.h
 
 LIBFT		= cub3d_libft
 
+# := constante
+# ?= var ecrite si elle existe pas
+# -MMD -MP flags pour les dépendances
+
 MLX		= cub3d_mlx
 
 CC		= clang
 
 MFLAGS		= -lX11 -lXext -lm -lbsd -L $(MLX) -lmlx
 
-CFLAGS		= -Wall -Wextra -Werror #-g
-
-DIR		= obj
+CFLAGS		= -Wall -Wextra -Werror -MMD -MP
 
 SRC		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
@@ -52,21 +54,28 @@ SRC		= cub3d_gnl/get_next_line.c \
 
 OBJ		= $(SRC:.c=.o)
 
+DEP		= $(SRC:.c=.d)
+# pour créer les fichiers dépendances .d
+
 all:		$(NAME)
 
 %.o : %.c
 		$(CC) -I$(INCLUDES) -o $@ -c $< $(CFLAGS)
 
-makefirst:
+$(NAME_LIBFT):
 		make bonus -C $(LIBFT)
+
+# Mettre un fichier en règle permet de vérifier que celui-ci est mis à jour pour compiler
+
+$(NAME_MLX):
 		make -C $(MLX)
 
-
-$(NAME):	makefirst $(OBJ)
+$(NAME):	$(NAME_LIBFT) $(NAME_MLX) $(OBJ)
 		$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $(NAME) $(MFLAGS)
 
 clean:
 		rm -rf $(OBJ)
+		rm -rf $(DEP)
 		make clean -C $(LIBFT)
 		make clean -C $(MLX)
 
@@ -75,6 +84,9 @@ fclean:		clean
 		make fclean -C $(LIBFT)
 
 re:		fclean all
+
+-include $(DEP)
+# pour inclure les fichier .d dans la compilation
 
 run:
 		@make re && make clean
@@ -98,4 +110,4 @@ testlist:
 		clang -I cub3d_includes mainlst.c -o mainlst -lm
 		./mainlst
 
-.PHONY: all clean fclean re makefirst compile
+.PHONY: all clean fclean re

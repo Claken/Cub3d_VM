@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 12:57:19 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 12:48:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <math.h>
 # include <stdio.h>
 
-//<unistd.h>
+//# include <unistd.h>
 
 # define KP		2
 # define KR		3
