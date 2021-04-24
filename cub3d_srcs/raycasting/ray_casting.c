@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/10 18:28:55 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 18:41:07 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/24 17:59:11 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void
 		ft_check_for_walls(all);
 		ft_distance_calculation(all);
 		ft_distance_with_no_fisheye(all);
-		all->distwalls[i] = all->calcul.nofisheye;
+		all->distwalls[i] = all->calcul.distwall;
 		ft_drawing_column(all, i);
 		ft_textures_management(all, i);
 		all->angle.raycol -= all->angle.apr;
