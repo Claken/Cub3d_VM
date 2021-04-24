@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 00:45:36 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/22 17:54:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/23 20:04:58 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ void
 	all->angle.dir -= (PI + (PI / 2));
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
-	if (all->distwalls[0] > 0.5 &&
-	all->data.map[(int)ncy][(int)ncx] != '1'
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
 	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;
@@ -92,8 +91,7 @@ void
 	all->angle.dir -= (PI / 2);
 	ncx = all->vect.posx + csn;
 	ncy = all->vect.posy + sn;
-	if (all->distwalls[all->data.reswid - 1] > 0.5
-	&& all->data.map[(int)ncy][(int)ncx] != '1'
+	if (all->data.map[(int)ncy][(int)ncx] != '1'
 	&& all->data.map[(int)ncy][(int)ncx] != '2')
 	{
 		all->vect.posx = ncx;

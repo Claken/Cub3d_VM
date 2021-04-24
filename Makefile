@@ -20,7 +20,7 @@ CFLAGS		= -Wall -Wextra -Werror #-g
 
 DIR		= obj
 
-SRC 		= cub3d_gnl/get_next_line.c \
+SRC		= cub3d_gnl/get_next_line.c \
 		cub3d_gnl/get_next_line_utils.c \
 		cub3d_srcs/bmp_save/save_bmp_image.c \
 		cub3d_srcs/clear_cub3d/clear_cub3d.c \
@@ -55,14 +55,15 @@ OBJ		= $(SRC:.c=.o)
 all:		$(NAME)
 
 %.o : %.c
-	$(CC) -I$(INCLUDES) -o $@ -c $< $(CFLAGS)
+		$(CC) -I$(INCLUDES) -o $@ -c $< $(CFLAGS)
 
 makefirst:
 		make bonus -C $(LIBFT)
 		make -C $(MLX)
 
+
 $(NAME):	makefirst $(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $@ $(MFLAGS)
+		$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $(NAME) $(MFLAGS)
 
 clean:
 		rm -rf $(OBJ)
@@ -97,4 +98,4 @@ testlist:
 		clang -I cub3d_includes mainlst.c -o mainlst -lm
 		./mainlst
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re makefirst compile
