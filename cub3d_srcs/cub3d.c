@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 13:09:02 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 01:38:38 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ int
 	if (!(all.data.map = ft_parsing_file_cub(&all, av[1])))
 		return (0);
 	ft_check_cub_data(&all);
-	if (!ft_window_and_image(&all))
-		return (EXIT_FAILURE);
 	if (!ft_parse_tab_pos_play(&all))
 		return (ft_error_so_exit("no player on the map\n", &all));
+	if (all.data.playercount > 1)
+		return (ft_error_so_exit("put just one player on the map\n", &all));
+	if (!ft_window_and_image(&all))
+		return (EXIT_FAILURE);
 	ft_set_variables(&all);
 	ft_create_image(&all);
 	if (all.bmp.save)

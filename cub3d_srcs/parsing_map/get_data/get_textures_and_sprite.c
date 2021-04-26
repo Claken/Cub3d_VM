@@ -6,31 +6,35 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:49:49 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 16:20:10 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 01:13:19 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../cub3d_includes/cub3d.h"
 
 static void
-	ft_get_images_addr(t_all *all)
+	ft_get_one_image_datas(t_all *all, char *tab, t_images *img)
 {
-	int		i;
-	t_images*tmp;
+	int fd;
 
-	i = -1;
-	tmp = NULL;
-	while (++i < NTXT)
+	if (!img->imgcount)
 	{
-		tmp = &((t_images *)(&all->image))[i];
-		if (tmp->pict)
-			tmp->addr = (int *)mlx_get_data_addr(tmp->pict,
-			&tmp->bpp, &tmp->linelen, &tmp->endian);
+		if ((fd = open(tab, O_RDONLY)) == -1)
+			img->path = NULL;
+		else
+			img->path = ft_strdup(tab);
+		close(fd);
+		img->pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
+		img->path, &img->width, &img->height);
+		if (img->pict)
+			img->addr = (int *)mlx_get_data_addr(img->pict,
+			&img->bpp, &img->linelen, &img->endian);
 	}
+	img->imgcount++;
 }
 
-static void
-	ft_get_images_path(char *line, t_all *all)
+void
+	ft_parsing_image(char *line, t_all *all)
 {
 	char **tab;
 
@@ -38,47 +42,16 @@ static void
 		return ;
 	if (tab[1])
 	{
-		if (ft_strncmp(line, "NO", 2) == 0)
-			all->image.north.path = ft_strdup(tab[1]);
-		else if (ft_strncmp(line, "SO", 2) == 0)
-			all->image.south.path = ft_strdup(tab[1]);
-		else if (ft_strncmp(line, "WE", 2) == 0)
-			all->image.west.path = ft_strdup(tab[1]);
-		else if (ft_strncmp(line, "EA", 2) == 0)
-			all->image.east.path = ft_strdup(tab[1]);
-		else if (*line == 'S')
-			all->image.sprite.path = ft_strdup(tab[1]);
+		if (ft_strncmp(line, "NO", 3) == 32)
+			ft_get_one_image_datas(all, tab[1], &all->image.north);
+		else if (ft_strncmp(line, "SO", 3) == 32)
+			ft_get_one_image_datas(all, tab[1], &all->image.south);
+		else if (ft_strncmp(line, "WE", 3) == 32)
+			ft_get_one_image_datas(all, tab[1], &all->image.west);
+		else if (ft_strncmp(line, "EA", 3) == 32)
+			ft_get_one_image_datas(all, tab[1], &all->image.east);
+		else if (ft_strncmp(line, "S", 2) == 32)
+			ft_get_one_image_datas(all, tab[1], &all->image.sprite);
 	}
 	ft_free_tab(tab);
-}
-
-static void
-	ft_get_images(char *line, t_all *all)
-{
-	if (ft_strncmp(line, "NO", 2) == 0)
-		all->image.north.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->image.north.path, &all->image.north.width,
-		&all->image.north.height);
-	else if (ft_strncmp(line, "SO", 2) == 0)
-		all->image.south.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->image.south.path, &all->image.south.width,
-		&all->image.south.height);
-	else if (ft_strncmp(line, "WE", 2) == 0)
-		all->image.west.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->image.west.path, &all->image.west.width, &all->image.west.height);
-	else if (ft_strncmp(line, "EA", 2) == 0)
-		all->image.east.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->image.east.path, &all->image.east.width, &all->image.east.height);
-	else if (*line == 'S')
-		all->image.sprite.pict = mlx_xpm_file_to_image(all->disp.mlx_ptr,
-		all->image.sprite.path, &all->image.sprite.width,
-		&all->image.sprite.height);
-}
-
-void
-	ft_parsing_image(char *line, t_all *all)
-{
-	ft_get_images_path(line, all);
-	ft_get_images(line, all);
-	ft_get_images_addr(all);
 }

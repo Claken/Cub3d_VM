@@ -6,40 +6,31 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 16:19:26 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 02:03:00 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../cub3d_includes/cub3d.h"
 
-int
-	ft_check_arguments(char *arg1, char *arg2, t_all *all)
+static void
+	ft_check_ids_in_file_cub(t_all *all)
 {
-	int i;
-	char**tab;
-
-	i = 0;
-	if (!(tab = ft_split(arg1, ".")))
-		return (0);
-	while (tab[i])
-		i++;
-	if (ft_strncmp(tab[i - 1], "cub", 4))
-	{
-		ft_error_message("wrong path or cub file extension\n");
-		ft_free_tab(tab);
-		return (0);
-	}
-	ft_free_tab(tab);
-	if (arg2)
-	{
-		if (ft_strncmp(arg2, "--save", 7))
-		{
-			ft_error_message("wrong second argument\n");
-			return (0);
-		}
-		all->bmp.save = 1;
-	}
-	return (1);
+	if (all->data.rescount > 1)
+		ft_error_so_exit("'R' ID appears more than once\n", all);
+	if (all->data.flocount > 1)
+		ft_error_so_exit("'F' ID appears more than once\n", all);
+	if (all->data.ceicount > 1)
+		ft_error_so_exit("'C' ID appears more than once\n", all);
+	if (all->image.north.imgcount > 1)
+		ft_error_so_exit("'NO' ID appears more than once\n", all);
+	if (all->image.south.imgcount > 1)
+		ft_error_so_exit("'SO' ID appears more than once\n", all);
+	if (all->image.east.imgcount > 1)
+		ft_error_so_exit("'EA' ID appears more than once\n", all);
+	if (all->image.west.imgcount > 1)
+		ft_error_so_exit("'WE' ID appears more than once\n", all);
+	if (all->image.sprite.imgcount > 1)
+		ft_error_so_exit("'S' ID appears more than once\n", all);
 }
 
 static void
@@ -105,6 +96,9 @@ static void
 void
 	ft_check_cub_data(t_all *all)
 {
+	if (all->data.uncorrectid)
+		ft_error_so_exit("incorrect ID in the file\n", all);
+	ft_check_ids_in_file_cub(all);
 	if (all->data.reswid <= 0 || all->data.reshei <= 0)
 		ft_error_so_exit("resolution(s) missing\n", all);
 	ft_check_images(all);

@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/24 16:42:15 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 02:07:06 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,22 @@ typedef struct		s_data
 {
 	unsigned int	reswid;
 	unsigned int	reshei;
+	unsigned int	rescount;
 	unsigned int	sizex;
 	unsigned int	sizey;
 	int				floor1;
 	int				floor2;
 	int				floor3;
+	unsigned int	flocount;
 	int				ceil1;
 	int				ceil2;
 	int				ceil3;
+	unsigned int	ceicount;
 	char			**map;
 	int				fd;
 	char			posplay;
+	unsigned int	uncorrectid;
+	unsigned int	playercount;
 }					t_data;
 
 typedef struct		s_images
@@ -68,6 +73,7 @@ typedef struct		s_images
 	int				bpp;
 	int				endian;
 	int				linelen;
+	unsigned int	imgcount;
 }					t_images;
 
 typedef struct		s_elem

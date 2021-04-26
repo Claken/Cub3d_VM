@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:50:03 by sachouam          #+#    #+#             */
-/*   Updated: 2021/03/19 17:43:33 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 01:12:39 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,23 @@ static int
 int
 	ft_parsing_rfc(char *line, t_all *all)
 {
-	if (line[0] == 'R')
+	if (ft_strncmp(line, "R", 2) == 32)
 	{
 		if (!ft_parsing_r(line, all))
 			return (0);
+		all->data.rescount++;
 	}
-	else if (line[0] == 'F')
+	if (ft_strncmp(line, "F", 2) == 32)
 	{
 		if (!ft_parsing_fc(line, all, 1))
 			return (0);
+		all->data.flocount++;
 	}
-	else if (line[0] == 'C')
+	if (ft_strncmp(line, "C", 2) == 32)
 	{
 		if (!ft_parsing_fc(line, all, 2))
 			return (0);
+		all->data.ceicount++;
 	}
 	return (1);
 }

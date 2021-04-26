@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:48:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/19 20:29:30 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/25 23:42:30 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ static int
 	{
 		ft_parsing_image(line, all);
 	}
+	else if (*line != 0)
+		all->data.uncorrectid++;
 	return (1);
 }
 

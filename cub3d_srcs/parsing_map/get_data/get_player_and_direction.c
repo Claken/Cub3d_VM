@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:50:42 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/16 19:21:55 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/26 01:32:23 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ int
 				all->data.posplay = all->data.map[i][j];
 				all->vect.posx = j + 0.5;
 				all->vect.posy = i + 0.5;
-				return (1);
+				all->data.playercount++;
 			}
 		}
 	}
-	return (0);
+	return (all->data.playercount);
 }
 
 void

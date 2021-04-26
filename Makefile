@@ -1,4 +1,4 @@
-NAME		= Cub3D
+NAME		= cub3D
 
 NAME_LIBFT	= cub3d_libft/libft.a
 
@@ -38,6 +38,7 @@ SRC		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/functions/functions_for_map_parsing.c \
 		cub3d_srcs/maths_files/find_hypothenus.c \
 		cub3d_srcs/maths_files/set_xs_and_ys.c \
+		cub3d_srcs/parsing_map/check_data/check_arguments.c \
 		cub3d_srcs/parsing_map/check_data/check_data.c \
 		cub3d_srcs/parsing_map/check_data/check_walls.c \
 		cub3d_srcs/parsing_map/get_data/get_file_cub_and_map.c \
@@ -71,17 +72,17 @@ $(NAME_MLX):
 		make -C $(MLX)
 
 $(NAME):	$(NAME_LIBFT) $(NAME_MLX) $(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $(NAME) $(MFLAGS)
+			$(CC) $(CFLAGS) $(OBJ) $(NAME_LIBFT) $(NAME_MLX) -o $(NAME) $(MFLAGS)
 
 clean:
-		rm -rf $(OBJ)
-		rm -rf $(DEP)
-		make clean -C $(LIBFT)
-		make clean -C $(MLX)
+			rm -rf $(OBJ)
+			rm -rf $(DEP)
+			make clean -C $(LIBFT)
+			make clean -C $(MLX)
 
 fclean:		clean
-		rm -rf $(NAME)
-		make fclean -C $(LIBFT)
+			rm -rf $(NAME)
+			make fclean -C $(LIBFT)
 
 re:		fclean all
 
@@ -90,13 +91,13 @@ re:		fclean all
 
 run:
 		@make re && make clean
-		@./Cub3D cub3d_maps/mapex.cub
+		@./cub3D cub3d_maps/mapex.cub
 run2:
 		@make re && make clean
-		@./Cub3D cub3d_maps/squaremap.cub
+		@./cub3D cub3d_maps/squaremap.cub
 run3:
 		@make re && make clean
-		@./Cub3D cub3d_maps/rectmap.cub
+		@./cub3D cub3d_maps/rectmap.cub
 
 testpars:
 		$(CC) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS) -o pars
