@@ -41,6 +41,7 @@ SRC		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/parsing_map/check_data/check_arguments.c \
 		cub3d_srcs/parsing_map/check_data/check_data.c \
 		cub3d_srcs/parsing_map/check_data/check_walls.c \
+		cub3d_srcs/parsing_map/check_data/map_reajustment.c \
 		cub3d_srcs/parsing_map/get_data/get_file_cub_and_map.c \
 		cub3d_srcs/parsing_map/get_data/get_player_and_direction.c \
 		cub3d_srcs/parsing_map/get_data/get_res_flo_and_ceil.c \

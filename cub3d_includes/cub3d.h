@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/26 02:07:06 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:36:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,6 +249,7 @@ void				ft_raycol_special_cases(t_all *all, int direction);
 int					ft_check_arguments(char *arg1, char *arg2, t_all *all);
 void				ft_check_cub_data(t_all *all);
 void				ft_check_walls(t_all *all);
+void				ft_reajust_map_lines(t_all *all);
 
 char				**ft_parsing_file_cub(t_all *all, char *file);
 

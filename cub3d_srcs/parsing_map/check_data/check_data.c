@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 02:27:06 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/26 02:03:00 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:40:54 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ void
 	all->data.ceil2, all->data.ceil3))
 		ft_error_so_exit("wrong data for the color(s)\n", all);
 	ft_check_map_characters(all);
+	ft_reajust_map_lines(all);
 	ft_check_walls(all);
 }
