@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 20:53:05 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/27 18:30:09 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/27 18:44:34 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ static void
 	all->angle.raycol = all->angle.dir + (all->angle.fov / 2);
 	all->angle.apr = all->angle.fov / all->data.reswid;
 }
-
-
-
-
-
-
-
 
 int
 	main(int ac, char **av)
