@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:48:30 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/27 16:59:56 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/29 03:28:22 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int
 }
 
 static char
-	*ft_one_line_map(char *line, int size)
+	*ft_one_line_map(char *line)
 {
 	char*oneline;
 	int i;
@@ -45,19 +45,12 @@ static char
 	while (line[++i])
 		oneline[i] = line[i];
 	oneline[i] = '\0';
-	oneline = ft_replace_in_str(oneline, ' ', '1');
-	if (len < size)
-		oneline = ft_reset_line_size(oneline, size, i);
 	return (oneline);
 }
 
 static int
 	ft_ifs_for_parsing(char *line, t_all *all, char **map, int *j)
 {
-	static int size;
-
-	if (*j == 0)
-		size = ft_strlen(line);
 	if (line[0] == 'R' || line[0] == 'F' || line[0] == 'C')
 	{
 		if (!ft_parsing_rfc(line, all))
@@ -66,7 +59,7 @@ static int
 	else if (line[0] == ' ' || line[0] == '0'
 	|| line[0] == '1' || line[0] == '2')
 	{
-		if (!(map[*j] = ft_one_line_map(line, size)))
+		if (!(map[*j] = ft_one_line_map(line)))
 			return (0);
 		*j += 1;
 	}

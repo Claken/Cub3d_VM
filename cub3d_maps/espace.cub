@@ -1,0 +1,13 @@
+R 1920 1080
+NO ./cub3d_textures/wood.xpm
+WE ./cub3d_textures/wall_3.xpm
+SO ./cub3d_textures/bluestone.xpm
+EA ./cub3d_textures/wall_4.xpm
+S ./cub3d_textures/sprite_2.xpm
+F 220,100,0
+C 225,30,0
+
+11111
+11111
+111S1
+111 1

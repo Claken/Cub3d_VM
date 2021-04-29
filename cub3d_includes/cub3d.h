@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/27 18:36:50 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/29 03:50:37 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,12 +219,6 @@ int					ft_check_raycol_direction(t_all *all);
 
 void				ft_draw_ceil_and_floor(t_all *all);
 
-char				*ft_replace_in_str(char *str, char a, char b);
-void				*ft_realloc(void *ptr, size_t size);
-char				*ft_reset_line_size(char *line, int size, int i);
-int					ft_check_first_or_last(char *line);
-int					ft_check_beginning_and_end(char *line);
-
 int					ft_add_sprite_back(t_sprite **spr, double sx, double sy);
 void				ft_sort_sprites(t_sprite **spr);
 void				ft_sprclear(t_sprite **spr);
@@ -249,7 +243,6 @@ void				ft_raycol_special_cases(t_all *all, int direction);
 int					ft_check_arguments(char *arg1, char *arg2, t_all *all);
 void				ft_check_cub_data(t_all *all);
 void				ft_check_walls(t_all *all);
-void				ft_reajust_map_lines(t_all *all);
 
 char				**ft_parsing_file_cub(t_all *all, char *file);
 
