@@ -6,7 +6,7 @@
 /*   By: sachouam <sachouam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 00:40:10 by sachouam          #+#    #+#             */
-/*   Updated: 2021/04/29 03:50:37 by sachouam         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:52:50 by sachouam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@
 # define DN			33
 # define NTXT		5
 
-# define UP			122
-# define LEFT		113
+//# define UP		122
+# define UP			119
+//# define LEFT		113
+# define LEFT		97
 # define DOWN		115
 # define RIGHT		100
 # define ESC		65307
