@@ -4,7 +4,7 @@ WE ./cub3d_textures/wall_3.xpm
 SO ./cub3d_textures/bluestone.xpm
 EA ./cub3d_textures/wall_4.xpm
 S ./cub3d_textures/sprite_2.xpm
-F 220,100,0
+F 205,30,0
 C 225,30,0
 
 11111111111111111111111111111111111111111111111111111111111
