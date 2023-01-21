@@ -53,6 +53,7 @@ SRC		= cub3d_gnl/get_next_line.c \
 		cub3d_srcs/raycasting/distance.c \
 
 OBJ		= $(SRC:.c=.o)
+# pour créer les fichiers .o
 
 DEP		= $(SRC:.c=.d)
 # pour créer les fichiers dépendances .d
@@ -61,6 +62,8 @@ all:		$(NAME)
 
 %.o : %.c
 		$(CC) -I$(INCLUDES) -o $@ -c $< $(CFLAGS)
+# règle à appliquer à chaque fois qu'on génère de fichiers en .o
+# la règle dépend de la présence des fichiers .c
 
 $(NAME_LIBFT):
 		make bonus -C $(LIBFT)
