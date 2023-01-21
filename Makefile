@@ -83,7 +83,7 @@ fclean:		clean
 			rm -rf $(NAME)
 			make fclean -C $(LIBFT)
 
-re:		fclean all
+re:			fclean all
 
 -include $(DEP)
 # pour inclure les fichier .d dans la compilation
@@ -98,16 +98,4 @@ run3:
 		@make re && make clean
 		@./cub3D cub3d_maps/rectmap.cub
 
-testpars:
-		$(CC) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) maincub.c cub3d_gnl/get_next_line.c cub3d_gnl/get_next_line_utils.c $(NAME_LIBFT) $(MFLAGS) -o pars
-		./pars cub3d_maps/mapex.cub
-
-testgraph:
-		$(CC) -I $(INCLUDES) -I $(MLXH) $(NAME_MLX) maingraph.c $(MFLAGS) -o graph
-		./graph
-
-testlist:
-		clang -I cub3d_includes mainlst.c -o mainlst -lm
-		./mainlst
-
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re run run2 run3
