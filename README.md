@@ -41,6 +41,7 @@ Once you chose a map, type the following command to start a game :
 ```bash
 ./cub3D cub3d_maps/the_map_you_chose.cub
 ```
+ P.S. : Some of the maps don't work because they don't respect the conditions of a valid file. I needed them to test my parsing and my error messages.
 
 ## How to play a game
 Once the game is launched, a window will pop up.<br />
