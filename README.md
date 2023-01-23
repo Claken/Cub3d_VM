@@ -1,5 +1,5 @@
 # CUB3D
-This project's goal is to create a 3D graphical representation of the inside of a maze, in a 2D game that you can play as a first-person player.<br />
+This project's goal is to create a 3D graphical representation of the inside of a maze, in a 2D game that you play as a first-person player.<br />
 In order to do that, we have to use the [**ray casting**](https://en.wikipedia.org/wiki/Ray_casting) technique.<br />
 This project is part of the 42 school common core curriculum.
 
