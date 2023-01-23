@@ -2,11 +2,31 @@
 
 # CUB3D
 This project's goal is to create a 3D graphical reprensentation of the inside of a maze in a 2D game.<br />
+In order to do that, we have to use the [**ray casting**](https://en.wikipedia.org/wiki/Ray_casting) technique.<br />
 This is one of the projects of the 42 common core.
+
+# WHAT THIS PROJECT BROUGHT ME
+
+With this project, I have learned to use the `minilibix` library to have images, textures, and colored pixels.<br />
+I improved my skills in the C language :
+- I used structures to move multiple data in my code,
+- I used the `double` and `float` types to manipulate radians,
+- I have learned to organize my code better when it comes to a big project : multiple folder to sort my files coherently, a few functions per file,...
+- I have learned to parse the input data to check errors and to be sure it respects strict rules for the program to work properly,
+- And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
 
 ## Prerequisites
 
-I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a Linux environment.
+I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a Linux environment.<br />
+You need to have a **QWERTY** keyboard in order to use the program properly.<br />
+If you have an AZERTY keyboard, you can switch to QWERTY using the following command as root (on Linux) :
+```bash
+setxkbmap us
+```
+To switch back to AZERTY :
+```bash
+setxkbmap fr
+```
 
 ## How to launch a game
 
@@ -29,5 +49,9 @@ It will look something like this :
 
 
 Use the `W`, `A`, `S` and `D` keys respectively to move **forward**, **to the left**, **backward**, and **to the right**.<br />
+If you have switched your AZERTY keyboard to QWERTY, use the `Z` key to **move forward**, and the `Q` key to **move to the left**.<br />
+The rest remains the same.<br />
+
 Use the **left arrow key** to **move the camera to the left**, and <ins>*the right arrow key*</ins> to <ins>*move it to the right*</ins>.<br />
+
 Press `ESC` or the red cross on the window's frame to quit the game.<br />
