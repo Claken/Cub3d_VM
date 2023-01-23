@@ -28,8 +28,8 @@
 # define DN			33
 # define NTXT		5
 
-# define UP			122
-# define LEFT		113
+# define UP			119
+# define LEFT		97
 # define DOWN		115
 # define RIGHT		100
 # define ESC		65307
