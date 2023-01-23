@@ -9,7 +9,7 @@ With this project, I have learned to use the `minilibix` library to have images,
 I have improved my skills in the C language :
 - I used structures to move multiple data in my code,
 - I used the `double` and `float` types to manipulate radians,
-- I have learned to organize my code better when it comes to a big project : multiple folder to sort my files coherently, a few functions per file,...
+- I have learned to organize my code better when it comes to a big project : multiple folders to sort my files coherently, a few functions per file,...
 - I have learned to parse the input data to check errors and to be sure it respects strict rules for the program to work properly,
 
 And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
