@@ -1,9 +1,7 @@
-# ! README IN PROGRESSION !
-
 # CUB3D
-This project's goal is to create a 3D graphical reprensentation of the inside of a maze in a 2D game.<br />
+This project's goal is to create a 3D graphical reprensentation of the inside of a maze in a 2D game that you can explore as a first-person player.<br />
 In order to do that, we have to use the [**ray casting**](https://en.wikipedia.org/wiki/Ray_casting) technique.<br />
-This is one of the projects of the 42 common core.
+This project is part of the 42 school common core curriculum.
 
 # WHAT THIS PROJECT BROUGHT ME
 
@@ -13,7 +11,8 @@ I improved my skills in the C language :
 - I used the `double` and `float` types to manipulate radians,
 - I have learned to organize my code better when it comes to a big project : multiple folder to sort my files coherently, a few functions per file,...
 - I have learned to parse the input data to check errors and to be sure it respects strict rules for the program to work properly,
-- And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
+
+And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
 
 ## Prerequisites
 
@@ -38,9 +37,9 @@ To use the program, first of all, you need to compile it with the following comm
 Thereby, you will have an executable named `cub3D`.<br />
 Now, you need to select a map that you want to explore in the `cub3d_maps` folder :
 ![listofmaps](https://user-images.githubusercontent.com/51683861/214024457-55c51905-bfdd-4bc4-aa03-39eb7f17d28a.png)<br />
-Once you have chosen a map, type the following command to start a game :
+Once you chose a map, type the following command to start a game :
 ```bash
-./cub3D cub3d_maps/the_map_you_have_chosen.cub
+./cub3D cub3d_maps/the_map_you_chose.cub
 ```
 
 ## How to play a game
@@ -51,7 +50,7 @@ It will look something like this :
 
 Use the `W`, `A`, `S` and `D` keys respectively to move **forward**, **to the left**, **backward**, and **to the right**.<br />
 If you have switched your AZERTY keyboard to QWERTY, use the `Z` key to **move forward**, and the `Q` key to **move to the left**.<br />
-The rest remains the same.<br />
+The rest of the keys remains the same.<br />
 
 Use the **left arrow key** to **move the camera to the left**, and <ins>*the right arrow key*</ins> to <ins>*move it to the right*</ins>.<br />
 
