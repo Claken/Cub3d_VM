@@ -16,3 +16,4 @@ To use the program, first of all, you need to compile it with the following comm
 ```
 Then, you will have an executable named "cub3D".
 Now, you need to select a map that you want to explore:
+![listofmaps](https://user-images.githubusercontent.com/51683861/214024457-55c51905-bfdd-4bc4-aa03-39eb7f17d28a.png)
