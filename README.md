@@ -6,7 +6,7 @@ This project is part of the 42 school common core curriculum.
 # WHAT THIS PROJECT BROUGHT ME
 
 With this project, I have learned to use the `minilibix` library to have images, textures, and colored pixels.<br />
-I improved my skills in the C language :
+I have improved my skills in the C language :
 - I used structures to move multiple data in my code,
 - I used the `double` and `float` types to manipulate radians,
 - I have learned to organize my code better when it comes to a big project : multiple folder to sort my files coherently, a few functions per file,...
