@@ -1,6 +1,10 @@
 # CUB3D
 This project's goal is to create a 3D graphical representation of the inside of a maze, in a 2D game that you play as a first-person player.<br />
-In order to do that, we have to use the [**ray casting**](https://en.wikipedia.org/wiki/Ray_casting) technique.<br />
+
+In order to do that, we have to use the [ray casting](https://en.wikipedia.org/wiki/Ray_casting) technique.<br />
+Ray casting consists of casting imaginary rays, which are actually Euclidean [vectors](https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)) which go from the point of the player to a point from a wall.<br />
+The distance between those points is used to calculate the distance between the player and the walls and to draw them accordingly.<br />
+
 This project is part of the 42 school common core curriculum.
 
 # WHAT THIS PROJECT BROUGHT ME
