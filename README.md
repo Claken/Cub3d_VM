@@ -7,7 +7,7 @@ The distance between those points is used to calculate the distance between the 
 
 This project is part of the 42 school common core curriculum.
 
-## What this project brought me
+# What this project brought me
 
 With this project, I have learned to use the `minilibix` library to have images, textures, and colored pixels.<br />
 I have improved my skills in the C language :
@@ -18,7 +18,7 @@ I have improved my skills in the C language :
 
 And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
 
-## Prerequisites
+# Prerequisites
 
 I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a Linux environment.<br />
 
@@ -32,7 +32,7 @@ To switch back to AZERTY :
 setxkbmap fr
 ```
 
-## How to launch a game
+# How to launch a game
 
 To use the program, first of all, you need to compile it with the following command :
 ```bash
@@ -47,7 +47,7 @@ Once you chose a map, type the following command to start a game :
 ```
  P.S. : Some of the maps don't work because they don't respect the conditions of a valid file. I needed them to test my parsing and my error messages.
 
-## How to play a game
+# How to play a game
 Once the game is launched, a window will pop up.<br />
 It will look something like this :
 ![unnamed](https://user-images.githubusercontent.com/51683861/214078038-b1ad43c3-060a-4fcf-bec3-c30197e0278e.jpg)<br />
