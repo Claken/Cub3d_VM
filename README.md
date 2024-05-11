@@ -7,7 +7,7 @@ The distance between those points is used to calculate the distance between the 
 
 This project is part of the 42 school common core curriculum.
 
-# What this project brought me
+# What I gained from the project
 
 With this project, I have learned to use the `minilibix` library to have images, textures, and colored pixels.<br />
 I have improved my skills in the C language :
