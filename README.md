@@ -34,7 +34,7 @@ setxkbmap fr
 
 # How to launch a game
 
-To use the program, first of all, you need to compile it with the following command :
+To use the program, first of all, you need to compile it with the following command at the root of the project :
 ```bash
   make
 ```
