@@ -47,7 +47,7 @@ Once you chose a map, type the following command to start a game (exemple) :
 ```
  P.S. : Some of the maps don't work because they don't respect the conditions of a valid file. I needed them to test my parsing and my error messages.
 
-# How to play a game
+# 🎮 How to play a game
 Once the game is launched, a window will pop up.<br />
 It will look something like this :
 ![unnamed](https://user-images.githubusercontent.com/51683861/214078038-b1ad43c3-060a-4fcf-bec3-c30197e0278e.jpg)<br />
