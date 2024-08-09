@@ -20,7 +20,7 @@ And I learned trigonometry again in order to understand and apply the right algo
 
 # 📦 Prerequisites
 
-I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a Linux environment.<br />
+I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a *Linux environment*.<br />
 
 You need to have a **QWERTY** keyboard in order to use the program properly.<br />
 If you have an AZERTY keyboard, you can switch to QWERTY using the following command as root (on Linux) :
