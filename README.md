@@ -41,7 +41,7 @@ To use the program, first of all, you need to compile it with the following comm
 Thereby, you will have an executable named `cub3D`.<br />
 Now, you need to select a map that you want to explore in the `cub3d_maps` folder :
 ![listofmaps](https://user-images.githubusercontent.com/51683861/214024457-55c51905-bfdd-4bc4-aa03-39eb7f17d28a.png)<br />
-Once you chose a map, type the following command to start a game :
+Once you chose a map, type the following command to start a game (exemple) :
 ```bash
 ./cub3D cub3d_maps/the_map_you_chose.cub
 ```
