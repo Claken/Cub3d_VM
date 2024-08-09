@@ -7,7 +7,7 @@ The distance between those points is used to calculate the distance between the 
 
 This project is part of the 42 school common core curriculum.
 
-# What I gained from the project
+# 👩🏻‍🏫 What I gained from the project
 
 With this project, I have learned to use the `minilibix` library to have images, textures, and colored pixels.<br />
 I have improved my skills in the C language :
@@ -18,7 +18,7 @@ I have improved my skills in the C language :
 
 And I learned trigonometry again in order to understand and apply the right algorithm to use the ray casting.
 
-# Prerequisites
+# 📦 Prerequisites
 
 I have done this project on a Linux VM, so if you want to have the best conditions to use this program, I suggest to use it in a Linux environment.<br />
 
