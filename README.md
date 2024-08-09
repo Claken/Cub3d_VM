@@ -52,7 +52,7 @@ Once the game is launched, a window will pop up.<br />
 It will look something like this :
 ![unnamed](https://user-images.githubusercontent.com/51683861/214078038-b1ad43c3-060a-4fcf-bec3-c30197e0278e.jpg)<br />
 
-### ⌨️ Keyboard Shortcuts
+### ⌨️ Keyboard 
 
 | Action | Key |
 | --- | --- |
@@ -62,14 +62,7 @@ It will look something like this :
 | move to the right | D |
 | camera to the left | left arrow |
 | camera to the right | right arrow |
+| Quit game | ESC / red cross |
 
-| ESC / red cross | quit the game |
-
-
-Use the `W`, `A`, `S` and `D` keys respectively to move **forward**, **to the left**, **backward**, and **to the right**.<br />
 If you have switched your AZERTY keyboard to QWERTY, use the `Z` key to **move forward**, and the `Q` key to **move to the left**.<br />
 The rest of the keys remains the same.<br />
-
-Use the **left arrow key** to **move the camera to the left**, and <ins>*the right arrow key*</ins> to <ins>*move it to the right*</ins>.<br />
-
-Press `ESC` or the red cross on the window's frame to quit the game.<br />
