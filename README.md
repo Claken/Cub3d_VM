@@ -52,7 +52,7 @@ Once the game is launched, a window will pop up.<br />
 It will look something like this :
 ![unnamed](https://user-images.githubusercontent.com/51683861/214078038-b1ad43c3-060a-4fcf-bec3-c30197e0278e.jpg)<br />
 
-### ⌨️ Keyboard 
+### ⌨️ Keyboard controls
 
 | Action | Key |
 | --- | --- |
